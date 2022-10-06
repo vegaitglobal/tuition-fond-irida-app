@@ -1,29 +1,9 @@
+import { Colors, colors } from "./colors";
+
 interface Theme {
-    colors: {
-        primary: {
-            main: string;
-        };
-        accent: {
-            main: string;
-        };
-        foreground: {
-            main: string;
-        };
-    };
+    colors: Colors;
 }
 
-const theme: Theme = {
-    colors: {
-        primary: {
-            main: "#5F4477",
-        },
-        accent: {
-            main: "#B33422",
-        },
-        foreground: {
-            main: "#FFFFFF",
-        },
-    },
+export const theme: Theme = {
+    colors,
 };
-
-export default theme;

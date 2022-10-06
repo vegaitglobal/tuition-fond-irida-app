@@ -1,6 +1,6 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import theme from "./style/theme";
+import { theme } from "./style";
 
 const App = () => {
     return (
