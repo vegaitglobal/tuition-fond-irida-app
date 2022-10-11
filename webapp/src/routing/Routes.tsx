@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes as BrowserRoutes } from "react-router-dom";
-import { AboutUsPage, HomePage } from "../pages";
+import { AboutUsPage, BlogPage, ContactPage, HomePage } from "../pages";
 import { Layout } from "./Layout";
 
 export const Routes = () => {
@@ -9,6 +9,8 @@ export const Routes = () => {
                 <Route path="/" element={<Layout />}>
                     <Route index element={<HomePage />} />
                     <Route path="/o-nama" element={<AboutUsPage />} />
+                    <Route path="/blog" element={<BlogPage />} />
+                    <Route path="/kontakt" element={<ContactPage />} />
                 </Route>
             </BrowserRoutes>
         </BrowserRouter>
