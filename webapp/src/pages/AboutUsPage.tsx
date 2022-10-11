@@ -1,4 +1,3 @@
-
 export const AboutUsPage = () => {
-    return <>About Us</>
-}
+    return <>About Us</>;
+};
