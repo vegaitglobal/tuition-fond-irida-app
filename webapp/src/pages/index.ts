@@ -1,2 +1,2 @@
-// TODO: export pages here
-export {};
+export * from "./HomePage";
+export * from "./AboutUsPage";
