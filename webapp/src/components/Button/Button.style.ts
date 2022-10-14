@@ -19,7 +19,7 @@ const BaseButton = styled.button`
 
 export const AccentButton = styled(BaseButton)`
     background-color: ${(props) => props.theme.colors.accent.main};
-    color: ${(props) => props.theme.colors.foreground.main};
+    color: ${(props) => props.theme.colors.white.main};
 
     &:hover {
         background-color: ${(props) => props.theme.colors.accent.light};
@@ -28,7 +28,7 @@ export const AccentButton = styled(BaseButton)`
 
 export const PrimaryButton = styled(BaseButton)`
     background-color: ${(props) => props.theme.colors.primary.main};
-    color: ${(props) => props.theme.colors.foreground.main};
+    color: ${(props) => props.theme.colors.white.main};
 
     &:hover {
         background-color: ${(props) => props.theme.colors.primary.light};

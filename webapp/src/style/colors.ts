@@ -7,7 +7,6 @@ interface Color {
 export interface Colors {
     primary: Color;
     accent: Color;
-    foreground: Color;
     white: Color;
 }
 
@@ -19,9 +18,6 @@ export const colors: Colors = {
     accent: {
         main: "#B8331D",
         light: "#d04129",
-    },
-    foreground: {
-        main: "#FFFFFF",
     },
     white: {
         main: "#FFFFFF",
