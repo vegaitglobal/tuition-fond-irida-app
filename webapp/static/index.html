@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta charset="utf-8">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+	<title>LOR</title>
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<link rel="canonical" href="http://umbraco9-test.local/" />
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="googlebot" content="noindex, nofollow">
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://umbraco9-test.local/" />
+	<meta property="og:locale" content="en-US" />
+	<meta property="og:site_name" content="LOR" />
+	<meta property="og:title" content="Home" />
+	<meta property="og:description" content="Home page open graph description" />
+	<meta property="og:image" content="http://umbraco9-test.local/media/kklffmoc/img3.jpg" />
+	<meta property="og:image:type" content="image/jpg" />
+	<meta property="og:image:width" content="1120" />
+	<meta property="og:image:height" content="700" />
+	<meta property="og:image:alt" content="" />
+	<!-- main css file -->
+	<link rel="stylesheet" href="css/style.min.css">
+	<!-- global js file -->
+	<script defer src="js/global.min.js"></script>
+	<script src="https://cc.cdn.civiccomputing.com/9/cookieControl-9.x.min.js"></script>
+	<script>
+		let optionalCookies = [{
+			name: "analytics",
+			label: "Analytics cookies",
+			description: "Analytical cookies help us to improve our website by collecting and reporting information on its usage.",
+			cookies: ["_ga", "_gid", "_gat"],
+			onAccept: function() {
+				(function(w, d, s, l, i) {
+					w[l] = w[l] || [];
+					w[l].push({
+						"gtm.start": new Date().getTime(),
+						event: "gtm.js"
+					});
+					var f = d.getElementsByTagName(s)[0],
+						j = d.createElement(s),
+						dl = l != "dataLayer" ? "&l=" + l : "";
+					j.async = true;
+					j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+					f.parentNode.insertBefore(j, f);
+				})(window, document, "script", "dataLayer", "GTM-TVGRBHL");
+				if (typeof BrowseAloud != "undefined") {
+					BrowseAloud.analytics = BrowseAloud.org_analytics;
+				}
+			},
+			onRevoke: function() {
+				window["ga-disable-GTM-TVGRBHL"] = true;
+				if (typeof BrowseAloud != "undefined") {
+					BrowseAloud.analytics = BrowseAloud.no_analytics;
+				}
+			},
+		}, {
+			name: "marketing",
+			label: "Marketing (targeting or advertising) cookies",
+			description: "We use marketing (targeting or advertising) cookies to help us improve the relevancy of advertising campaigns you receive.",
+			cookies: [],
+			lawfulBasis: "consent",
+			onAccept: function() {},
+			onRevoke: function() {},
+			thirdPartyCookies: [{
+				name: "Ad personalization",
+				optOutLink: "https://adssettings.google.com/authenticated?hl=en"
+			}],
+		}, ];
+		let brandingOptions = {
+			fontSizeTitle: "16px",
+			fontSizeIntro: "16px",
+			fontSizeHeaders: "16px",
+			fontSize: "16px",
+			alertBackground: "#cc4141",
+			alertText: "#fff",
+			removeAbout: true,
+			removeIcon: true
+		};
+		let onLoad = function() {
+			let cookieSettingsBtn = document.getElementsByClassName("ccc-notify-link")[0];
+			if (cookieSettingsBtn) {
+				cookieSettingsBtn.onclick = function() {
+					let panelInfo = document.getElementById("ccc-info");
+					let confirmButton = document.createElement("button");
+					confirmButton.classList.add("btn-info");
+					confirmButton.setAttribute("id", "confirm-btn");
+					confirmButton.innerText = "Confirm Settings";
+					panelInfo.appendChild(confirmButton);
+				};
+			}
+		};
+		var config = getConfigByWindowSize();
+
+		function getConfigByWindowSize() {
+			if (window.screen.width > 768) {
+				return {
+					apiKey: "fa2ccff0bfa8a43281efcaa76e77d077a745640d",
+					product: "PRO_MULTISITE",
+					initialState: "notify",
+					necessaryCookies: ["UMB-XSRF-TOKEN"],
+					position: "LEFT",
+					layout: "popup",
+					text: {
+						settings: "Cookie settings"
+					},
+					statement: {
+						description: "For more detailed information about the cookies we use, see our",
+						name: "cookie policy",
+						url: "/cookie-policy/",
+						updated: "01/12/2019"
+					},
+					optionalCookies: optionalCookies,
+					branding: brandingOptions,
+					onLoad: onLoad,
+				};
+			} else {
+				return {
+					apiKey: "fa2ccff0bfa8a43281efcaa76e77d077a745640d",
+					product: "PRO_MULTISITE",
+					initialState: "notify",
+					necessaryCookies: ["UMB-XSRF-TOKEN"],
+					position: "RIGHT",
+					layout: "popup",
+					text: {
+						settings: "Cookie settings"
+					},
+					statement: {
+						description: "For more detailed information about the cookies we use, see our",
+						name: "cookie policy",
+						url: "/cookie-policy/",
+						updated: "01/12/2019"
+					},
+					optionalCookies: optionalCookies,
+					branding: brandingOptions,
+				};
+			}
+		}
+		CookieControl.load(config);
+	</script>
+	<!-- http://PROJECTNAME.emperordev.com/ -->
+	<!-- globalVars -> cookieCivic = true -->
+	<!-- for cookie trigger add class on link 'js-cookie-opener' -->
+	<!-- <a class="js-cookie-opener" href="javascript:;">Cookie settings</a> -->
+	<!-- var config = {
+		apiKey: 'fa2ccff0bfa8a43281efcaa76e77d077a745640d',
+		product: 'PRO_MULTISITE',
+		};
+		
+		CookieControl.load( config ); -->
+	<link href="favicon.ico" rel="icon" />
+</head>
+
+<body class="">
+	<header class="header">
+		<div class="header__wrap wrap">
+			<a class="header__logo" href="javascript:;">
+				<img src="assets/images/logo.svg" alt="logo" class="hover-default">
+			</a>
+			<div class="header__links">
+				<a href="javascript:;" class="large-link hover-default header__link">Šop</a>
+				<a href="javascript:;" class="large-link hover-default header__link">O nama</a>
+				<a href="javascript:;" class="large-link hover-default header__link">Blog</a>
+			</div>
+			<a href="javascript:;" class="header__accent large-button">Kontaktiraj nas</a>
+		</div>
+	</header>
+	<div class="banner">
+		<div class="banner__wrap wrap">
+			<div class="banner__image-wrap">
+				<img src="assets/images/girl-tricycle.jpg" alt="girl-tricycle.jpg" class="banner__image">
+			</div>
+			<div class="banner__content">
+				<h1 class="banner__heading h1">Lorem ipsum dolor sit amet</h1>
+				<p class="banner__paragraph body-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu odio vel nunc fringilla euismod eget non eros. Morbi convallis auctor lectus eu facilisis. Aenean vitae lectus mollis, finibus arcu vel, aliquam est. Etiam gravida lectus quis vestibulum aliquam. Sed nec quam eget eros eleifend vehicula.</p>
+				<a href="javascript:;" class="banner__link large-button large-button--wide large-button--purple">Button</a>
+			</div>
+		</div>
+	</div>
+	<div class="center">
+		<div class="center__wrap wrap">
+			<h2 class="center__heading h1">Lorem ipsum</h2>
+			<div class="center__paragraphs">
+				<p class="center__paragraph body-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu odio vel nunc fringilla euismod eget non eros. Morbi convallis auctor lectus eu facilisis. Aenean vitae lectus mollis, finibus arcu vel, aliquam est. Etiam gravida lectus quis vestibulum aliquam. Sed nec quam eget eros eleifend vehicula. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				<p class="center__paragraph body-text">Vestibulum eu odio vel nunc fringilla euismod eget non eros. Morbi convallies auctor lectus eu facilisis. Aenean vitae lectus mollis, finibus arcu vel, aliquam est. Etiam gravida lectus quis vestibulum aliquam. Sed nec quam eget eros eleifenc vehicula.</p>
+			</div>
+			<a href="javascript:;" class="center__link large-button large-button--wide large-button--red">Doniraj</a>
+		</div>
+	</div>
+	<div class="horizontal horizontal--reverse">
+		<div class="horizontal__wrap wrap">
+			<div class="horizontal__content">
+				<h2 class="horizontal__heading h1">Lorem ipsum dolor sit amet</h2>
+				<p class="horizontal__paragraph body-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu odio vel nunc fringilla euismod eget non eros. Morbi convallis auctor lectus eu facilisis. Aenean vitae lectus mollis, finibus arcu vel, aliquam est. Etiam gravida lectus quis vestibulum aliquam. Sed nec quam eget eros eleifend vehicula. </p>
+				<a href="javascript:;" class="horizontal__link large-button large-button--wide">Shop</a>
+			</div>
+			<div class="horizontal__image-wrap">
+				<img class="horizontal__image" src="assets/images/shopping-bags.jpg" alt="girl">
+			</div>
+		</div>
+	</div>
+	<div class="horizontal horizontal--purple">
+		<div class="horizontal__wrap wrap">
+			<div class="horizontal__content">
+				<h2 class="horizontal__heading h1">Lorem ipsum dolor sit amet</h2>
+				<p class="horizontal__paragraph body-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu odio vel nunc fringilla euismod eget non eros. Morbi convallis auctor lectus eu facilisis. Aenean vitae lectus mollis, finibus arcu vel, aliquam est. Etiam gravida lectus quis vestibulum aliquam. Sed nec quam eget eros eleifend vehicula. </p>
+				<a href="javascript:;" class="horizontal__link large-button large-button--wide">Vesti</a>
+			</div>
+			<div class="horizontal__image-wrap">
+				<img class="horizontal__image" src="assets/images/girl-running.jpg" alt="girl-running">
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<div class="card__image-wrap">
+			<img src="assets/images/women.png" alt="women" class="card__image">
+		</div>
+		<div class="card__content">
+			<h2 class="card__heading h1">Koja si žena?</h2>
+			<p class="card__paragraph body-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu odio vel nunc fringilla euismod eget non eros.</p>
+			<button class="card__link large-button large-button--wide large-button--red large-button--purple-hover">Start quiz</button>
+		</div>
+	</div>
+	<div class="blocks">
+		<div class="blocks__wrap wrap">
+			<div class="blocks__blocks">
+				<div class="blocks__block">
+					<h2 class="blocks__heading h1">Ko smo mi?</h2>
+					<div class="blocks__paragraphs">
+						<p class="blocks__paragraph large-text">IRIDA je u okviru prošlogodišnjeg VegaIT hakatona razvila kulturno-turističku aplikaciju Putevima žena koja omogućava korisniku/ci da se informiše o znamenitim ženama Novog Sada i poseti lokacije u gradu koje su značajne za njihov život i rad, bez obzira na to što mnoge od njih ne nose njihova obeležja.Na ovaj način, kroz informisanje pre svega mladih (ali i šire javnosti), a naročito devojčica i devojka, o ženama koje su stvarale, menjale i razvijale, ne samo Novi Sad, već celu Srbiju i čitav svet, želeli smo da doprinesemo unapređenju rodne ravnopravnosti. Ali isto tako i da pošaljemo poruku novim generacijama devojčica i devojaka, da bez obzira na to što se o njima ne zna ništa ili ne dovoljno, žene su kroz istoriju pokretale i stvarale, obrazovale, dolazile do revolucionarnih otkrića, brinule i pomagale onima koje je društvo zaboravljalo, i ujedno upravo to isto društvo činile boljim i ravnopravnijim. Želeli/e smo da nove devojčice i devojke motivišemo da krenu putevima ovih velikih žena, da rade i daju svoj doprinos u oblasti nauke, politike, ekonomije, informacionih i komunikacionih tehnologija, obrazovanja, i nastave borbu za bolje i ravnopravnije društvo. I to smo i uradili.</p>
+					</div>
+				</div>
+				<div class="blocks__block">
+					<h2 class="blocks__heading h1">Koji je cilj projekta?</h2>
+					<div class="blocks__paragraphs">
+						<p class="blocks__paragraph large-text">Projekat ima za cilj smanjenje rodnog jaza u Novom Sadu kroz podsticanje i finansijsku podršku devojčicama iz socijalno i ekonomsko ugroženih grupa da se školuju za zanimanja koje se smatraju <span class="accent">„netipičnim“</span> za žene.</p>
+					</div>
+				</div>
+				<div class="blocks__block">
+					<h2 class="blocks__heading h1">Opis projekta:</h2>
+					<div class="blocks__paragraphs">
+						<p class="blocks__paragraph large-text">Sada želimo da idemo korak dalje i da novim generacijama devojčica omogućimo da rade ono što vole i u čemu su dobre. Želimo da im pružimo finansijsku podršku da krenu svojim putem poput tolikih žena pre njih, da ostvare svoje snove i učine ovo društvo još boljim i ravnopravnijim. Zato smo odlučili/e da osnujemo Fond za školarinu za devojčice da upišu srednju školu za računarsko programiranje. Ovo iz razloga što je i dalje broj žena u IT industriji u Srbiji u odnosu na muškarce veoma mali. Prema Startitovom istraživanju o programerskoj sceni u Srbiji iz 2019. godine, samo je 14,5% žena koje rade kao programerke, a ovo jeste jedno od zanimanja budućnosti u okviru 4.0. industrijske revolucije kojoj svedočimo i danas.</p>
+					</div>
+				</div>
+				<div class="blocks__block">
+					<h2 class="blocks__heading h1">Rešenja:</h2>
+					<div class="blocks__paragraphs">
+						<p class="blocks__paragraph large-text">Sada želimo da idemo korak dalje i da novim generacijama devojčica omogućimo da rade ono što vole i u čemu su dobre. Želimo da im pružimo finansijsku podršku da krenu svojim putem poput tolikih žena pre njih, da ostvare svoje snove i učine ovo društvo još boljim i ravnopravnijim. Zato smo odlučili/e da osnujemo Fond za školarinu za devojčice da upišu srednju školu za računarsko programiranje. Ovo iz razloga što je i dalje broj žena u IT industriji u Srbiji u odnosu na muškarce veoma mali.</p>
+					</div>
+				</div>
+			</div>
+			<div class="blocks__image-wrap">
+				<img src="assets/images/girl-smiling.jpg" alt="girl-smiling.jpg" class="blocks__image">
+			</div>
+		</div>
+	</div>
+	<footer class="footer">
+		<div class="footer__wrap wrap">
+			<div class="footer__link-wrap">
+				<div class="footer__link-holder">
+					<h3 class="footer__heading h3">Nothing</h3>
+					<a href="javascript:;" class="footer__link small-link hover-default">Nothing</a>
+					<a href="javascript:;" class="footer__link small-link hover-default">Nothing</a>
+					<a href="javascript:;" class="footer__link small-link hover-default">Nothing</a>
+					<a href="javascript:;" class="footer__link small-link hover-default">Nothing</a>
+					<a href="javascript:;" class="footer__link small-link hover-default">Nothing</a>
+					<a href="javascript:;" class="footer__link small-link hover-default">Nothing</a>
+				</div>
+				<div class="footer__link-holder">
+					<h3 class="footer__heading h3">Nothing</h3>
+					<a href="javascript:;" class="footer__link small-link hover-default">Nothing</a>
+					<a href="javascript:;" class="footer__link small-link hover-default">Nothing</a>
+					<a href="javascript:;" class="footer__link small-link hover-default">Nothing</a>
+					<a href="javascript:;" class="footer__link small-link hover-default">Nothing</a>
+				</div>
+				<div class="footer__link-holder">
+					<h3 class="footer__heading h3">Nothing</h3>
+					<a href="javascript:;" class="footer__link small-link hover-default">Nothing</a>
+					<a href="javascript:;" class="footer__link small-link hover-default">Nothing</a>
+					<a href="javascript:;" class="footer__link small-link hover-default">Nothing</a>
+					<a href="javascript:;" class="footer__link small-link hover-default">Nothing</a>
+					<a href="javascript:;" class="footer__link small-link hover-default">Nothing</a>
+					<a href="javascript:;" class="footer__link small-link hover-default">Nothing</a>
+					<a href="javascript:;" class="footer__link small-link hover-default">Nothing</a>
+					<a href="javascript:;" class="footer__link small-link hover-default">Nothing</a>
+				</div>
+				<div class="footer__link-holder">
+					<h3 class="footer__heading h3">Nothing</h3>
+					<a href="javascript:;" class="footer__link small-link hover-default">Nothing</a>
+					<a href="javascript:;" class="footer__link small-link hover-default">Nothing</a>
+					<a href="javascript:;" class="footer__link small-link hover-default">Nothing</a>
+					<a href="javascript:;" class="footer__link small-link hover-default">Nothing</a>
+				</div>
+			</div>
+			<a href="javascript:;" class="footer__accent large-button large-button--red">Kontaktiraj nas</a>
+		</div>
+	</footer>
+</body>
+
+</html>
