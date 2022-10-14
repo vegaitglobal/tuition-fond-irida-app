@@ -6,7 +6,7 @@ export const StyledFooter = styled.footer`
     color: ${(props) => props.theme.colors.white.main};
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 110px;
 `;
 
@@ -25,6 +25,13 @@ export const StyledFooterSection = styled.div`
             display: block;
             color: ${(props) => props.theme.colors.white.main};
             text-decoration: none;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 36px;
+
+            &:hover {
+                color: ${(props) => props.theme.colors.white.dark};
+            }
         }
     }
 `;
