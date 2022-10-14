@@ -21,6 +21,6 @@ export const colors: Colors = {
     },
     white: {
         main: "#FFFFFF",
-        dark: "#f3f0f6",
+        dark: "#dcd0ea",
     },
 };
