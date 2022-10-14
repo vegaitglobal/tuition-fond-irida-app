@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "TuitionFondIrida.Persistence/1.0.0": {
         "dependencies": {
-          "TuitionFondIrida.Domain": "1.0.0"
+          "TuitionFondIrida.Domain": "1.0.0",
+          "TuitionIridaFond.Persistence.Contracts": "1.0.0"
         },
         "runtime": {
           "TuitionFondIrida.Persistence.dll": {}
@@ -29,6 +30,11 @@
         "runtime": {
           "TuitionFondIrida.Domain.dll": {}
         }
+      },
+      "TuitionIridaFond.Persistence.Contracts/1.0.0": {
+        "runtime": {
+          "TuitionIridaFond.Persistence.Contracts.dll": {}
+        }
       }
     }
   },
@@ -46,6 +52,11 @@
       "hashPath": "csharpfunctionalextensions.2.34.3.nupkg.sha512"
     },
     "TuitionFondIrida.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TuitionIridaFond.Persistence.Contracts/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

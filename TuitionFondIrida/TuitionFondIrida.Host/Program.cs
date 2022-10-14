@@ -2,6 +2,8 @@ using MediatR;
 using TuitionFondIrida.Api.Mappers;
 using TuitionFondIrida.Domain.Repositories;
 using TuitionFondIrida.Persistence.Repositories.Read;
+using IPersistenceProductMapper = TuitionFondIrida.Persistence.Mappers.IProductMapper;
+using PersistenceProductMapper = TuitionFondIrida.Persistence.Mappers.ProductMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IProductReadRepository, ProductReadRepository>();
 builder.Services.AddScoped<IProductMapper, ProductMapper>();
+builder.Services.AddScoped<IPersistenceProductMapper, PersistenceProductMapper>();
 builder.Services.AddMediatR(typeof(TuitionFondIrida.Application.Product.Queries.FindAll.FindAllProductsQuery).Assembly);
 
 var app = builder.Build();

@@ -13,3 +13,5 @@ D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIri
 D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Persistence\obj\Debug\net6.0\TuitionFondIrida.Persistence.dll
 D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Persistence\obj\Debug\net6.0\ref\TuitionFondIrida.Persistence.dll
 D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Persistence\obj\Debug\net6.0\TuitionFondIrida.Persistence.pdb
+D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Persistence\bin\Debug\net6.0\TuitionIridaFond.Persistence.Contracts.dll
+D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Persistence\bin\Debug\net6.0\TuitionIridaFond.Persistence.Contracts.pdb

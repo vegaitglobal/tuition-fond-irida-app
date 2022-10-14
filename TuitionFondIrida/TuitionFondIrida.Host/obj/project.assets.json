@@ -204,13 +204,24 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "TuitionFondIrida.Domain": "1.0.0"
+          "TuitionFondIrida.Domain": "1.0.0",
+          "TuitionIridaFond.Persistence.Contracts": "1.0.0"
         },
         "compile": {
           "bin/placeholder/TuitionFondIrida.Persistence.dll": {}
         },
         "runtime": {
           "bin/placeholder/TuitionFondIrida.Persistence.dll": {}
+        }
+      },
+      "TuitionIridaFond.Persistence.Contracts/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/TuitionIridaFond.Persistence.Contracts.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TuitionIridaFond.Persistence.Contracts.dll": {}
         }
       }
     }
@@ -664,6 +675,11 @@
       "type": "project",
       "path": "../TuitionFondIrida.Persistence/TuitionFondIrida.Persistence.csproj",
       "msbuildProject": "../TuitionFondIrida.Persistence/TuitionFondIrida.Persistence.csproj"
+    },
+    "TuitionIridaFond.Persistence.Contracts/1.0.0": {
+      "type": "project",
+      "path": "../TuitionIridaFond.Persistence.Contracts/TuitionIridaFond.Persistence.Contracts.csproj",
+      "msbuildProject": "../TuitionIridaFond.Persistence.Contracts/TuitionIridaFond.Persistence.Contracts.csproj"
     }
   },
   "projectFileDependencyGroups": {

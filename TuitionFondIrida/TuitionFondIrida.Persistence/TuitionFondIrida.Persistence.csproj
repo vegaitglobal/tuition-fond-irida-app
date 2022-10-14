@@ -12,6 +12,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\TuitionFondIrida.Domain\TuitionFondIrida.Domain.csproj" />
+      <ProjectReference Include="..\TuitionIridaFond.Persistence.Contracts\TuitionIridaFond.Persistence.Contracts.csproj" />
     </ItemGroup>
 
 </Project>

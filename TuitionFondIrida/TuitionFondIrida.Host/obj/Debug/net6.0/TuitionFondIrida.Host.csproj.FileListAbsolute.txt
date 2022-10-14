@@ -37,3 +37,5 @@ D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIri
 D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Host\obj\Debug\net6.0\ref\TuitionFondIrida.Host.dll
 D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Host\obj\Debug\net6.0\TuitionFondIrida.Host.pdb
 D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Host\obj\Debug\net6.0\TuitionFondIrida.Host.genruntimeconfig.cache
+D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Host\bin\Debug\net6.0\TuitionIridaFond.Persistence.Contracts.dll
+D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Host\bin\Debug\net6.0\TuitionIridaFond.Persistence.Contracts.pdb

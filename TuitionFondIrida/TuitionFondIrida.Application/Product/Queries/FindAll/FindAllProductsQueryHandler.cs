@@ -12,8 +12,8 @@ public class FindAllProductsQueryHandler : IQueryHandler<FindAllProductsQuery, I
         this.productReadRepository = productReadRepository;
     }
 
-    public Task<IEnumerable<Domain.Models.Read.Product>> Handle(FindAllProductsQuery request, CancellationToken cancellationToken)
+    public async Task<IEnumerable<Domain.Models.Read.Product>> Handle(FindAllProductsQuery request, CancellationToken cancellationToken)
     {
-        return this.productReadRepository.FindAllAsync(cancellationToken);
+        return await this.productReadRepository.FindAllAsync(cancellationToken);
     }
 }

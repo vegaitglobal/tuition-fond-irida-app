@@ -27,6 +27,16 @@
         "runtime": {
           "bin/placeholder/TuitionFondIrida.Domain.dll": {}
         }
+      },
+      "TuitionIridaFond.Persistence.Contracts/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/TuitionIridaFond.Persistence.Contracts.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TuitionIridaFond.Persistence.Contracts.dll": {}
+        }
       }
     }
   },
@@ -67,11 +77,17 @@
       "type": "project",
       "path": "../TuitionFondIrida.Domain/TuitionFondIrida.Domain.csproj",
       "msbuildProject": "../TuitionFondIrida.Domain/TuitionFondIrida.Domain.csproj"
+    },
+    "TuitionIridaFond.Persistence.Contracts/1.0.0": {
+      "type": "project",
+      "path": "../TuitionIridaFond.Persistence.Contracts/TuitionIridaFond.Persistence.Contracts.csproj",
+      "msbuildProject": "../TuitionIridaFond.Persistence.Contracts/TuitionIridaFond.Persistence.Contracts.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "TuitionFondIrida.Domain >= 1.0.0"
+      "TuitionFondIrida.Domain >= 1.0.0",
+      "TuitionIridaFond.Persistence.Contracts >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -107,6 +123,9 @@
           "projectReferences": {
             "D:\\Work\\Code4ACause\\repos\\tuition-fond-irida-app\\TuitionFondIrida\\TuitionFondIrida.Domain\\TuitionFondIrida.Domain.csproj": {
               "projectPath": "D:\\Work\\Code4ACause\\repos\\tuition-fond-irida-app\\TuitionFondIrida\\TuitionFondIrida.Domain\\TuitionFondIrida.Domain.csproj"
+            },
+            "D:\\Work\\Code4ACause\\repos\\tuition-fond-irida-app\\TuitionFondIrida\\TuitionIridaFond.Persistence.Contracts\\TuitionIridaFond.Persistence.Contracts.csproj": {
+              "projectPath": "D:\\Work\\Code4ACause\\repos\\tuition-fond-irida-app\\TuitionFondIrida\\TuitionIridaFond.Persistence.Contracts\\TuitionIridaFond.Persistence.Contracts.csproj"
             }
           }
         }
