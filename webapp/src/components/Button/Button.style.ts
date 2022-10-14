@@ -1,19 +1,29 @@
 import styled from "styled-components";
-import { breakpoints } from "../../style/breakpoints";
 
 const BaseButton = styled.button`
-    padding: 17px 100px;
+    padding: 17px 45px;
     border: none;
     cursor: pointer;
     border-radius: 20px;
     font-style: normal;
     font-size: 24px;
     font-weight: 700;
-    transition: background-color 200ms ease;
-    font-family: "Montserrat";
+    transition: 200ms ease;
+    transition-property: background-color, color;
+    font-family: "Montserrat", serif;
 
-    @media ${breakpoints.mobileL} {
-        padding: 14px 43px;
+    @media ${(props) => props.theme.breakpoints.tablet} {
+        padding: 14px 45px;
+    }
+`;
+
+export const LightButton = styled(BaseButton)`
+    background-color: ${(props) => props.theme.colors.white.main};
+    color: ${(props) => props.theme.colors.primary.main};
+
+    &:hover {
+        background-color: ${(props) => props.theme.colors.accent.main};
+        color: ${(props) => props.theme.colors.white.main};
     }
 `;
 
