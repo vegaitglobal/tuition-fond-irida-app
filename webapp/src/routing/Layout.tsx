@@ -1,14 +1,10 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { Header } from "../components";
 
 export const Layout = () => {
     return (
         <>
-            <nav>
-                <Link to="/">Pocetna</Link>
-                <Link to="o-nama">O Nama</Link>
-                <Link to="/blog">Blog</Link>
-                <Link to="/kontakt">Kontakt</Link>
-            </nav>
+            <Header />
             <Outlet />
             <div>Footer</div>
         </>
