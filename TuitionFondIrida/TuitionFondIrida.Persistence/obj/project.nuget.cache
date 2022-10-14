@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "wi3ds7m+Pmm5lNulvHHS86kjP75yetYqhHJuwbX9QxLLwqSFWm/41Nj8DOVTOqiKXxzpvisiV4jvGRqN34esbA==",
+  "success": true,
+  "projectFilePath": "D:\\Work\\Code4ACause\\repos\\tuition-fond-irida-app\\TuitionFondIrida\\TuitionFondIrida.Persistence\\TuitionFondIrida.Persistence.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\i.malesevic\\.nuget\\packages\\csharpfunctionalextensions\\2.34.3\\csharpfunctionalextensions.2.34.3.nupkg.sha512"
+  ],
+  "logs": []
+}

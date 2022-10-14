@@ -1,0 +1,15 @@
+D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Application\bin\Debug\net6.0\TuitionFondIrida.Application.deps.json
+D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Application\bin\Debug\net6.0\TuitionFondIrida.Application.dll
+D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Application\bin\Debug\net6.0\ref\TuitionFondIrida.Application.dll
+D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Application\bin\Debug\net6.0\TuitionFondIrida.Application.pdb
+D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Application\bin\Debug\net6.0\TuitionFondIrida.Domain.dll
+D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Application\bin\Debug\net6.0\TuitionFondIrida.Domain.pdb
+D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Application\obj\Debug\net6.0\TuitionFondIrida.Application.csproj.AssemblyReference.cache
+D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Application\obj\Debug\net6.0\TuitionFondIrida.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Application\obj\Debug\net6.0\TuitionFondIrida.Application.AssemblyInfoInputs.cache
+D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Application\obj\Debug\net6.0\TuitionFondIrida.Application.AssemblyInfo.cs
+D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Application\obj\Debug\net6.0\TuitionFondIrida.Application.csproj.CoreCompileInputs.cache
+D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Application\obj\Debug\net6.0\TuitionFondIrida.Application.csproj.CopyComplete
+D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Application\obj\Debug\net6.0\TuitionFondIrida.Application.dll
+D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Application\obj\Debug\net6.0\ref\TuitionFondIrida.Application.dll
+D:\Work\Code4ACause\repos\tuition-fond-irida-app\TuitionFondIrida\TuitionFondIrida.Application\obj\Debug\net6.0\TuitionFondIrida.Application.pdb

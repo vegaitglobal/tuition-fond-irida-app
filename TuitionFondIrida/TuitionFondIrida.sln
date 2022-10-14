@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuitionFondIrida.Host", "TuitionFondIrida.Host\TuitionFondIrida.Host.csproj", "{634C20D6-9EF0-4E16-A53A-A074036C32E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuitionFondIrida.Domain", "TuitionFondIrida.Domain\TuitionFondIrida.Domain.csproj", "{45E0F330-7D27-406F-8B94-4CBCC7D41AFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuitionFondIrida.Application", "TuitionFondIrida.Application\TuitionFondIrida.Application.csproj", "{AD6D5B30-8A2F-4D27-A554-E807A7CC68F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuitionFondIrida.Persistence", "TuitionFondIrida.Persistence\TuitionFondIrida.Persistence.csproj", "{6C452830-6A97-43A8-87A8-16736ADA0629}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuitionFondIrida.Api", "TuitionFondIrida.Api\TuitionFondIrida.Api.csproj", "{F6BC8CAD-D736-42B8-8E78-FA5A8B6F5573}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{634C20D6-9EF0-4E16-A53A-A074036C32E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{634C20D6-9EF0-4E16-A53A-A074036C32E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{634C20D6-9EF0-4E16-A53A-A074036C32E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{634C20D6-9EF0-4E16-A53A-A074036C32E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45E0F330-7D27-406F-8B94-4CBCC7D41AFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45E0F330-7D27-406F-8B94-4CBCC7D41AFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45E0F330-7D27-406F-8B94-4CBCC7D41AFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45E0F330-7D27-406F-8B94-4CBCC7D41AFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD6D5B30-8A2F-4D27-A554-E807A7CC68F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD6D5B30-8A2F-4D27-A554-E807A7CC68F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD6D5B30-8A2F-4D27-A554-E807A7CC68F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD6D5B30-8A2F-4D27-A554-E807A7CC68F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C452830-6A97-43A8-87A8-16736ADA0629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C452830-6A97-43A8-87A8-16736ADA0629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C452830-6A97-43A8-87A8-16736ADA0629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C452830-6A97-43A8-87A8-16736ADA0629}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6BC8CAD-D736-42B8-8E78-FA5A8B6F5573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6BC8CAD-D736-42B8-8E78-FA5A8B6F5573}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6BC8CAD-D736-42B8-8E78-FA5A8B6F5573}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6BC8CAD-D736-42B8-8E78-FA5A8B6F5573}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

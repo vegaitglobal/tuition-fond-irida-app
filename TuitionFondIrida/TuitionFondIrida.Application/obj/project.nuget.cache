@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "YfV7APNeTMJ3On+gCFuq6pis91yKgfeJS3ORsXHf9PugWQMaufn2ouMSKQP9CPWcP4XxrbAhTle8AbhCbZsM/g==",
+  "success": true,
+  "projectFilePath": "D:\\Work\\Code4ACause\\repos\\tuition-fond-irida-app\\TuitionFondIrida\\TuitionFondIrida.Application\\TuitionFondIrida.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\i.malesevic\\.nuget\\packages\\csharpfunctionalextensions\\2.34.3\\csharpfunctionalextensions.2.34.3.nupkg.sha512",
+    "C:\\Users\\i.malesevic\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",
+    "C:\\Users\\i.malesevic\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

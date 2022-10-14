@@ -1,0 +1,132 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Work\\Code4ACause\\repos\\tuition-fond-irida-app\\TuitionFondIrida\\TuitionFondIrida.Persistence\\TuitionFondIrida.Persistence.csproj": {}
+  },
+  "projects": {
+    "D:\\Work\\Code4ACause\\repos\\tuition-fond-irida-app\\TuitionFondIrida\\TuitionFondIrida.Domain\\TuitionFondIrida.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Work\\Code4ACause\\repos\\tuition-fond-irida-app\\TuitionFondIrida\\TuitionFondIrida.Domain\\TuitionFondIrida.Domain.csproj",
+        "projectName": "TuitionFondIrida.Domain",
+        "projectPath": "D:\\Work\\Code4ACause\\repos\\tuition-fond-irida-app\\TuitionFondIrida\\TuitionFondIrida.Domain\\TuitionFondIrida.Domain.csproj",
+        "packagesPath": "C:\\Users\\i.malesevic\\.nuget\\packages\\",
+        "outputPath": "D:\\Work\\Code4ACause\\repos\\tuition-fond-irida-app\\TuitionFondIrida\\TuitionFondIrida.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\i.malesevic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "CSharpFunctionalExtensions": {
+              "target": "Package",
+              "version": "[2.34.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.109\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Work\\Code4ACause\\repos\\tuition-fond-irida-app\\TuitionFondIrida\\TuitionFondIrida.Persistence\\TuitionFondIrida.Persistence.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Work\\Code4ACause\\repos\\tuition-fond-irida-app\\TuitionFondIrida\\TuitionFondIrida.Persistence\\TuitionFondIrida.Persistence.csproj",
+        "projectName": "TuitionFondIrida.Persistence",
+        "projectPath": "D:\\Work\\Code4ACause\\repos\\tuition-fond-irida-app\\TuitionFondIrida\\TuitionFondIrida.Persistence\\TuitionFondIrida.Persistence.csproj",
+        "packagesPath": "C:\\Users\\i.malesevic\\.nuget\\packages\\",
+        "outputPath": "D:\\Work\\Code4ACause\\repos\\tuition-fond-irida-app\\TuitionFondIrida\\TuitionFondIrida.Persistence\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\i.malesevic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Work\\Code4ACause\\repos\\tuition-fond-irida-app\\TuitionFondIrida\\TuitionFondIrida.Domain\\TuitionFondIrida.Domain.csproj": {
+                "projectPath": "D:\\Work\\Code4ACause\\repos\\tuition-fond-irida-app\\TuitionFondIrida\\TuitionFondIrida.Domain\\TuitionFondIrida.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.109\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
