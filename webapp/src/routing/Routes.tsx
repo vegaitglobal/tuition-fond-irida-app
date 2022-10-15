@@ -1,14 +1,22 @@
 import { BrowserRouter, Route, Routes as BrowserRoutes } from "react-router-dom";
 import { HomePage } from "../pages";
 import { Layout } from "./Layout";
+import { Page } from "../core/models/page";
 
 interface Props {
-    pages: string[];
+    pages: Page[];
 }
 export const Routes = ({ pages }: Props) => {
-    const routes = pages.map((pagePath) => (
-        <Route key={pagePath} index path={pagePath} element={<HomePage />} />
-    ));
+    const routes = pages.map((page) => {
+        return (
+            <Route
+                key={page.path}
+                index={page.path === "/"}
+                path={page.path}
+                element={<HomePage />}
+            />
+        );
+    });
 
     return (
         <BrowserRouter>

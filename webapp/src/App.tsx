@@ -3,13 +3,15 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "./style";
 import { Routes } from "./routing";
 import { getPageReferences } from "./core/services/contentful/contentful.service";
+import { Page } from "./core/models/page";
 
 const App = () => {
-    const [pages, setPages] = useState<string[]>([]);
+    const [pages, setPages] = useState<Page[]>([]);
 
     useEffect(() => {
         getPageReferences()
             .then((res) => {
+                console.log(res);
                 setPages(res);
             })
             .catch((err) => {
