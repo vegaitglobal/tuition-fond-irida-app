@@ -1,6 +1,6 @@
 ﻿using TuitionFondIrida.Domain.Models.Read;
 
-namespace TuitionFondIrida.Persistence.Mappers;
+namespace TuitionFondIrida.Persistence.Mappers.Abstractions;
 
 public interface IProductMapper
 {

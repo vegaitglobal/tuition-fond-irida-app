@@ -2,7 +2,11 @@
 
 public interface IProduct
 {
-    Guid Id { get; }
-
     string Title { get; }
+
+    string Description { get; }
+
+    IEnumerable<string> Sizes { get; }
+
+    IAsset Image { get; }
 }

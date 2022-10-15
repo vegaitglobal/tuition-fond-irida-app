@@ -6,24 +6,30 @@ namespace TuitionFondIrida.Domain.Models.Write;
 
 public class Product : IProduct
 {
-    private Product(Guid id, string title)
+    public Product(string title, string description, IEnumerable<string> sizes, IAsset image)
     {
-        this.Id = id;
         this.Title = title;
+        this.Description = description;
+        this.Sizes = sizes;
+        this.Image = image;
     }
 
-    public Guid Id { get; }
 
     public string Title { get; }
 
-    public Result<Product> Create(Guid id, string title)
+    public string Description { get; }
+
+    public IEnumerable<string> Sizes { get; }
+    
+    public IAsset Image { get; }
+
+    public Result<Product> Create(string title, string description, IEnumerable<string> sizes, IAsset asset)
     {
-        var idResult = Result.SuccessIf(id != Guid.Empty, "Id must not be empty");
         var titleResult = EntityTitle.Create(title);
-        var result = Result.Combine(idResult, titleResult);
+        var result = Result.Combine(titleResult);
 
         return result.IsSuccess
-            ? Result.Success(new Product(id, title))
+            ? Result.Success(new Product(title, description, sizes, asset))
             : Result.Failure<Product>(result.Error);
     }
 }

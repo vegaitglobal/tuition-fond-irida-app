@@ -8,11 +8,18 @@ namespace TuitionFondIrida.Host;
 
 public class CompositionRootModule : Module
 {
+    private readonly IConfiguration configuration;
+
+    public CompositionRootModule(IConfiguration configuration)
+    {
+        this.configuration = configuration;
+    }
+
     protected override void Load(ContainerBuilder builder)
     {
         builder.RegisterModule<ApiModule>();
         builder.RegisterModule<ApplicationModule>();
         builder.RegisterModule<DomainModule>();
-        builder.RegisterModule<PersistenceModule>();
+        builder.RegisterModule(new PersistenceModule(this.configuration));
     }
 }
