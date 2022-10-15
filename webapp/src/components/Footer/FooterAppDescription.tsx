@@ -1,7 +1,7 @@
 import { StyledFooterAppDescription } from "./Footer.style";
 import logoIllustration from "assets/images/logo_illustration.png";
-import { ReactComponent as AppleIcon } from "assets/images/apple.svg";
-import { ReactComponent as GooglePlayIcon } from "assets/images/google_play.svg";
+import appStore from "assets/images/app_store.png";
+import googlePlay from "assets/images/google_play.png";
 
 export const FooterAppDescription = () => {
     return (
@@ -24,16 +24,10 @@ export const FooterAppDescription = () => {
 
             <div className="footer-download-section">
                 <button className="download-mobile-app-button">
-                    <AppleIcon />
-                    <div>
-                        Download on the <span>App Store</span>
-                    </div>
+                    <img src={appStore} alt="App Store" />
                 </button>
                 <button className="download-mobile-app-button">
-                    <GooglePlayIcon />
-                    <div>
-                        GET IT ON <span>Google Play</span>
-                    </div>
+                    <img src={googlePlay} alt="Google Play" />
                 </button>
             </div>
         </StyledFooterAppDescription>

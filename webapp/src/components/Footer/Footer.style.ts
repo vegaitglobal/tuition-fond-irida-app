@@ -55,6 +55,7 @@ export const StyledFooterAppDescription = styled.div`
         gap: 50px;
 
         & img {
+            margin: 25px 0 0 0;
             height: 74px;
             width: 74px;
         }
@@ -62,31 +63,15 @@ export const StyledFooterAppDescription = styled.div`
 
     & .footer-download-section {
         display: flex;
-        gap: 80px;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 0;
 
         & .download-mobile-app-button {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            padding: 0 10px;
+            background-color: transparent;
+            padding: 0;
             border: none;
-            height: 68px;
-            border-radius: 5px;
-            background-color: ${(props) => props.theme.colors.black.main};
-            color: ${(props) => props.theme.colors.white.main};
             cursor: pointer;
-
-            & div {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                & span {
-                    font-weight: 600;
-                    display: block;
-                    font-size: 24px;
-                }
-            }
         }
     }
 `;
