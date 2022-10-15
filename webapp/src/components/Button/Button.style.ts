@@ -10,7 +10,7 @@ const BaseButton = styled.button`
     font-weight: 700;
     transition: 200ms ease;
     transition-property: background-color, color;
-    font-family: "Montserrat", serif;
+    font-family: "Montserrat", sans-serif;
 
     @media ${(props) => props.theme.breakpoints.tablet} {
         padding: 14px 45px;

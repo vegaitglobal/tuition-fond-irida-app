@@ -63,6 +63,31 @@ export const StyledFooterAppDescription = styled.div`
     & .footer-download-section {
         display: flex;
         gap: 80px;
+
+        & .download-mobile-app-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 0 10px;
+            border: none;
+            height: 68px;
+            border-radius: 5px;
+            background-color: ${(props) => props.theme.colors.black.main};
+            color: ${(props) => props.theme.colors.white.main};
+            cursor: pointer;
+
+            & div {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                & span {
+                    font-weight: 600;
+                    display: block;
+                    font-size: 24px;
+                }
+            }
+        }
     }
 `;
 
