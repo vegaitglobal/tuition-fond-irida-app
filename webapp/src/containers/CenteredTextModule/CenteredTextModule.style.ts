@@ -1,15 +1,19 @@
 import styled from "styled-components";
 
-export const StyledTextModule = styled.div`
+export const StyledCenteredTextModule = styled.div`
     padding: 60px 0 90px;
     text-align: center;
+    color: ${(props) => props.theme.colors.white.main};
 
-    & .dark {
+    &.primary {
         background-color: ${(props) => props.theme.colors.primary.main};
     }
-
-    & .light {
+    &.secondary {
         background-color: ${(props) => props.theme.colors.white.main};
+        color: ${(props) => props.theme.colors.primary.main};
+    }
+    &.accent {
+        background-color: ${(props) => props.theme.colors.accent.main};
     }
 
     & .text-module-wrap {
@@ -25,24 +29,8 @@ export const StyledTextModule = styled.div`
         margin-bottom: 30px;
     }
 
-    & h2.light {
-        color: ${(props) => props.theme.colors.primary.main};
-    }
-
-    & h2.dark {
-        color: ${(props) => props.theme.colors.white.main};
-    }
-
     & p {
         margin-bottom: 60px;
-    }
-
-    & p.light {
-        color: ${(props) => props.theme.colors.primary.main};
-    }
-
-    & p.dark {
-        color: ${(props) => props.theme.colors.white.main};
     }
 
     @media ${(props) => props.theme.breakpoints.laptop} {
