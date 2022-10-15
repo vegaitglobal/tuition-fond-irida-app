@@ -1,5 +1,6 @@
 using Autofac;
 using Contentful.Core;
+using Contentful.Core.Configuration;
 using Microsoft.Extensions.Configuration;
 using TuitionFondIrida.Persistence.Mappers;
 using TuitionFondIrida.Persistence.Repositories.Read;
@@ -28,13 +29,16 @@ public class PersistenceModule : Module
         builder.Register(_ =>
             {
                 var httpClient = new HttpClient();
-                var contentfulClient = new ContentfulClient(
-                    httpClient,
-                    this.configuration["AppSettings:Contentful:DeliveryApiKey"],
-                    this.configuration["AppSettings:Contentful:PreviewApiKey"],
-                    this.configuration["AppSettings:Contentful:SpaceId"]);
 
-                return contentfulClient;
+                var options = new ContentfulOptions()
+                {
+                    DeliveryApiKey = this.configuration["AppSettings:Contentful:DeliveryApiKey"],
+                    PreviewApiKey = this.configuration["AppSettings:Contentful:PreviewApiKey"],
+                    SpaceId = this.configuration["AppSettings:Contentful:SpaceId"],
+                    Environment = this.configuration["AppSettings:Contentful:Environment"]
+                };
+                
+                 return new ContentfulClient(httpClient, options);
             })
             .AsImplementedInterfaces()
             .InstancePerLifetimeScope();
