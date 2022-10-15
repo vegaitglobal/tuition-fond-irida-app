@@ -11,7 +11,7 @@ public class ProductReadRepository : IProductReadRepository
 {
     private readonly IContentfulClient contentfulClient;
     private readonly IProductMapper productMapper;
-    private const int PageSize = 3;
+    private const int PageSize = 8;
 
     public ProductReadRepository(IContentfulClient contentfulClient, IProductMapper productMapper)
     {
@@ -27,9 +27,10 @@ public class ProductReadRepository : IProductReadRepository
                 ContentfulContentTypeIds.Product,
                 new QueryBuilder<Product>()
                     .Skip((pageNumber - 1) * PageSize)
-                    .Limit(PageSize),
+                    .Limit(PageSize)
+                    .OrderBy("-sys.createdAt"),
                 cancellationToken: cancellationToken);
 
-        return new PageOf<Domain.Models.Read.Product>(products.Total, products.Select(this.productMapper.Create));
+        return new PageOf<Domain.Models.Read.Product>(products.Total, products.Select(this.productMapper.Create), PageSize);
     }
 }

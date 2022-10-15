@@ -29,7 +29,8 @@ public class ProductController : ControllerBase
         return this.Ok(new PageOfDto<ProductDto>
         {
             Total = pageOfProducts.Total,
-            Items = pageOfProducts.Items.Select(this.productMapper.Create)
+            Items = pageOfProducts.Items.Select(this.productMapper.Create),
+            PageSize = pageOfProducts.PageSize
         });
     }
 }
