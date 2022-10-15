@@ -16,12 +16,13 @@ public class EmailServiceApiAdapter : IEmailServiceApiAdapter
         this.emailMessageFactory = emailMessageFactory;
     }
 
-    public async Task<Result> SendAsync(string firstName, string lastName, string toEmailAddress, string subject,
-        string body, string phoneNumber)
+    public async Task<Result> SendContactUsAsync(string toEmailAddress, string firstName, string lastName,
+        string additionalComment, string phoneNumber)
     {
         try
         {
-            var message = this.emailMessageFactory.Create(toEmailAddress, subject, body, firstName, lastName, phoneNumber);
+            var message = this.emailMessageFactory.CreateForContactUs(firstName, lastName, toEmailAddress,
+                additionalComment, phoneNumber);
             await this.smtpClient.SendMailAsync(message);
             return Result.Success();
         }
