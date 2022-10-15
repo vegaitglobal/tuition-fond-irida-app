@@ -5,6 +5,8 @@ export const StyledIconButton = styled.button`
     border: none;
     outline: transparent;
     cursor: pointer;
+    margin: 0;
+    padding: 0;
 
     & svg {
         opacity: 1;

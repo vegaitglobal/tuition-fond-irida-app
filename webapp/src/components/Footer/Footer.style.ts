@@ -79,12 +79,24 @@ export const StyledFooterAppDescription = styled.div`
 export const StyledFooterContactSection = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 30px;
+
+    & button {
+        padding: 10px 30px;
+        font-size: 16px;
+        max-width: 188px;
+        min-height: 40px;
+    }
 
     & .footer-contact-section-socials {
         display: flex;
-        gap: 32px;
-        justify-content: center;
+        width: 100%;
+        justify-content: space-between;
+
+        & button {
+            padding: 0;
+        }
     }
 
     & .footer-contact-section-info {
