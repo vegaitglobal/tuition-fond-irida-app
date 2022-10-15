@@ -6,18 +6,14 @@ interface Props {
     text: string;
     onClick?: () => void;
     type?: "link" | "button";
-    variant?: "accent" | "light";
+    variant?: "accent" | "light" | "outline";
 }
 export const Link = (props: Props) => {
     const { to, text, type = "link", variant = "light", onClick } = props;
 
     return (
         <StyledLink onClick={onClick}>
-            <div
-                className={`${type === "button" ? "button-link" : "link"} ${
-                    variant === "accent" ? "accent" : ""
-                }`}
-            >
+            <div className={`${type === "button" ? "button-link" : "link"} ${variant}`}>
                 <RouterLink to={to}>{text}</RouterLink>
             </div>
         </StyledLink>

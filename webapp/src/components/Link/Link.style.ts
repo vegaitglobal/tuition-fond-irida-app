@@ -14,6 +14,7 @@ export const StyledLink = styled.div`
         border-radius: 0.7rem;
         transition: 200ms ease;
         transition-property: background-color;
+        cursor: pointer;
 
         & a {
             color: ${(props) => props.theme.colors.primary.main};
@@ -36,6 +37,21 @@ export const StyledLink = styled.div`
 
         & a {
             color: ${(props) => props.theme.colors.white.main};
+        }
+    }
+    & .button-link.outline {
+        background-color: transparent;
+        border: 3px solid ${(props) => props.theme.colors.white.main};
+
+        & a {
+            color: ${(props) => props.theme.colors.white.main};
+        }
+
+        &:hover {
+            background-color: ${(props) => props.theme.colors.white.main};
+        }
+        &:hover a {
+            color: ${(props) => props.theme.colors.primary.main};
         }
     }
 

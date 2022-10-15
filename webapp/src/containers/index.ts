@@ -1,2 +1,1 @@
-// TODO: export containers here
-export {};
+export * from "./FullWidthImageWithTextModule/FullWidthImageWithTextModule";
