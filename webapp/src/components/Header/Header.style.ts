@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledHeader = styled.nav`
     height: 85px;
     background-color: ${(props) => props.theme.colors.primary.main};
+    position: relative;
 
     & .header-desktop {
         padding: 14px 178px;
