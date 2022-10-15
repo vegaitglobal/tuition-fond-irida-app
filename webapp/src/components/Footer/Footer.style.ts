@@ -76,4 +76,22 @@ export const StyledFooterContactSection = styled.div`
         gap: 32px;
         justify-content: center;
     }
+
+    & .footer-contact-section-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 20px;
+
+        & a {
+            color: ${(props) => props.theme.colors.white.main};
+            text-decoration: none;
+            opacity: 1;
+            transition: 200ms ease;
+            transition-property: opacity;
+        }
+        & a:hover {
+            opacity: 0.6;
+        }
+    }
 `;
