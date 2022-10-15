@@ -48,7 +48,7 @@ export const StyledFullWidthImageWithTextModule = styled.div`
     @media ${(props) => props.theme.breakpoints.laptop} {
         height: calc(100vh - 85px);
         width: 100%;
-        padding: 60px 40px 50px 40px;
+        padding: 120px 40px 50px 40px;
         display: flex;
         flex-direction: column;
         align-items: center;
