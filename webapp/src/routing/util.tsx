@@ -2,7 +2,12 @@ import { Route } from "react-router-dom";
 import { Page } from "../pages";
 import { PageReferenceEntry } from "../core/services/contentful/queries/getPageReferences";
 import { ReactNode } from "react";
-import { CenteredTextModule, SplitTextLeftModule, SplitTextRightModule } from "../containers";
+import {
+    CenteredTextModule,
+    SplitTextLeftModule,
+    SplitTextModule,
+    SplitTextRightModule,
+} from "../containers";
 import { ModuleEntry } from "../core/services/contentful/queries/getModulesByPageId";
 
 export const mapPagesToRoutes = (pages: PageReferenceEntry[]) => {
@@ -25,11 +30,15 @@ const mapContentfulPageToPage = (page: PageReferenceEntry) => {
 export const getModuleComponent = (module: ModuleEntry): ReactNode => {
     switch (module.layout) {
         case "split-text-left":
-        case "left":
-            return <SplitTextLeftModule />;
+            return <SplitTextModule textPosition="left" />;
         case "split-text-right":
+            return <SplitTextModule textPosition="right" />;
         case "right":
+            // TODO
             return <SplitTextRightModule />;
+        case "left":
+            // TODO
+            return <SplitTextLeftModule />;
         case "centered":
             return <CenteredTextModule key={module.header} moduleEntry={module} />;
         default:
