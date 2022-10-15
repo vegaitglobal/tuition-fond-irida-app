@@ -1,3 +1,16 @@
+import { useEffect, useState } from "react";
+import { Product } from "../../core/models/product";
+import { fetchProducts } from "../../core/services";
+
 export const DonatePage = () => {
-    return <>donate</>;
+    const [products, setProducts] = useState<Product[]>([]);
+    useEffect(() => {
+        fetchProducts().then((p: Product[]) => setProducts(p));
+    }, []);
+
+    return <>
+        {
+            products.map((product: Product) => <div>{product.title}</div>)
+        }
+    </>;
 };
