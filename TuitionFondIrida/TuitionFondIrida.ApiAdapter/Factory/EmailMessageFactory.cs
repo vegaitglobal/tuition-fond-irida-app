@@ -12,7 +12,8 @@ public class EmailMessageFactory
         this.configuration = configuration;
     }
 
-    public MailMessage Create(string to, string subject, string body)
+    public MailMessage Create(string to, string subject, string body, string firstName, string lastName,
+        string phoneNumber)
     {
         return new MailMessage(this.configuration["AppSettings:EmailClient:FromEmailAddress"], to, subject, body);
     }

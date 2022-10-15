@@ -11,4 +11,6 @@ public class EmailDto
     public string PhoneNumber { get; set; }
 
     public string AdditionalComment { get; set; }
+
+    public bool IsFromContactForm { get; set; }
 }

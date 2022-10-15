@@ -25,7 +25,8 @@ public class EmailController : ControllerBase
             emailDto.LastName,
             emailDto.ToEmailAddress,
             emailDto.PhoneNumber,
-            emailDto.AdditionalComment), cancellationToken);
+            emailDto.AdditionalComment,
+            emailDto.IsFromContactForm), cancellationToken);
 
         return result.IsFailure ? this.BadRequest() : this.Ok();
     }

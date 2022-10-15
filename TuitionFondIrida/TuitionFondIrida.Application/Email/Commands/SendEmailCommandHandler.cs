@@ -16,7 +16,12 @@ public class SendEmailCommandHandler : ICommandHandler<SendEmailCommand, Result>
     public async Task<Result> Handle(SendEmailCommand request, CancellationToken cancellationToken)
     {
         // TODO: add actual body, find out what is the subject for contact form and order
-        return await this.emailServiceApiAdapter.SendAsync(request.ToEmailAddress, "Contact us",
-            request.AdditionalComment);
+        return await this.emailServiceApiAdapter.SendAsync(
+            request.FirstName,
+            request.LastName,
+            request.ToEmailAddress,
+            request.IsFromContactForm ? "Contact us" : "Order & Donate",
+            request.AdditionalComment,
+            request.PhoneNumber);
     }
 }
