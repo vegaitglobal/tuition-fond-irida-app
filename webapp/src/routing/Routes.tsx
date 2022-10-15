@@ -1,29 +1,32 @@
 import { BrowserRouter, Route, Routes as BrowserRoutes } from "react-router-dom";
-import { HomePage } from "../pages";
 import { Layout } from "./Layout";
-import { Page } from "../core/models/page";
+import { mapPagesToRoutes } from "./util";
+import { PageEntry } from "../core/services/contentful/queries/getPageReferences";
+import { useEffect, useState } from "react";
+import { getPageReferences } from "../core/services/contentful/contentful.service";
 
-interface Props {
-    pages: Page[];
-}
-export const Routes = ({ pages }: Props) => {
-    const routes = pages.map((page) => {
-        return (
-            <Route
-                key={page.path}
-                index={page.path === "/"}
-                path={page.path}
-                element={<HomePage />}
-            />
-        );
-    });
+export const Routes = () => {
+    const [pages, setPages] = useState<PageEntry[]>([]);
+
+    // TODO: Create Loading spinner
+    useEffect(() => {
+        getPageReferences()
+            .then((res) => {
+                setPages(res);
+            })
+            .catch((err) => {
+                // oops
+                console.log(err);
+            });
+    }, []);
+
+    const routes = mapPagesToRoutes(pages);
 
     return (
         <BrowserRouter>
             <BrowserRoutes>
                 <Route path="/" element={<Layout />}>
                     {routes}
-                    {/*<Route index element={<HomePage />} />*/}
                     {/*<Route path="/o-nama" element={<AboutUsPage />} />*/}
                     {/*<Route path="/blog" element={<BlogPage />} />*/}
                     {/*<Route path="/kontakt" element={<ContactPage />} />*/}
