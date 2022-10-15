@@ -12,11 +12,15 @@ export const StyledFooter = styled.footer`
     & .footer-section-list {
         display: flex;
         gap: 10px;
+
+        @media ${(props) => props.theme.breakpoints.laptop} {
+            display: none;
+        }
     }
 
     @media ${(props) => props.theme.breakpoints.laptop} {
         padding: 60px 20px;
-
+        gap: 80px;
         flex-direction: column;
         align-items: center;
     }
