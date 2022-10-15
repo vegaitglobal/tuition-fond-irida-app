@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledAboutUsContentModule = styled.div`
     position: relative;
-    padding: 90px 0 210px 178px;
+    padding: 90px 0 30px 178px;
 
     .first-section {
         display: flex;
@@ -24,7 +24,7 @@ export const StyledAboutUsContentModule = styled.div`
     }
 
     & h1 {
-        color: #5F4477;
+        color: ${(props) => props.theme.colors.primary.main};
         font-weight: 600;
         font-size: 48px;
         margin-bottom: 60px;
@@ -32,7 +32,7 @@ export const StyledAboutUsContentModule = styled.div`
     }
 
     & p {
-        color: #5F4477;
+        color: ${(props) => props.theme.colors.primary.main};
         font-weight: 400;
         font-size: 16px;
         max-width: 80%;

@@ -1,3 +1,4 @@
+import { TextWithCtaModule } from "containers";
 import { AboutUsContentModule } from "containers/AboutUsContent/AboutUsContentModule";
 
 export const AboutUsPage = () => {
@@ -19,6 +20,12 @@ export const AboutUsPage = () => {
                 description2="Sada želimo da idemo korak dalje i da novim generacijama devojčica omogućimo da rade ono što vole i u čemu su dobre. Želimo da im pružimo finansijsku podršku da krenu svojim putem poput tolikih žena pre njih, da ostvare svoje snove i učine ovo društvo još boljim i ravnopravnijim. Zato smo odlučili/e da osnujemo Fond za školarinu za devojčice da upišu srednju školu za računarsko programiranje. Ovo iz razloga što je i dalje broj žena u IT industriji u Srbiji u odnosu na muškarce veoma mali."
                 image="logo512.png"
                 imageLeft={true}
+            />
+            <TextWithCtaModule
+                title="Lorem ipsum"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu odio vel nunc fringilla euismod eget non eros. Morbi convallis auctor lectus eu facilisis. Aenean vitae lectus mollis, finibus arcu vel, aliquam est. Etiam gravida lectus quis vestibulum aliquam. Sed nec quam eget eros eleifend vehicula.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu odio vel nunc fringilla euismod eget non eros. Morbi convallis auctor lectus eu facilisis. Aenean vitae lectus mollis, finibus arcu vel, aliquam est. Etiam gravida lectus quis vestibulum aliquam. Sed nec quam eget eros eleifend vehicula."
+                button={{text: "Doniraj", url: ""}}
+                darkMode={false}
             />
         </>
     );
