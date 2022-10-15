@@ -4,13 +4,13 @@ const BaseButton = styled.button`
     padding: 17px 45px;
     border: none;
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 0.7rem;
     font-style: normal;
     font-size: 24px;
     font-weight: 700;
     transition: 200ms ease;
     transition-property: background-color, color;
-    font-family: "Montserrat", serif;
+    font-family: "Montserrat", sans-serif;
 
     @media ${(props) => props.theme.breakpoints.tablet} {
         padding: 14px 45px;

@@ -9,7 +9,7 @@ export const Header = () => {
             <HeaderLink to="/o-nama" text="O nama" />
             <HeaderLink to="/o-nama" text="O nama" />
             <HeaderLink to="/blog" text="Blog" />
-            <HeaderLink to="/kontakt" text="Kontaktiraj nas" style="button" />
+            <HeaderLink to="/kontakt" text="Kontaktiraj nas" type="button" />
         </StyledHeader>
     );
 };
