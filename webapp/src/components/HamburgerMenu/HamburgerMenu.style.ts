@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const StyledHamburgerMenu = styled.div`
     display: none;
 
-    & button {
+    & button.hamburger-button,
+    & button.hamburger-close-button {
         border: none;
         outline: transparent;
         background-color: transparent;
@@ -18,28 +19,33 @@ export const StyledHamburgerMenu = styled.div`
         right: 25px;
         top: 26px;
     }
-    & button:hover {
+    & button.hamburger-button:hover {
         opacity: 0.6;
     }
 
     & .hamburger-menu-content {
         position: absolute;
         top: 0;
-        right: 0;
-        background-color: ${(props) => props.theme.colors.white.main};
-        height: 100vh;
+        left: 0;
+        background-color: ${(props) => props.theme.colors.primary.transparent};
+        border-bottom: 1px solid ${(props) => props.theme.colors.white.main};
+        backdrop-filter: blur(5px);
+        height: 440px;
         z-index: 100;
+        width: 100%;
+        transition: 200ms ease;
+        transition-property: transform;
     }
     & .hamburger-menu-content.opened {
-        width: 100vw;
-        transition: 200ms ease;
-        transition-property: width;
+        transform: translateY(0);
     }
     & .hamburger-menu-content.closed {
-        width: 0;
+        transform: translateY(-100%);
     }
 
     @media ${(props) => props.theme.breakpoints.laptop} {
         display: flex;
     }
 `;
+
+export const StyledHamburgerMenuLink = styled.div``;
