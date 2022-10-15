@@ -1,17 +1,14 @@
+import { BaseEntry } from "./common";
+
 export const query = `
     query {
       pageCollection {
         items{
+          sys {
+            id
+          }
           title
           path
-          modulesCollection {
-            items {
-              header
-              paragraph
-              backgroundColor
-              layout
-            }
-          }
         }
       }
     }
@@ -20,20 +17,12 @@ export const query = `
 export interface GetPageReferencesResponse {
     data: {
         pageCollection: {
-            items: PageEntry[];
+            items: PageReferenceEntry[];
         };
     };
 }
 
-export interface PageEntry {
+export interface PageReferenceEntry extends BaseEntry {
     title: string;
     path: string;
-    modulesCollection: { items: ModuleEntry[] };
-}
-
-export interface ModuleEntry {
-    header: string;
-    paragraph?: string;
-    backgroundColor: "primary" | "secondary" | "accent";
-    layout: "split-text-left" | "split-text-right" | "centered" | "left" | "right";
 }
