@@ -13,6 +13,13 @@ export const StyledFooter = styled.footer`
         display: flex;
         gap: 10px;
     }
+
+    @media ${(props) => props.theme.breakpoints.laptop} {
+        padding: 60px 20px;
+
+        flex-direction: column;
+        align-items: center;
+    }
 `;
 
 export const StyledFooterSection = styled.div`
@@ -72,6 +79,12 @@ export const StyledFooterAppDescription = styled.div`
             padding: 0;
             border: none;
             cursor: pointer;
+        }
+
+        @media ${(props) => props.theme.breakpoints.laptop} {
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
         }
     }
 `;
