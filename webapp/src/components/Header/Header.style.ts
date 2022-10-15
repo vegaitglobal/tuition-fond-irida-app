@@ -1,11 +1,23 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.nav`
+    height: 85px;
     background-color: ${(props) => props.theme.colors.primary.main};
-    padding: 14px 178px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+    & .header-desktop {
+        padding: 14px 178px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media ${(props) => props.theme.breakpoints.laptop} {
+            display: none;
+        }
+
+        @media ${(props) => props.theme.breakpoints.laptopL} {
+            padding: 14px 130px;
+        }
+    }
 `;
 
 export const StyledHeaderLink = styled.span`
