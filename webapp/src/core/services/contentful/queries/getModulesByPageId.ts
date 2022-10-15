@@ -1,7 +1,7 @@
 export const generateQuery = (pageId: string) => {
     return `
     {
-      page(id: "31vbgOAonNm41hhsSxaveH") {
+      page(id: "${pageId}") {
         modulesCollection {
           items {
             header
