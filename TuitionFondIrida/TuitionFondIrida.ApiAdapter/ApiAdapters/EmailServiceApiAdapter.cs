@@ -31,4 +31,19 @@ public class EmailServiceApiAdapter : IEmailServiceApiAdapter
             return Result.Failure(ex.Message);
         }
     }
+
+    public async Task<Result> SendOrderAsync(string toEmailAddress, string firstName, string lastName, string additionalComment,
+        string phoneNumber, string productName, string selectedSize)
+    {
+        try
+        {
+            var message = this.emailMessageFactory.CreateForOrder(firstName, lastName, toEmailAddress,
+                additionalComment, phoneNumber, productName, selectedSize);
+            await this.smtpClient.SendMailAsync(message);
+            return Result.Success();
+        }
+        catch (Exception ex)
+        {
+            return Result.Failure(ex.Message);
+        }    }
 }

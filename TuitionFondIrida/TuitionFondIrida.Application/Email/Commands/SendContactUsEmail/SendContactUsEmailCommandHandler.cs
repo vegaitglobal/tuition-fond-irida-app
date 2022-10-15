@@ -15,7 +15,6 @@ public class SendContactUsEmailCommandHandler : ICommandHandler<SendContactUsEma
 
     public async Task<Result> Handle(SendContactUsEmailCommand request, CancellationToken cancellationToken)
     {
-        // TODO: add actual body, find out what is the subject for contact form and order
         return await this.emailServiceApiAdapter.SendContactUsAsync(
             request.ToEmailAddress,
             request.FirstName,

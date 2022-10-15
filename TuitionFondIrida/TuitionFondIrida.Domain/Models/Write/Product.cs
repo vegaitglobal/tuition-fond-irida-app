@@ -6,7 +6,7 @@ namespace TuitionFondIrida.Domain.Models.Write;
 
 public class Product : IProduct
 {
-    public Product(string title, string description, IEnumerable<string> sizes, IAsset image)
+    private Product(string title, string description, IEnumerable<string> sizes, IAsset image)
     {
         this.Title = title;
         this.Description = description;
