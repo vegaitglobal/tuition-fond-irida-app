@@ -11,6 +11,10 @@ interface Props {
     darkMode: boolean;
 }
 
+/**
+ * @deprecated
+ */
+//
 export const TextWithCtaModule = (props: Props) => {
     const { title, description, button, darkMode, ...rest } = props;
 
@@ -26,5 +30,5 @@ export const TextWithCtaModule = (props: Props) => {
 };
 
 TextWithCtaModule.defaultProps = {
-    darkMode: true
-}
+    darkMode: true,
+};
