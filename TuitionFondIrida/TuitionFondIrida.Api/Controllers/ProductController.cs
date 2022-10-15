@@ -1,0 +1,30 @@
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using TuitionFondIrida.Api.Dto;
+using TuitionFondIrida.Api.Mappers;
+using TuitionFondIrida.Application.Product.Queries.FindAll;
+
+namespace TuitionFondIrida.Api.Controllers;
+
+[ApiController]
+[Route("api/[controller]")]
+[Produces("application/json")]
+public class ProductController : ControllerBase
+{
+    private readonly IMediator mediator;
+    private readonly IProductMapper productMapper;
+
+    public ProductController(IMediator mediator, IProductMapper productMapper)
+    {
+        this.mediator = mediator;
+        this.productMapper = productMapper;
+    }
+
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<ProductDto>>> FindAllAsync(CancellationToken cancellationToken)
+    {
+        var products = await this.mediator.Send(new FindAllProductsQuery(), cancellationToken);
+
+        return this.Ok(products.Select(this.productMapper.Create));
+    }
+}

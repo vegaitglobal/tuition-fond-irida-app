@@ -1,0 +1,7 @@
+Logs/*.json
+!.gitignore
+
+bin
+./bin
+obj
+./obj
