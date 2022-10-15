@@ -13,7 +13,7 @@ export const StyledFooter = styled.footer`
         display: flex;
         gap: 10px;
 
-        @media ${(props) => props.theme.breakpoints.laptop} {
+        @media ${(props) => props.theme.breakpoints.laptopL} {
             display: none;
         }
     }
@@ -23,6 +23,10 @@ export const StyledFooter = styled.footer`
         gap: 80px;
         flex-direction: column;
         align-items: center;
+    }
+    @media ${(props) => props.theme.breakpoints.laptopL} {
+        padding: 90px 20px;
+        gap: 80px;
     }
 `;
 
@@ -83,6 +87,10 @@ export const StyledFooterAppDescription = styled.div`
             padding: 0;
             border: none;
             cursor: pointer;
+
+            @media ${(props) => props.theme.breakpoints.laptop} {
+                transform: scale(0.8);
+            }
         }
 
         @media ${(props) => props.theme.breakpoints.laptop} {
