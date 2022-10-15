@@ -1,5 +1,6 @@
 ﻿using Contentful.Core;
 using Contentful.Core.Search;
+using TuitionFondIrida.Domain.Models.Common;
 using TuitionFondIrida.Domain.Repositories;
 using TuitionFondIrida.Persistence.Mappers.Abstractions;
 using TuitionIridaFond.Persistence.Contracts.Models;
@@ -18,7 +19,7 @@ public class ProductReadRepository : IProductReadRepository
         this.productMapper = productMapper;
     }
 
-    public async Task<IEnumerable<Domain.Models.Read.Product>> FindPagedAsync(int pageNumber,
+    public async Task<PageOf<Domain.Models.Read.Product>> FindPagedAsync(int pageNumber,
         CancellationToken cancellationToken)
     {
         var products =
@@ -29,6 +30,6 @@ public class ProductReadRepository : IProductReadRepository
                     .Limit(PageSize),
                 cancellationToken: cancellationToken);
 
-        return products.Select(this.productMapper.Create);
+        return new PageOf<Domain.Models.Read.Product>(products.Total, products.Select(this.productMapper.Create));
     }
 }
