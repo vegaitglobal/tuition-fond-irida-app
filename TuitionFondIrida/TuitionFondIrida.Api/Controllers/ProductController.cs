@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TuitionFondIrida.Api.Dto;
 using TuitionFondIrida.Api.Mappers;
+using TuitionFondIrida.Api.Mappers.Abstractions;
 using TuitionFondIrida.Application.Product.Queries.FindAll;
 
 namespace TuitionFondIrida.Api.Controllers;

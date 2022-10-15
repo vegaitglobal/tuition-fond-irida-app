@@ -4,13 +4,20 @@ namespace TuitionFondIrida.Domain.Models.Read;
 
 public class Product : IProduct
 {
-    public Product(Guid id, string title)
+    public Product(string title, string description, IEnumerable<string> sizes, IAsset image)
     {
-        this.Id = id;
         this.Title = title;
+        this.Description = description;
+        this.Sizes = sizes;
+        this.Image = image;
     }
 
-    public Guid Id { get; }
 
     public string Title { get; }
+
+    public string Description { get; }
+
+    public IEnumerable<string> Sizes { get; }
+
+    public IAsset Image { get; }
 }
