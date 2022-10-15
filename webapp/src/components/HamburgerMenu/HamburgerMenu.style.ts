@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const StyledHamburgerMenu = styled.div`
     display: none;
+    height: 85px;
+    padding-left: 25px;
 
     & button.hamburger-button,
     & button.hamburger-close-button {
@@ -66,5 +68,6 @@ export const StyledHamburgerMenu = styled.div`
 
     @media ${(props) => props.theme.breakpoints.laptop} {
         display: flex;
+        align-items: center;
     }
 `;

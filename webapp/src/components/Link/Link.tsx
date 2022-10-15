@@ -6,7 +6,7 @@ interface Props {
     text: string;
     onClick?: () => void;
     type?: "link" | "button";
-    variant?: "accent" | "light" | "outline";
+    variant?: "accent" | "light" | "outline" | "primary";
 }
 export const Link = (props: Props) => {
     const { to, text, type = "link", variant = "light", onClick } = props;

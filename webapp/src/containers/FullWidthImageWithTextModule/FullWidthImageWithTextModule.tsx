@@ -20,7 +20,7 @@ export const FullWidthImageWithTextModule = (props: Props) => {
             <h1>{title}</h1>
             <p>{description}</p>
             <div className="button-wrap">
-                <Link type="button" to={buttons[0].url} text={buttons[0].text} />
+                <Link type="button" variant="primary" to={buttons[0].url} text={buttons[0].text} />
                 <Link type="button" variant="outline" to={buttons[0].url} text={buttons[0].text} />
             </div>
         </StyledFullWidthImageWithTextModule>

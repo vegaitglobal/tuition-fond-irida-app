@@ -11,11 +11,6 @@ export const StyledHeader = styled.nav`
         align-items: center;
         justify-content: space-between;
 
-        & img {
-            max-height: 60px;
-            width: 215px;
-        }
-
         & a {
             font-size: 16px;
         }

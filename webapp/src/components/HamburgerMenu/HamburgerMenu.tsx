@@ -3,6 +3,7 @@ import { ReactComponent as HamburgerMenuIcon } from "assets/images/hamburger.svg
 import { useState } from "react";
 import closeIcon from "assets/images/close.svg";
 import { Link } from "../Link/Link";
+import { HeaderLogo } from "../Header/HeaderLogo";
 
 export const HamburgerMenu = () => {
     const [opened, setOpened] = useState<boolean>(false);
@@ -17,6 +18,7 @@ export const HamburgerMenu = () => {
 
     return (
         <StyledHamburgerMenu>
+            <HeaderLogo />
             <button className="hamburger-button" onClick={onHamburgerButtonClick}>
                 <HamburgerMenuIcon />
             </button>
