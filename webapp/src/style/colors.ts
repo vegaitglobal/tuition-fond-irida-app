@@ -8,6 +8,7 @@ export interface Colors {
     primary: Color;
     accent: Color;
     white: Color;
+    black: Color;
 }
 
 export const colors: Colors = {
@@ -22,5 +23,8 @@ export const colors: Colors = {
     white: {
         main: "#FFFFFF",
         dark: "#dcd0ea",
+    },
+    black: {
+        main: "#01050A",
     },
 };

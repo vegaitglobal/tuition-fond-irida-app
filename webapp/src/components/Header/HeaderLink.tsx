@@ -5,14 +5,14 @@ import { StyledHeaderLink } from "./Header.style";
 interface Props {
     to: string;
     text: string;
-    style?: "link" | "button";
+    type?: "link" | "button";
 }
 export const HeaderLink = (props: Props) => {
-    const { to, text, style = "link" } = props;
+    const { to, text, type = "link" } = props;
 
     return (
         <StyledHeaderLink>
-            <Link to={to}>{style === "link" ? text : <Button text={text} variant="light" />}</Link>
+            <Link to={to}>{type === "link" ? text : <Button text={text} variant="light" />}</Link>
         </StyledHeaderLink>
     );
 };

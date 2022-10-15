@@ -1,18 +1,22 @@
 import { StyledFooter } from "./Footer.style";
-import { FooterSection } from "./FooterSection";
+import { FooterSection, FooterSectionProps } from "./FooterSection";
+import { FooterAppDescription } from "./FooterAppDescription";
+import { FooterContactSection } from "./FooterContactSection";
 
 export const Footer = () => {
     const footerSectionElements = footerSections.map((section) => (
-        <FooterSection
-            key={section.title}
-            links={section.links}
-            title={section.title}
-        ></FooterSection>
+        <FooterSection key={section.title} links={section.links} title={section.title} />
     ));
-    return <StyledFooter>{footerSectionElements}</StyledFooter>;
+    return (
+        <StyledFooter>
+            <div className="footer-section-list">{footerSectionElements}</div>
+            <FooterAppDescription />
+            <FooterContactSection />
+        </StyledFooter>
+    );
 };
 
-const footerSections = [
+const footerSections: FooterSectionProps[] = [
     {
         title: "Šop",
         links: [
