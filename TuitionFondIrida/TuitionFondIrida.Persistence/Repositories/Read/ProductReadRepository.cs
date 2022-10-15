@@ -1,32 +1,27 @@
-﻿using CSharpFunctionalExtensions;
+﻿using Contentful.Core;
+using CSharpFunctionalExtensions;
 using TuitionFondIrida.Domain.Repositories;
-using TuitionFondIrida.Persistence.Mappers;
+using TuitionFondIrida.Persistence.Mappers.Abstractions;
 using TuitionIridaFond.Persistence.Contracts.Models;
 
 namespace TuitionFondIrida.Persistence.Repositories.Read;
 
 public class ProductReadRepository : IProductReadRepository
 {
+    private readonly IContentfulClient contentfulClient;
     private readonly IProductMapper productMapper;
 
-    public ProductReadRepository(IProductMapper productMapper)
+    public ProductReadRepository(IContentfulClient contentfulClient, IProductMapper productMapper)
     {
+        this.contentfulClient = contentfulClient;
         this.productMapper = productMapper;
     }
 
-    public Task<IEnumerable<Domain.Models.Read.Product>> FindAllAsync(CancellationToken cancellationToken)
+    public async Task<IEnumerable<Domain.Models.Read.Product>> FindAllAsync(CancellationToken cancellationToken)
     {
-        var array = new List<Product>
-        {
-            new()
-            {
-                Id = Guid.NewGuid(),
-                Title = "Product"
-            }
-        };
+        var products = await this.contentfulClient.GetEntries<Product>(cancellationToken: cancellationToken);
 
-        var products = array.Select(this.productMapper.Create);
-        return Task<IEnumerable<Domain.Models.Read.Product>>.Factory.StartNew(() => products, cancellationToken);
+        return products.Select(this.productMapper.Create);
     }
 
     public Task<Maybe<Domain.Models.Read.Product>> FindByIdAsync(CancellationToken cancellationToken)

@@ -8,5 +8,6 @@ public class ApiModule : Module
     protected override void Load(ContainerBuilder builder)
     {
         builder.RegisterType<ProductMapper>().AsImplementedInterfaces().InstancePerLifetimeScope();
+        builder.RegisterType<AssetMapper>().AsImplementedInterfaces().InstancePerLifetimeScope();
     }
 }

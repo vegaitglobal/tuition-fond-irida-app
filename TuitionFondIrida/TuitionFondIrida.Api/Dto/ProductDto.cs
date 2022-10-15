@@ -2,7 +2,11 @@
 
 public class ProductDto
 {
-    public Guid Id { get; set; }
-
     public string Title { get; set; }
+
+    public string Description { get; set; }
+
+    public IEnumerable<string> Sizes { get; set; }
+
+    public AssetDto Image { get; set; }
 }

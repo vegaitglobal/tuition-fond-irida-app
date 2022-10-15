@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using TuitionFondIrida.Host;
-using IPersistenceProductMapper = TuitionFondIrida.Persistence.Mappers.IProductMapper;
+using IPersistenceProductMapper = TuitionFondIrida.Persistence.Mappers.Abstractions.IProductMapper;
 using PersistenceProductMapper = TuitionFondIrida.Persistence.Mappers.ProductMapper;
 
 var builder = WebApplication.CreateBuilder(args);
