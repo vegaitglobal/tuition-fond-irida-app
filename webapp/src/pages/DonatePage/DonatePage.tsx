@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Product } from "../../core/models/product";
 import { fetchProducts } from "../../core/services";
+import { Card } from "../../components/Card/Card";
+import { StyledDonatePage } from "./DonatePage.style";
 
 export const DonatePage = () => {
     const [products, setProducts] = useState<Product[]>([]);
@@ -8,9 +10,17 @@ export const DonatePage = () => {
         fetchProducts().then((p: Product[]) => setProducts(p));
     }, []);
 
-    return <>
-        {
-            products.map((product: Product) => <div>{product.title}</div>)
-        }
-    </>;
+    const handleClickCard = () => {
+    };
+
+    return (
+        <StyledDonatePage>
+            {
+                products.map((product: Product) =>
+                    <Card imageUrl={product.image.file.url}
+                          imageAltTitle={product.image.title}
+                          onClick={handleClickCard} />)
+            }
+        </StyledDonatePage>
+    );
 };
