@@ -12,14 +12,19 @@ export const StyledCenteredTextModule = styled.div<Props>`
     align-items: center;
     overflow: hidden;
     position: relative;
-    background-image: linear-gradient(
+    background-image: ${(props) =>
+        props.imageUrl
+            ? `
+    linear-gradient(
             90deg,
             rgba(0, 0, 0, 0.7) 0%,
             rgba(0, 0, 0, 0.3) 35%,
             rgba(0, 0, 0, 0.1) 43%,
             rgba(255, 255, 255, 0) 50%
         ),
-        url(${(props) => props.imageUrl});
+        url(${props.imageUrl})
+    `
+            : "none"};
     background-size: cover;
 
     &.primary {
