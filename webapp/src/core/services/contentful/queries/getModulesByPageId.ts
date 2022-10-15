@@ -8,6 +8,9 @@ export const generateQuery = (pageId: string) => {
             paragraph
             backgroundColor
             layout
+            backgroundImage {
+              url
+            }
             primaryAction {
               __typename
               ...on PageLink {
@@ -55,6 +58,7 @@ export interface ModuleEntry {
     header: string;
     paragraph?: string;
     backgroundColor: "primary" | "secondary" | "accent";
+    backgroundImage?: { url: string };
     layout: "split-text-left" | "split-text-right" | "centered" | "left" | "right";
     primaryAction: Action | null;
     secondaryAction: Action | null;
@@ -62,7 +66,7 @@ export interface ModuleEntry {
 
 interface Action {
     label: string;
-    pageReference: {
+    pageReference?: {
         path: string;
     };
 }
