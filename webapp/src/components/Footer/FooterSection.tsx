@@ -5,17 +5,21 @@ interface FooterLink {
     to: string;
     text: string;
 }
-interface Props {
+export interface FooterSectionProps {
     title: string;
     links: FooterLink[];
 }
-export const FooterSection = (props: Props) => {
+export const FooterSection = (props: FooterSectionProps) => {
     const { title, links } = props;
 
-    const linkElements = links.map((link) => <Link to={link.to}>{link.text}</Link>);
+    const linkElements = links.map((link, i) => (
+        <Link key={`footer-link-${i}`} to={link.to}>
+            {link.text}
+        </Link>
+    ));
 
     return (
-        <StyledFooterSection>
+        <StyledFooterSection key={title}>
             <h2>{title}</h2>
             <div className="footer-links">{linkElements}</div>
         </StyledFooterSection>
