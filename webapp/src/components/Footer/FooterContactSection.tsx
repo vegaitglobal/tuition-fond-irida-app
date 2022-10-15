@@ -18,8 +18,8 @@ export const FooterContactSection = () => {
             <div className="footer-contact-section-info">
                 <a href="tel:+38166556565">+381 66556565</a>
                 <a href="tel:+38166556565">+381 66556565</a>
-                <a href="">Adresa Adresa 45</a>
-                <a href="">FondPutDev@gmail.com</a>
+                <a href="https://google.com">Adresa Adresa 45</a>
+                <a href="https://google.com">FondPutDev@gmail.com</a>
             </div>
         </StyledFooterContactSection>
     );
