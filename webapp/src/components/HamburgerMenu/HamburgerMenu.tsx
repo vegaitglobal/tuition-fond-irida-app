@@ -2,8 +2,8 @@ import { StyledHamburgerMenu } from "./HamburgerMenu.style";
 import { ReactComponent as HamburgerMenuIcon } from "assets/images/hamburger.svg";
 import { useState } from "react";
 import closeIcon from "assets/images/close.svg";
-import { HamburgerMenuLink } from "./HamburgerMenuLink";
-import { Button } from "../Button/Button";
+import { Link } from "../Link/Link";
+import { HeaderLogo } from "../Header/HeaderLogo";
 
 export const HamburgerMenu = () => {
     const [opened, setOpened] = useState<boolean>(false);
@@ -18,6 +18,7 @@ export const HamburgerMenu = () => {
 
     return (
         <StyledHamburgerMenu>
+            <HeaderLogo />
             <button className="hamburger-button" onClick={onHamburgerButtonClick}>
                 <HamburgerMenuIcon />
             </button>
@@ -27,12 +28,25 @@ export const HamburgerMenu = () => {
                 </button>
 
                 <div className="hamburger-menu-links">
-                    <HamburgerMenuLink />
-                    <HamburgerMenuLink />
-                    <HamburgerMenuLink />
+                    <Link to="/kontakt" text="Kontaktiraj nas" onClick={closeHamburgerMenu} />
+                    <Link to="/o-nama" text="O nama" onClick={closeHamburgerMenu} />
+                    <Link to="/blog" text="Blog" onClick={closeHamburgerMenu} />
 
-                    <Button text="Kontaktiraj nas" variant="light" />
-                    <Button text="Doniraj" variant="accent" />
+                    <div className="hamburger-menu-links-buttons">
+                        <Link
+                            to="/kontakt"
+                            text="Kontaktiraj nas"
+                            type="button"
+                            onClick={closeHamburgerMenu}
+                        />
+                        <Link
+                            to="/doniraj"
+                            text="Doniraj"
+                            type="button"
+                            variant="accent"
+                            onClick={closeHamburgerMenu}
+                        />
+                    </div>
                 </div>
             </div>
         </StyledHamburgerMenu>

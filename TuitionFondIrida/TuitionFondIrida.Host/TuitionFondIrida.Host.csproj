@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\TuitionFondIrida.ApiAdapter\TuitionFondIrida.ApiAdapter.csproj" />
       <ProjectReference Include="..\TuitionFondIrida.Api\TuitionFondIrida.Api.csproj" />
       <ProjectReference Include="..\TuitionFondIrida.Application\TuitionFondIrida.Application.csproj" />
       <ProjectReference Include="..\TuitionFondIrida.Domain\TuitionFondIrida.Domain.csproj" />

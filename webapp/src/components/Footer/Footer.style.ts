@@ -107,11 +107,8 @@ export const StyledFooterContactSection = styled.div`
     align-items: center;
     gap: 30px;
 
-    & button {
-        padding: 10px 30px;
+    & .button-link a {
         font-size: 16px;
-        max-width: 188px;
-        min-height: 40px;
     }
 
     & .footer-contact-section-socials {

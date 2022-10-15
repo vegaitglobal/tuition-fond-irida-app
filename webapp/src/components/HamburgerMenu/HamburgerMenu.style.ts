@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const StyledHamburgerMenu = styled.div`
     display: none;
+    height: 85px;
+    padding-left: 25px;
 
     & button.hamburger-button,
     & button.hamburger-close-button {
@@ -35,6 +37,27 @@ export const StyledHamburgerMenu = styled.div`
         width: 100%;
         transition: 200ms ease;
         transition-property: transform;
+
+        & .hamburger-menu-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            padding-top: 85px;
+
+            & .hamburger-menu-links-buttons {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+
+                & button {
+                    width: 250px;
+                    padding: 14px 22px;
+                }
+            }
+        }
     }
     & .hamburger-menu-content.opened {
         transform: translateY(0);
@@ -45,7 +68,6 @@ export const StyledHamburgerMenu = styled.div`
 
     @media ${(props) => props.theme.breakpoints.laptop} {
         display: flex;
+        align-items: center;
     }
 `;
-
-export const StyledHamburgerMenuLink = styled.div``;

@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuitionFondIrida.Api", "Tui
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuitionIridaFond.Persistence.Contracts", "TuitionIridaFond.Persistence.Contracts\TuitionIridaFond.Persistence.Contracts.csproj", "{02B2F885-FDBB-4AC3-8456-59E279634D2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuitionFondIrida.ApiAdapter", "TuitionFondIrida.ApiAdapter\TuitionFondIrida.ApiAdapter.csproj", "{28CB9FBD-F156-47DE-9B28-E4A3B6D5814E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{02B2F885-FDBB-4AC3-8456-59E279634D2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02B2F885-FDBB-4AC3-8456-59E279634D2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02B2F885-FDBB-4AC3-8456-59E279634D2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28CB9FBD-F156-47DE-9B28-E4A3B6D5814E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28CB9FBD-F156-47DE-9B28-E4A3B6D5814E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28CB9FBD-F156-47DE-9B28-E4A3B6D5814E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28CB9FBD-F156-47DE-9B28-E4A3B6D5814E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

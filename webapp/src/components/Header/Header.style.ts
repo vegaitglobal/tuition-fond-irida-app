@@ -11,6 +11,10 @@ export const StyledHeader = styled.nav`
         align-items: center;
         justify-content: space-between;
 
+        & a {
+            font-size: 16px;
+        }
+
         @media ${(props) => props.theme.breakpoints.laptop} {
             display: none;
         }
@@ -18,18 +22,5 @@ export const StyledHeader = styled.nav`
         @media ${(props) => props.theme.breakpoints.laptopL} {
             padding: 14px 130px;
         }
-    }
-`;
-
-export const StyledHeaderLink = styled.span`
-    & a {
-        color: ${(props) => props.theme.colors.white.main};
-        font-weight: 700;
-        text-decoration: none;
-        transition: color 200ms ease;
-    }
-
-    & a:hover {
-        color: ${(props) => props.theme.colors.white.dark};
     }
 `;

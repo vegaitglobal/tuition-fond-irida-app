@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import logo from "../../assets/images/logo.svg";
+import logo from "assets/images/logo.png";
 
 export const HeaderLogo = () => {
     return (
         <Link to="/">
-            <img src={logo} alt="Fondacija Putevima devojčica" />
+            <img height={55} src={logo} alt="Fondacija Putevima devojčica" />
         </Link>
     );
 };
