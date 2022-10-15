@@ -45,7 +45,7 @@ export const StyledFullWidthImageWithTextModule = styled.div`
         gap: 20px;
     }
 
-    @media ${(props) => props.theme.breakpoints.tablet} {
+    @media ${(props) => props.theme.breakpoints.laptop} {
         height: calc(100vh - 85px);
         width: 100%;
         padding: 60px 40px 50px 40px;
