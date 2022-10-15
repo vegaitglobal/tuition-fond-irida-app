@@ -4,7 +4,9 @@ export const StyledTextModule = styled.div`
     background-color: ${(props) => props.theme.colors.primary.main};
     padding: 60px 0 90px;
     text-align: center;
-    outline: 1px solid & .text-module-wrap {
+    outline: 1px solid;
+
+    & .text-module-wrap {
         max-width: 940px;
         padding: 0 20px;
         margin: 0 auto;

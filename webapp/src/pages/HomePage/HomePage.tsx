@@ -1,10 +1,11 @@
 import { FullWidthImageWithTextModule } from "../../containers";
 import { Module, modulesMock } from "./modulesMock";
+import { TextWithCtaModule } from "../../containers";
 
 export const HomePage = () => {
     const getModule = ({ type, title, description, image, buttons }: Module) => {
         switch (type) {
-            case "full-width-image-text-module":
+            case "fullWidthImageText":
                 return (
                     <FullWidthImageWithTextModule
                         key={`home-${title}`}
@@ -12,6 +13,14 @@ export const HomePage = () => {
                         description={description}
                         image={image!}
                         buttons={buttons!}
+                    />
+                );
+            case "textWithCta":
+                return (
+                    <TextWithCtaModule
+                        title={title}
+                        description={description}
+                        button={buttons![0]}
                     />
                 );
         }
