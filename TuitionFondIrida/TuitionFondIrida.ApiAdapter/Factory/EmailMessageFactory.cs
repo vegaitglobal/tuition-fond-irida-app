@@ -12,9 +12,17 @@ public class EmailMessageFactory
         this.configuration = configuration;
     }
 
-    public MailMessage Create(string to, string subject, string body, string firstName, string lastName,
-        string phoneNumber)
+    public MailMessage CreateForContactUs(string firstName, string lastName, string toEmailAddress,
+        string additionalComment, string phoneNumber)
     {
-        return new MailMessage(this.configuration["AppSettings:EmailClient:FromEmailAddress"], to, subject, body);
+        var message = new MailMessage();
+        message.From = new MailAddress(this.configuration["AppSettings:EmailClient:FromEmailAddress"]);
+        message.Subject = "Putevima devjočica: Kontakt forma";
+        message.To.Add(new MailAddress(toEmailAddress));
+        message.Body = new HtmlTemplates(firstName, lastName, toEmailAddress, additionalComment, phoneNumber)
+            .CrateContactUsHtmlTemplate();
+        message.IsBodyHtml = true;
+
+        return message;
     }
 }
