@@ -19,7 +19,8 @@ public class ProductReadRepository : IProductReadRepository
 
     public async Task<IEnumerable<Domain.Models.Read.Product>> FindAllAsync(CancellationToken cancellationToken)
     {
-        var products = await this.contentfulClient.GetEntries<Product>(cancellationToken: cancellationToken);
+        var products = 
+            await this.contentfulClient.GetEntriesByType<Product>(ContentfulContentTypeIds.Product, cancellationToken: cancellationToken);
 
         return products.Select(this.productMapper.Create);
     }
