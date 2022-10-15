@@ -1,3 +1,7 @@
+import { TextModule } from "components/TextModule/TextModule";
+
 export const HomePage = () => {
-    return <>Home page</>;
+    return <>
+    <TextModule></TextModule>
+    </>;
 };
