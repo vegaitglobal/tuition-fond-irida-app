@@ -1,5 +1,6 @@
 using Autofac;
 using TuitionFondIrida.Api.AutofacModule;
+using TuitionFondIrida.ApiAdapter.AutofacModule;
 using TuitionFondIrida.Application.AutofacModule;
 using TuitionFondIrida.Domain.AutofacModule;
 using TuitionFondIrida.Persistence.AutofacModule;
@@ -21,5 +22,6 @@ public class CompositionRootModule : Module
         builder.RegisterModule<ApplicationModule>();
         builder.RegisterModule<DomainModule>();
         builder.RegisterModule(new PersistenceModule(this.configuration));
+        builder.RegisterModule(new ApiAdapterModule(this.configuration));
     }
 }
