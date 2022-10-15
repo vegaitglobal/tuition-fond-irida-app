@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TuitionFondIrida.Api.Dto;
 using TuitionFondIrida.Application.Email.Commands.SendContactUsEmail;
+using TuitionFondIrida.Application.Email.Commands.SendOrderEmail;
 
 namespace TuitionFondIrida.Api.Controllers;
 
@@ -17,16 +18,33 @@ public class EmailController : ControllerBase
         this.mediator = mediator;
     }
 
-    [HttpPost("/contact-us")]
-    public async Task<IActionResult> SendEmail([FromBody] EmailDto emailDto, CancellationToken cancellationToken)
+    [HttpPost]
+    [Route("contact-us")]
+    public async Task<IActionResult> SendContactUsEmailAsync([FromBody] ContactUsEmailDto emailDto, CancellationToken cancellationToken)
     {
         var result = await this.mediator.Send(new SendContactUsEmailCommand(
             emailDto.FirstName,
             emailDto.LastName,
-            emailDto.ToEmailAddress,
+            emailDto.EmailAddress,
+            emailDto.PhoneNumber,
+            emailDto.AdditionalComment), cancellationToken);
+
+        return result.IsFailure ? this.BadRequest() : this.Ok();
+    }
+    
+    
+    [HttpPost]
+    [Route("order")]
+    public async Task<IActionResult> SendOrderEmailAsync([FromBody] OrderEmailDto emailDto, CancellationToken cancellationToken)
+    {
+        var result = await this.mediator.Send(new SendOrderEmailCommand(
+            emailDto.FirstName,
+            emailDto.LastName,
+            emailDto.EmailAddress,
             emailDto.PhoneNumber,
             emailDto.AdditionalComment,
-            emailDto.IsFromContactForm), cancellationToken);
+            emailDto.ProductName,
+            emailDto.SelectedSize), cancellationToken);
 
         return result.IsFailure ? this.BadRequest() : this.Ok();
     }

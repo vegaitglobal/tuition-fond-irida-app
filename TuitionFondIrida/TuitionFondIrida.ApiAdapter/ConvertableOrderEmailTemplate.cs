@@ -1,14 +1,17 @@
 namespace TuitionFondIrida.ApiAdapter;
 
-public class HtmlTemplates
+public class ConvertableOrderEmailTemplate
 {
-    public HtmlTemplates(string firstName, string lastName, string emailAddress, string additionalComment, string phoneNumber)
+    public ConvertableOrderEmailTemplate(string firstName, string lastName, string emailAddress,
+        string additionalComment, string phoneNumber, string productName, string selectedSize)
     {
         this.FirstName = firstName;
         this.LastName = lastName;
         this.EmailAddress = emailAddress;
         this.AdditionalComment = additionalComment;
         this.PhoneNumber = phoneNumber;
+        this.ProductName = productName;
+        this.SelectedSize = selectedSize;
     }
 
     private string FirstName { get; }
@@ -19,9 +22,13 @@ public class HtmlTemplates
 
     private string AdditionalComment { get; }
 
-    public string PhoneNumber { get; }
+    private string PhoneNumber { get; }
 
-    public string CrateContactUsHtmlTemplate()
+    private string ProductName { get; }
+
+    private string SelectedSize { get; }
+
+    public string Convert()
     {
         return $@"<!DOCTYPE html>
          <html lang=""en"">
@@ -51,7 +58,7 @@ public class HtmlTemplates
                <td>
                   <div style=""padding:30px 20px; background-color: #ffffff;"">                    
                      <center>                        
-                        <p style=""font-size:20px; margin:0 0 20px 0; font-weight:700;"">Novi komentar od:</p>                       
+                        <p style=""font-size:20px; margin:0 0 20px 0; font-weight:700;"">Novi narudžbina od:</p>                       
                         <p style=""font-size:20px; margin:0;"">{this.FirstName} {this.LastName} ({this.EmailAddress}  :  {this.PhoneNumber})</p>
                      </center>
                   </div>            
@@ -63,6 +70,20 @@ public class HtmlTemplates
                   <center>                        
                      <p style=""font-size: 16px; line-height:22px; margin:0;""> 
                            ""{this.AdditionalComment}""
+                      </p>                    
+                  </center>
+                  </div>            
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <div style=""padding: 0px 20px 30px; background-color:#ffffff;"">                    
+                  <center>                        
+                     <p style=""font-size: 16px; line-height:22px; margin:0;""> 
+                           Proizvod: {this.ProductName}
+                      </p>
+                     <p style=""font-size: 16px; line-height:22px; margin:0;""> 
+                           Odabrana veličina: {this.SelectedSize}
                       </p>                    
                   </center>
                   </div>            
