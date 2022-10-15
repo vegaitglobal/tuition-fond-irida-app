@@ -18,6 +18,7 @@ export const HomePage = () => {
             case "textWithCta":
                 return (
                     <TextWithCtaModule
+                        key={`home-${title}`}
                         title={title}
                         description={description}
                         button={buttons![0]}

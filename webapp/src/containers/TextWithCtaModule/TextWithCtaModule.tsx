@@ -10,10 +10,10 @@ interface Props {
     };
 }
 export const TextWithCtaModule = (props: Props) => {
-    const { title, description, button } = props;
+    const { title, description, button, ...rest } = props;
 
     return (
-        <StyledTextModule>
+        <StyledTextModule {...rest}>
             <div className="text-module-wrap">
                 <h2>{title}</h2>
                 <p>{description}</p>
