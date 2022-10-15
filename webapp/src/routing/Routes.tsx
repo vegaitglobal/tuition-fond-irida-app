@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes as BrowserRoutes } from "react-router-dom";
-import { AboutUsPage, BlogPage, ContactPage, HomePage } from "../pages";
+import { AboutUsPage, BlogPage, ContactPage, DonatePage, HomePage } from "../pages";
 import { Layout } from "./Layout";
-import { DonatePage } from "../pages/DonatePage/DonatePage";
 
 export const Routes = () => {
     return (

@@ -2,25 +2,24 @@ using CSharpFunctionalExtensions;
 using TuitionFondIrida.Application.Abstractions;
 using TuitionFondIrida.Application.ApiAdapters;
 
-namespace TuitionFondIrida.Application.Email.Commands;
+namespace TuitionFondIrida.Application.Email.Commands.SendContactUsEmail;
 
-public class SendEmailCommandHandler : ICommandHandler<SendEmailCommand, Result>
+public class SendContactUsEmailCommandHandler : ICommandHandler<SendContactUsEmailCommand, Result>
 {
     private readonly IEmailServiceApiAdapter emailServiceApiAdapter;
 
-    public SendEmailCommandHandler(IEmailServiceApiAdapter emailServiceApiAdapter)
+    public SendContactUsEmailCommandHandler(IEmailServiceApiAdapter emailServiceApiAdapter)
     {
         this.emailServiceApiAdapter = emailServiceApiAdapter;
     }
 
-    public async Task<Result> Handle(SendEmailCommand request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(SendContactUsEmailCommand request, CancellationToken cancellationToken)
     {
         // TODO: add actual body, find out what is the subject for contact form and order
-        return await this.emailServiceApiAdapter.SendAsync(
+        return await this.emailServiceApiAdapter.SendContactUsAsync(
+            request.ToEmailAddress,
             request.FirstName,
             request.LastName,
-            request.ToEmailAddress,
-            request.IsFromContactForm ? "Contact us" : "Order & Donate",
             request.AdditionalComment,
             request.PhoneNumber);
     }
