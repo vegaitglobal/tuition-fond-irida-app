@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledLink = styled.div`
     display: flex;
     justify-content: center;
+    align-items: center;
 
     & .button-link {
         background-color: ${(props) => props.theme.colors.white.main};
@@ -20,7 +21,7 @@ export const StyledLink = styled.div`
             color: ${(props) => props.theme.colors.primary.main};
             text-decoration: none;
             font-weight: 700;
-            font-size: 20px;
+            font-size: 16px;
             transition: 200ms ease;
             transition-property: color;
         }
