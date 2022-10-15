@@ -1,7 +1,7 @@
-using MediatR;
-using TuitionFondIrida.Api.Mappers;
-using TuitionFondIrida.Domain.Repositories;
-using TuitionFondIrida.Persistence.Repositories.Read;
+using System.Text.Json.Serialization;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using TuitionFondIrida.Host;
 using IPersistenceProductMapper = TuitionFondIrida.Persistence.Mappers.IProductMapper;
 using PersistenceProductMapper = TuitionFondIrida.Persistence.Mappers.ProductMapper;
 
@@ -9,14 +9,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+    })
+    .AddControllersAsServices(); // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IProductReadRepository, ProductReadRepository>();
-builder.Services.AddScoped<IProductMapper, ProductMapper>();
-builder.Services.AddScoped<IPersistenceProductMapper, PersistenceProductMapper>();
-builder.Services.AddMediatR(typeof(TuitionFondIrida.Application.Product.Queries.FindAll.FindAllProductsQuery).Assembly);
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
+    containerBuilder.RegisterModule(new CompositionRootModule()));
 
 var app = builder.Build();
 
