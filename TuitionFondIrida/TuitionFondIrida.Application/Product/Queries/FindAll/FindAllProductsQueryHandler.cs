@@ -1,9 +1,10 @@
 ﻿using TuitionFondIrida.Application.Abstractions;
+using TuitionFondIrida.Domain.Models.Common;
 using TuitionFondIrida.Domain.Repositories;
 
 namespace TuitionFondIrida.Application.Product.Queries.FindAll;
 
-public class FindAllProductsQueryHandler : IQueryHandler<FindAllProductsQuery, IEnumerable<Domain.Models.Read.Product>>
+public class FindAllProductsQueryHandler : IQueryHandler<FindAllProductsQuery, PageOf<Domain.Models.Read.Product>>
 {
     private readonly IProductReadRepository productReadRepository;
 
@@ -12,8 +13,8 @@ public class FindAllProductsQueryHandler : IQueryHandler<FindAllProductsQuery, I
         this.productReadRepository = productReadRepository;
     }
 
-    public async Task<IEnumerable<Domain.Models.Read.Product>> Handle(FindAllProductsQuery request, CancellationToken cancellationToken)
+    public async Task<PageOf<Domain.Models.Read.Product>> Handle(FindAllProductsQuery request, CancellationToken cancellationToken)
     {
-        return await this.productReadRepository.FindAllAsync(cancellationToken);
+        return await this.productReadRepository.FindPagedAsync(request.PageNumber, cancellationToken);
     }
 }

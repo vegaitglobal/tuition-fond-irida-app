@@ -1,5 +1,6 @@
 ﻿using Contentful.Core;
-using CSharpFunctionalExtensions;
+using Contentful.Core.Search;
+using TuitionFondIrida.Domain.Models.Common;
 using TuitionFondIrida.Domain.Repositories;
 using TuitionFondIrida.Persistence.Mappers.Abstractions;
 using TuitionIridaFond.Persistence.Contracts.Models;
@@ -10,6 +11,7 @@ public class ProductReadRepository : IProductReadRepository
 {
     private readonly IContentfulClient contentfulClient;
     private readonly IProductMapper productMapper;
+    private const int PageSize = 8;
 
     public ProductReadRepository(IContentfulClient contentfulClient, IProductMapper productMapper)
     {
@@ -17,16 +19,18 @@ public class ProductReadRepository : IProductReadRepository
         this.productMapper = productMapper;
     }
 
-    public async Task<IEnumerable<Domain.Models.Read.Product>> FindAllAsync(CancellationToken cancellationToken)
+    public async Task<PageOf<Domain.Models.Read.Product>> FindPagedAsync(int pageNumber,
+        CancellationToken cancellationToken)
     {
-        var products = 
-            await this.contentfulClient.GetEntriesByType<Product>(ContentfulContentTypeIds.Product, cancellationToken: cancellationToken);
+        var products =
+            await this.contentfulClient.GetEntriesByType(
+                ContentfulContentTypeIds.Product,
+                new QueryBuilder<Product>()
+                    .Skip((pageNumber - 1) * PageSize)
+                    .Limit(PageSize)
+                    .OrderBy("-sys.createdAt"),
+                cancellationToken: cancellationToken);
 
-        return products.Select(this.productMapper.Create);
-    }
-
-    public Task<Maybe<Domain.Models.Read.Product>> FindByIdAsync(CancellationToken cancellationToken)
-    {
-        throw new NotImplementedException();
+        return new PageOf<Domain.Models.Read.Product>(products.Total, products.Select(this.productMapper.Create), PageSize);
     }
 }
