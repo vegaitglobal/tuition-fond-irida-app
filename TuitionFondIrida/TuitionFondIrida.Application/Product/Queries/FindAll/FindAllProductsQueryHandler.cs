@@ -14,6 +14,6 @@ public class FindAllProductsQueryHandler : IQueryHandler<FindAllProductsQuery, I
 
     public async Task<IEnumerable<Domain.Models.Read.Product>> Handle(FindAllProductsQuery request, CancellationToken cancellationToken)
     {
-        return await this.productReadRepository.FindAllAsync(cancellationToken);
+        return await this.productReadRepository.FindPagedAsync(request.PageNumber, cancellationToken);
     }
 }

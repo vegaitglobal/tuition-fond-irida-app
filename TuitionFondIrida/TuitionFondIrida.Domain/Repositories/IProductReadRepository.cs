@@ -1,11 +1,8 @@
-﻿using CSharpFunctionalExtensions;
-using TuitionFondIrida.Domain.Models.Read;
+﻿using TuitionFondIrida.Domain.Models.Read;
 
 namespace TuitionFondIrida.Domain.Repositories;
 
 public interface IProductReadRepository
 {
-    Task<IEnumerable<Product>> FindAllAsync(CancellationToken cancellationToken);
-
-    Task<Maybe<Product>> FindByIdAsync(CancellationToken cancellationToken);
+    Task<IEnumerable<Product>> FindPagedAsync(int pageNumber, CancellationToken cancellationToken);
 }
