@@ -12,11 +12,23 @@ export const StyledLink = styled.div`
         align-items: center;
         padding: 14px 24px;
         border-radius: 0.7rem;
+        transition: 200ms ease;
+        transition-property: background-color;
+
         & a {
             color: ${(props) => props.theme.colors.primary.main};
             text-decoration: none;
             font-weight: 700;
             font-size: 20px;
+            transition: 200ms ease;
+            transition-property: color;
+        }
+
+        &:hover {
+            background-color: ${(props) => props.theme.colors.accent.main};
+        }
+        &:hover a {
+            color: ${(props) => props.theme.colors.white.main};
         }
     }
     & .button-link.accent {
