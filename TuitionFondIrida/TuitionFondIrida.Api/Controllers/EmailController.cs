@@ -1,7 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TuitionFondIrida.Api.Dto;
-using TuitionFondIrida.Application.Email.Commands;
+using TuitionFondIrida.Application.Email.Commands.SendContactUsEmail;
 
 namespace TuitionFondIrida.Api.Controllers;
 
@@ -17,10 +17,10 @@ public class EmailController : ControllerBase
         this.mediator = mediator;
     }
 
-    [HttpPost]
+    [HttpPost("/contact-us")]
     public async Task<IActionResult> SendEmail([FromBody] EmailDto emailDto, CancellationToken cancellationToken)
     {
-        var result = await this.mediator.Send(new SendEmailCommand(
+        var result = await this.mediator.Send(new SendContactUsEmailCommand(
             emailDto.FirstName,
             emailDto.LastName,
             emailDto.ToEmailAddress,

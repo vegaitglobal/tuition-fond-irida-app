@@ -1,11 +1,11 @@
 using CSharpFunctionalExtensions;
 using TuitionFondIrida.Application.Abstractions;
 
-namespace TuitionFondIrida.Application.Email.Commands;
+namespace TuitionFondIrida.Application.Email.Commands.SendContactUsEmail;
 
-public class SendEmailCommand : ICommand<Result>
+public class SendContactUsEmailCommand : ICommand<Result>
 {
-    public SendEmailCommand(string firstName, string lastName, string toEmailAddress, string phoneNumber,
+    public SendContactUsEmailCommand(string firstName, string lastName, string toEmailAddress, string phoneNumber,
         string additionalComment, bool isFromContactForm)
     {
         this.FirstName = firstName;
