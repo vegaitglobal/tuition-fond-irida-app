@@ -35,6 +35,27 @@ export const StyledHamburgerMenu = styled.div`
         width: 100%;
         transition: 200ms ease;
         transition-property: transform;
+
+        & .hamburger-menu-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            padding-top: 85px;
+
+            & .hamburger-menu-links-buttons {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+
+                & button {
+                    width: 250px;
+                    padding: 14px 22px;
+                }
+            }
+        }
     }
     & .hamburger-menu-content.opened {
         transform: translateY(0);
@@ -47,5 +68,3 @@ export const StyledHamburgerMenu = styled.div`
         display: flex;
     }
 `;
-
-export const StyledHamburgerMenuLink = styled.div``;
