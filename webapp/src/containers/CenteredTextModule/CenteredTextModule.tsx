@@ -25,7 +25,7 @@ export const CenteredTextModule = (props: Props) => {
 
     const secondaryActionElement = secondaryAction && (
         <Link
-            variant="outline"
+            variant={backgroundColor}
             type="button"
             to={secondaryAction.pageReference?.path || "/"}
             text={secondaryAction.label}
