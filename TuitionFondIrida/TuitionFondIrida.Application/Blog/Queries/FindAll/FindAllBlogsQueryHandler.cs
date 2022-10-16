@@ -2,7 +2,7 @@
 using TuitionFondIrida.Domain.Models.Common;
 using TuitionFondIrida.Domain.Repositories;
 
-namespace TuitionFondIrida.Application.Blog.Queries;
+namespace TuitionFondIrida.Application.Blog.Queries.FindAll;
 
 public class FindAllBlogsQueryHandler : IQueryHandler<FindAllBlogsQuery, PageOf<Domain.Models.Read.Blog>>
 {

@@ -10,11 +10,11 @@ public class Blog
 
     public string ShortDescription { get; set; }
 
-    public Document Content {get; set;}
+    public Document Content { get; set; }
 
-    public Author Author {get; set;}
+    public Author Author { get; set; }
 
     public IEnumerable<string> Categories { get; set; }
 
-
+    public SystemProperties Sys { get; set; }
 }

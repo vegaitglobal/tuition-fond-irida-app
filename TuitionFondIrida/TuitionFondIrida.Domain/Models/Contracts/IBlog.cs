@@ -2,6 +2,7 @@
 
 public interface IBlog
 {
+    string Id { get; }
     string Title { get; }
 
     string ShortDescription { get; }
