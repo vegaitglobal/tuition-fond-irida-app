@@ -1,18 +1,31 @@
+import { useState } from "react";
 import { StyledProductDetailsDialog } from "./ProductDetailsDialog.style";
 import Modal from 'react-modal';
 import { Product } from "core/models/product";
 import { Button } from "components/Button/Button";
+import { PaymentSlip } from "containers/PaymentSlip/PaymentSlip";
+
 
 Modal.setAppElement('#root');
 
 interface Props {
   isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
   onClose: () => void;
   product?: Product
 }
 
 export const ProductDetailsDialog = (props: Props) => {
-  const { isOpen, onClose, product } = props;
+  const { isOpen, setIsOpen, onClose, product } = props;
+  
+  const [isOpenPaymentSlip, setIsOpenPaymentSlip] = useState(false);
+
+
+  const handleOpenPaymentSlip = () => {
+    console.log("Gandrijev MNodal")
+    setIsOpenPaymentSlip(true);
+    setIsOpen(false);
+  }
 
   return (
     <div>
@@ -49,11 +62,23 @@ export const ProductDetailsDialog = (props: Props) => {
                 <h3 className="product-details-title">{product?.title}</h3>
                 <p className="product-detail-description">{product?.description}</p>
               </div>
-              <Button variant="light" text="Poruči i doniraj" onClick={() => console.log("Prouci i doniraj klik")}></Button>
+              <Button variant="light" text="Poruči i doniraj" onClick={handleOpenPaymentSlip}></Button>
             </div>
           </div>
         </StyledProductDetailsDialog>
       </Modal>
+      <PaymentSlip
+                isOpen={isOpenPaymentSlip}
+                setIsOpen={setIsOpenPaymentSlip}
+                payer=""
+                paymentPurpose=""
+                recipient=""
+                paymentCode=""
+                currency=""
+                amount=""
+                recipientAccount=""
+                buttonText=""
+                buttonUrl="" /> 
     </div>
   );
 };

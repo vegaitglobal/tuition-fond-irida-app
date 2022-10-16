@@ -7,6 +7,7 @@ import { PageOf } from "../../core/models/common/pageOf";
 import { Pagination } from "../../components/Pagination/Pagination";
 import { ProductDetailsDialog } from "components/ProductDetailsDialog/ProductDetailsDialog";
 
+
 export const ProductsSection = () => {
     const [pageOfProducts, setPageOfProducts] = useState<PageOf<Product>>(
         new PageOf<Product>(0, [], 0)
@@ -36,8 +37,10 @@ export const ProductsSection = () => {
 
     return (
         <div>
+            
             <ProductDetailsDialog 
                 isOpen={isOpen}
+                setIsOpen={setIsOpen}
                 onClose={handleCloseProductDetails}
                 product={selectedProduct}
             />
