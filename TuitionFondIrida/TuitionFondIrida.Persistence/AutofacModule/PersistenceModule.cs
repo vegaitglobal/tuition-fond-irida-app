@@ -21,6 +21,8 @@ public class PersistenceModule : Module
         builder.RegisterType<ProductMapper>().AsImplementedInterfaces().InstancePerLifetimeScope();
         builder.RegisterType<AssetMapper>().AsImplementedInterfaces().InstancePerLifetimeScope();
         builder.RegisterType<BlogMapper>().AsImplementedInterfaces().InstancePerLifetimeScope();
+        builder.RegisterType<DocumentMapper>().AsImplementedInterfaces().InstancePerLifetimeScope();
+        builder.RegisterType<AuthorMapper>().AsImplementedInterfaces().InstancePerLifetimeScope();
 
         builder.RegisterAssemblyTypes(typeof(PersistenceModule).Assembly)
             .Where(t => t.IsInNamespaceOf<ProductReadRepository>())

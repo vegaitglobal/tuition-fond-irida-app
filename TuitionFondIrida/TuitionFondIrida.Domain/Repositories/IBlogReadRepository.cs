@@ -1,10 +1,11 @@
 ﻿using CSharpFunctionalExtensions;
+using TuitionFondIrida.Domain.Models.Common;
 using TuitionFondIrida.Domain.Models.Read;
 
 namespace TuitionFondIrida.Domain.Repositories
 {
     public interface IBlogReadRepository
     {
-        Task<IEnumerable<Blog>> FindAllAsync(CancellationToken cancellationToken);
+        Task<PageOf<Blog>> FindAllAsync(int pageNumber, CancellationToken cancellationToken);
     }
 }

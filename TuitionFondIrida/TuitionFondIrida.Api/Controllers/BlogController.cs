@@ -21,11 +21,16 @@ namespace TuitionFondIrida.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<BlogDto>>> FindAllAsync(CancellationToken cancellationToken)
+        public async Task<ActionResult<IEnumerable<PageOfDto<BlogDto>>>> FindAllAsync([FromQuery] int pageNumber,
+        CancellationToken cancellationToken)
         {
-            var blogs = await mediator.Send(new FindAllBlogsQuery(), cancellationToken);
+            var pageOfProducts = await mediator.Send(new FindAllBlogsQuery(pageNumber = 1), cancellationToken);
 
-            return Ok(blogs.Select(blogMapper.Create));   
+            return this.Ok(new PageOfDto<BlogDto> {
+                Total = pageOfProducts.Total,
+                Items = pageOfProducts.Items.Select(this.blogMapper.Create),
+                PageSize = pageOfProducts.PageSize
+            });   
         }
     }
 }

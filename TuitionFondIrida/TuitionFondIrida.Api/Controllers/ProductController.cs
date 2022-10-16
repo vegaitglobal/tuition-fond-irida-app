@@ -24,7 +24,7 @@ public class ProductController : ControllerBase
     public async Task<ActionResult<PageOfDto<ProductDto>>> FindAllAsync([FromQuery] int pageNumber,
         CancellationToken cancellationToken)
     {
-        var pageOfProducts = await this.mediator.Send(new FindAllProductsQuery(pageNumber), cancellationToken);
+        var pageOfProducts = await this.mediator.Send(new FindAllProductsQuery(pageNumber = 1), cancellationToken);
 
         return this.Ok(new PageOfDto<ProductDto>
         {
