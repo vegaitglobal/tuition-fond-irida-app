@@ -1,9 +1,10 @@
-﻿using TuitionFondIrida.Application.Abstractions;
+﻿using MediatR;
+using TuitionFondIrida.Application.Abstractions;
+using TuitionFondIrida.Domain.Models.Common;
 using TuitionFondIrida.Domain.Repositories;
 
-namespace TuitionFondIrida.Application.Blog.Queries
-{
-    public class FindAllBlogsQueryHandler : IQueryHandler<FindAllBlogsQuery, IEnumerable<Domain.Models.Read.Blog>>
+namespace TuitionFondIrida.Application.Blog.Queries;
+    public class FindAllBlogsQueryHandler : IQueryHandler<FindAllBlogsQuery, PageOf<Domain.Models.Read.Blog>>
     {
         private readonly IBlogReadRepository blogReadRepository;
 
@@ -12,9 +13,8 @@ namespace TuitionFondIrida.Application.Blog.Queries
             this.blogReadRepository = blogReadRepository;
         }   
 
-        public async Task<IEnumerable<Domain.Models.Read.Blog>> Handle(FindAllBlogsQuery request, CancellationToken cancellationToken)
+        public async Task<PageOf<Domain.Models.Read.Blog>> Handle(FindAllBlogsQuery request, CancellationToken cancellationToken)
         {
-            return await blogReadRepository.FindAllAsync(cancellationToken);
+            return await blogReadRepository.FindAllAsync(request.PageNumber, cancellationToken);
         }
-    }
 }

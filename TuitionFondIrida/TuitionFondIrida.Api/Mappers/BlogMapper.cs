@@ -7,10 +7,12 @@ namespace TuitionFondIrida.Api.Mappers
     public class BlogMapper : IBlogMapper
     {
         private readonly IAssetMapper assetMapper;
+        private readonly IAuthorMapper authorMapper;
 
-        public BlogMapper(IAssetMapper assetMapper)
+        public BlogMapper(IAssetMapper assetMapper, IAuthorMapper authorMapper)
         {
             this.assetMapper = assetMapper;
+            this.authorMapper = authorMapper;
         }
 
         public BlogDto Create(Blog blog)
@@ -19,7 +21,9 @@ namespace TuitionFondIrida.Api.Mappers
             {
                 Title = blog.Title,
                 ShortDescription = blog.ShortDescription,
-                Image = this.assetMapper.Create(blog.Image)
+                Image = this.assetMapper.Create(blog.Image),
+                Content = blog.Content,
+                BlogAuthor = this.authorMapper.Create(blog.BlogAuthor)
             };
         }
     }

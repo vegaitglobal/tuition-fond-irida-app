@@ -1,9 +1,9 @@
-﻿using TuitionIridaFond.Persistence.Contracts.Models;
+﻿using TuitionFondIrida.Domain.Models.Read;
 
 namespace TuitionFondIrida.Persistence.Mappers.Abstractions
 {
     public interface IBlogMapper
     {
-        Domain.Models.Read.Blog Create(Blog blog);
+        Blog Create(TuitionIridaFond.Persistence.Contracts.Models.Blog blog);
     }
 }
