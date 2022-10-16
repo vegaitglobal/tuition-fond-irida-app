@@ -98,8 +98,8 @@ export interface ContentModule extends Module {
     backgroundColor: "primary" | "secondary" | "accent";
     backgroundImage?: { url: string };
     layout: "split-text-left" | "split-text-right" | "centered" | "left" | "right" | "contact-us";
-    primaryAction: Action | null;
-    secondaryAction: Action | null;
+    primaryAction: Action | PageLink | ExternalLink | Modal | null;
+    secondaryAction: Action | PageLink | ExternalLink | Modal | null;
 }
 
 export interface ProductsModule extends Module {
@@ -113,9 +113,9 @@ export interface BlogsModule extends Module {
 }
 
 export enum ActionType {
-    ExternalLink = "externalLink",
-    PageLink = "pageLink",
-    Modal = "modal",
+    ExternalLink = "ExternalLink",
+    PageLink = "PageLink",
+    Modal = "Modal",
 }
 
 export enum FormType {
@@ -126,22 +126,22 @@ export enum FormType {
 
 export interface Action {
     label: string;
-    _typename: ActionType;
+    __typename: ActionType;
 }
 
 export interface ExternalLink extends Action {
-    _typename: ActionType.ExternalLink;
+    __typename: ActionType.ExternalLink;
     url: string;
 }
 
 export interface PageLink extends Action {
-    _typename: ActionType.PageLink;
+    __typename: ActionType.PageLink;
     pageReference?: {
         path: string;
     };
 }
 
 export interface Modal extends Action {
-    _typename: ActionType.Modal;
-    formType: FormType;
+    __typename: ActionType.Modal;
+    form: FormType;
 }

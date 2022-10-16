@@ -20,7 +20,7 @@ export const CenteredTextModule = (props: Props) => {
         moduleEntry;
 
     const actionElement = (action: PageLink | ExternalLink | Modal | Action | null) => {
-        switch (action?._typename) {
+        switch (action?.__typename) {
             case ActionType.ExternalLink:
                 return (
                     <Link
@@ -41,7 +41,7 @@ export const CenteredTextModule = (props: Props) => {
                     />
                 );
             case ActionType.Modal:
-                switch ((action as Modal).formType) {
+                switch ((action as Modal).form) {
                     case FormType.Contact:
                         return (
                             <Form
