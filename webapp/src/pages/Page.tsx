@@ -9,7 +9,7 @@ import { getModuleEntryComponent } from "../routing/util";
 import { ProductsSection } from "./DonatePage/ProductsSection";
 import { BlogsSection } from "./BlogsPage/BlogsSection";
 import { useParams } from "react-router-dom";
-import { BlogsDetailsPage } from "./BlogsDetailsPage/BlogsDetailsPage";
+import { BlogDetailsPage } from "./BlogsDetailsPage/BlogDetailsPage";
 
 interface Props {
     pageId: string;
@@ -38,7 +38,7 @@ export const Page = (props: Props) => {
                 return <ProductsSection />;
 
             case ModuleType.Blogs:
-                return params.id ? <BlogsDetailsPage /> : <BlogsSection />;
+                return params.id ? <BlogDetailsPage /> : <BlogsSection />;
 
             default:
                 return null;
