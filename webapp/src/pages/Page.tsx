@@ -7,6 +7,7 @@ import {
 } from "../core/services/contentful/queries/getModulesByPageId";
 import { getModuleEntryComponent } from "../routing/util";
 import { ProductsSection } from "./DonatePage/ProductsSection";
+import { BlogsSection } from "./BlogsPage/BlogsSection";
 
 interface Props {
     pageId: string;
@@ -30,6 +31,9 @@ export const Page = (props: Props) => {
 
             case ModuleType.Products:
                 return <ProductsSection />;
+
+            case ModuleType.Blogs:
+                return <BlogsSection />;
 
             default:
                 return null;

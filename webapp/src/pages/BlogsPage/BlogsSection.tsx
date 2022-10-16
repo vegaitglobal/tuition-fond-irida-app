@@ -4,6 +4,7 @@ import { Pagination } from "../../components/Pagination/Pagination";
 import { Blog } from "../../core/models/blog";
 import { fetchBlogs } from "../../core/services";
 import { StyledBlogsSection } from "./BlogsSection.style";
+import { BlogCard } from "../../components/BlogCard/BlogCard";
 
 export const BlogsSection = () => {
     const [pageOfBlogs, setPageOfBlogs] = useState<PageOf<Blog>>(new PageOf<Blog>(0, [], 0));
@@ -25,7 +26,7 @@ export const BlogsSection = () => {
         <div>
             <StyledBlogsSection>
                 {pageOfBlogs.items.map((blog: Blog, index: number) => (
-                    <div>{index}</div>
+                    <BlogCard blog={blog} key={index} />
                 ))}
             </StyledBlogsSection>
             <Pagination
