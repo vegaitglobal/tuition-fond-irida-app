@@ -1,10 +1,11 @@
 import { StyledCenteredTextModule } from "./CenteredTextModule.style";
-import { ModuleEntry } from "../../core/services/contentful/queries/getModulesByPageId";
+import { ContentModule } from "../../core/services/contentful/queries/getModulesByPageId";
 import { Link } from "../../components";
 
 interface Props {
-    moduleEntry: ModuleEntry;
+    moduleEntry: ContentModule;
 }
+
 export const CenteredTextModule = (props: Props) => {
     const { moduleEntry } = props;
     const { header, paragraph, backgroundColor, backgroundImage, primaryAction, secondaryAction } =

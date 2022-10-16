@@ -8,7 +8,7 @@ import {
     SplitTextModule,
     SplitTextRightModule,
 } from "../containers";
-import { ModuleEntry } from "../core/services/contentful/queries/getModulesByPageId";
+import { ContentModule } from "../core/services/contentful/queries/getModulesByPageId";
 
 export const mapPagesToRoutes = (pages: PageReferenceEntry[]) => {
     return pages.map((page) => {
@@ -27,7 +27,7 @@ const mapContentfulPageToPage = (page: PageReferenceEntry) => {
     return <Page key={page.sys.id} pageId={page.sys.id} />;
 };
 
-export const getModuleComponent = (module: ModuleEntry): ReactNode => {
+export const getModuleEntryComponent = (module: ContentModule): ReactNode => {
     switch (module.layout) {
         case "split-text-left":
             return <SplitTextModule textPosition="left" />;

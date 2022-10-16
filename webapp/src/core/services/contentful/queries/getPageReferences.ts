@@ -3,7 +3,7 @@ import { BaseEntry } from "./common";
 export const query = `
     query {
       pageCollection {
-        items{
+        items {
           sys {
             id
           }
