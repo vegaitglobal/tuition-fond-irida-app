@@ -23,7 +23,6 @@ export const Page = (props: Props) => {
         });
     }, []);
 
-    // TODO: Add strategу for non generic modules
     const mappedModules = modules.map((m) => {
         switch (m.__typename) {
             case ModuleType.Content:
