@@ -4,8 +4,6 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using dotenv.net;
 using TuitionFondIrida.Host;
-using IPersistenceProductMapper = TuitionFondIrida.Persistence.Mappers.Abstractions.IProductMapper;
-using PersistenceProductMapper = TuitionFondIrida.Persistence.Mappers.ProductMapper;
 
 // load env vars with the specified options
 DotEnv.Fluent()
