@@ -16,12 +16,13 @@ public class EmailServiceApiAdapter : IEmailServiceApiAdapter
         this.emailMessageFactory = emailMessageFactory;
     }
 
-    public async Task<Result> SendAsync(string firstName, string lastName, string toEmailAddress, string subject,
-        string body, string phoneNumber)
+    public async Task<Result> SendContactUsAsync(string toEmailAddress, string firstName, string lastName,
+        string additionalComment, string phoneNumber)
     {
         try
         {
-            var message = this.emailMessageFactory.Create(toEmailAddress, subject, body, firstName, lastName, phoneNumber);
+            var message = this.emailMessageFactory.CreateForContactUs(firstName, lastName, toEmailAddress,
+                additionalComment, phoneNumber);
             await this.smtpClient.SendMailAsync(message);
             return Result.Success();
         }
@@ -30,4 +31,19 @@ public class EmailServiceApiAdapter : IEmailServiceApiAdapter
             return Result.Failure(ex.Message);
         }
     }
+
+    public async Task<Result> SendOrderAsync(string toEmailAddress, string firstName, string lastName, string additionalComment,
+        string phoneNumber, string productName, string selectedSize)
+    {
+        try
+        {
+            var message = this.emailMessageFactory.CreateForOrder(firstName, lastName, toEmailAddress,
+                additionalComment, phoneNumber, productName, selectedSize);
+            await this.smtpClient.SendMailAsync(message);
+            return Result.Success();
+        }
+        catch (Exception ex)
+        {
+            return Result.Failure(ex.Message);
+        }    }
 }

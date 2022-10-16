@@ -4,5 +4,9 @@ namespace TuitionFondIrida.Application.ApiAdapters;
 
 public interface IEmailServiceApiAdapter
 {
-    Task<Result> SendAsync(string firstName, string lastName, string toEmailAddress, string subject, string body, string phoneNumber);
+    Task<Result> SendContactUsAsync(string toEmailAddress, string firstName, string lastName, string additionalComment,
+        string phoneNumber);
+
+    Task<Result> SendOrderAsync(string toEmailAddress, string firstName, string lastName, string additionalComment,
+        string phoneNumber, string productName, string selectedSize);
 }

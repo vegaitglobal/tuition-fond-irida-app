@@ -11,11 +11,15 @@ interface Props {
     }[];
 }
 
+/**
+ * @deprecated
+ */
+//
 export const FullWidthImageWithTextModule = (props: Props) => {
-    const { title, description, image, buttons } = props;
+    const { title, description, image, buttons, ...rest } = props;
 
     return (
-        <StyledFullWidthImageWithTextModule>
+        <StyledFullWidthImageWithTextModule {...rest}>
             <img src={image} alt={title} />
             <h1>{title}</h1>
             <p>{description}</p>

@@ -12,9 +12,33 @@ public class EmailMessageFactory
         this.configuration = configuration;
     }
 
-    public MailMessage Create(string to, string subject, string body, string firstName, string lastName,
-        string phoneNumber)
+    public MailMessage CreateForContactUs(string firstName, string lastName, string toEmailAddress,
+        string additionalComment, string phoneNumber)
     {
-        return new MailMessage(this.configuration["AppSettings:EmailClient:FromEmailAddress"], to, subject, body);
+        var message = new MailMessage();
+        message.From = new MailAddress(this.configuration["AppSettings:EmailClient:FromEmailAddress"]);
+        message.Subject = "Putevima devjočica: Kontakt forma";
+        message.To.Add(new MailAddress(this.configuration["AppSettings:EmailClient:FromEmailAddress"]));
+        message.Body =
+            new ConvertableContactUsTemplate(firstName, lastName, toEmailAddress, additionalComment, phoneNumber)
+                .Convert();
+        message.IsBodyHtml = true;
+
+        return message;
+    }
+
+    public MailMessage CreateForOrder(string firstName, string lastName, string toEmailAddress,
+        string additionalComment, string phoneNumber, string productName, string selectedSize)
+    {
+        var message = new MailMessage();
+        message.From = new MailAddress(this.configuration["AppSettings:EmailClient:FromEmailAddress"]);
+        message.Subject = "Putevima devjočica: Narudžbina";
+        message.To.Add(new MailAddress(this.configuration["AppSettings:EmailClient:FromEmailAddress"]));
+        message.Body = new ConvertableOrderEmailTemplate(firstName, lastName, toEmailAddress, additionalComment,
+                phoneNumber, productName, selectedSize)
+            .Convert();
+        message.IsBodyHtml = true;
+
+        return message;
     }
 }
