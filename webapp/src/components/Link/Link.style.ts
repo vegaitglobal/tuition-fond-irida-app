@@ -69,6 +69,18 @@ export const StyledLink = styled.div`
             color: ${(props) => props.theme.colors.primary.main};
         }
     }
+    & .button-link.secondary {
+        background-color: ${(props) => props.theme.colors.primary.main};
+        color: ${(props) => props.theme.colors.white.main};
+        border: 3px solid ${(props) => props.theme.colors.white.main};
+        & a {
+            color: ${(props) => props.theme.colors.white.main};
+        }
+        &:hover {
+            background-color: ${(props) => props.theme.colors.primary.light};
+            color: ${(props) => props.theme.colors.white.main};
+        }
+    }
 
     & .link {
         & a {

@@ -6,10 +6,10 @@ interface Props {
     text: string;
     onClick?: () => void;
     type?: "link" | "button";
-    variant?: "accent" | "light" | "outline" | "primary";
+    variant?: "accent" | "light" | "outline" | "primary" | "secondary";
 }
 export const Link = (props: Props) => {
-    const { to, text, type = "link", variant = "light", onClick } = props;
+    const { to, text, type = "link", variant = "outline", onClick } = props;
 
     return (
         <StyledLink onClick={onClick}>
