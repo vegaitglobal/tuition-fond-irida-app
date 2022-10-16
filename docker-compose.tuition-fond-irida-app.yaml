@@ -1,0 +1,26 @@
+version: "3.4"
+
+services:
+  api:
+    image: codeforacause/tuition-fond-irida-app:backend-#{TAG_NUMBER}#
+    container_name: animal-rescue-api
+    ports:
+      - 5069
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - AppSettings__Contentful__DeliveryApiKey=#{DELIVERYAPIKEY}#
+      - AppSettings__Contentful__PreviewApiKey=#{PREVIEWAPIKEY}#
+      - AppSettings__Contentful__SpaceId=#{SPACEID}#
+      - AppSettings__Contentful__Environment=content
+      - AppSettings__EmailClient__FromEmailAddress=#{FROMEMAILADDRESS}#
+      - AppSettings__EmailClient__FromEmailPassword=#{FROMEMAILPASSWORD}#
+      - AppSettings__EmailClient__SmtpClient=smtp.gmail.com
+  web:
+    image: codeforacause/tuition-fond-irida-app:web-#{TAG_NUMBER}#
+    container_name: animal-rescue-web
+    ports:
+      - "23000:3000"
+    environment:
+      - REACT_APP_API_URL=http://api
+      - REACT_APP_CONTENTFUL_DELIVERY_ACCESS_KEY=#{DELIVERY_ACCESS_KEY}#
+      - REACT_APP_CONTENTFUL_BASE_GRAPHQL_URL=https://graphql.contentful.com/content/v1/spaces/lpy11m2kyblz/environments/ui

@@ -1,0 +1,32 @@
+version: "3.4"
+
+services:
+  api:
+    image: backend
+    container_name: tuition-fond-irida-api
+    build:
+      context: ./TuitionFondIrida
+      dockerfile: Dockerfile
+    ports:
+      - "5069:5069"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - AppSettings__Contentful__DeliveryApiKey=HxrNOV1a7s9COg8aTTccZ6ea-fKJp_pTFisSB7V39QI
+      - AppSettings__Contentful__PreviewApiKey=3gcaI5XMI2BlQ3RNdgU103Fs2NOd3-sBtkSDMC-5jzM
+      - AppSettings__Contentful__SpaceId=lpy11m2kyblz
+      - AppSettings__Contentful__Environment=content
+      - AppSettings__EmailClient__FromEmailAddress=igormalesevic98@gmail.com
+      - AppSettings__EmailClient__FromEmailPassword=wlqznstbyepwrkcp
+      - AppSettings__EmailClient__SmtpClient=smtp.gmail.com
+  web:
+    image: web
+    container_name: tuition-fond-irida-web
+    build:
+      context: ./webapp
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=https://localhost:5069
+      - REACT_APP_CONTENTFUL_DELIVERY_ACCESS_KEY=7SQyuMHmByLkSsY3_-St4FeOhPbbeNx3JnLyS9PmcaE
+      - REACT_APP_CONTENTFUL_BASE_GRAPHQL_URL=https://graphql.contentful.com/content/v1/spaces/lpy11m2kyblz/environments/ui
