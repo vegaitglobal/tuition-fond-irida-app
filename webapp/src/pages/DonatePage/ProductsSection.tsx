@@ -5,12 +5,15 @@ import { Card } from "../../components/Card/Card";
 import { StyledProductsSection } from "./ProductsSection.style";
 import { PageOf } from "../../core/models/common/pageOf";
 import { Pagination } from "../../components/Pagination/Pagination";
+import { ProductDetailsDialog } from "components/ProductDetailsDialog/ProductDetailsDialog";
 
 export const ProductsSection = () => {
     const [pageOfProducts, setPageOfProducts] = useState<PageOf<Product>>(
         new PageOf<Product>(0, [], 0)
     );
     const [currentPage, setCurrentPage] = useState<number>(1);
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedProduct, setSelectedProduct] = useState<Product | undefined>(undefined);
 
     useEffect(() => {
         fetchProducts(currentPage).then((pageOfProducts: PageOf<Product>) => {
@@ -18,7 +21,14 @@ export const ProductsSection = () => {
         });
     }, [currentPage]);
 
-    const handleClickCard = () => {};
+    const handleOpenProductDetails = (product: Product) => {
+        setSelectedProduct(product);
+        setIsOpen(true);
+    };
+
+    const handleCloseProductDetails = () => {
+        setIsOpen(false);
+    };
 
     const handleClickPaginationButton = (newPageNumber: number) => {
         setCurrentPage(newPageNumber);
@@ -26,13 +36,17 @@ export const ProductsSection = () => {
 
     return (
         <div>
+            <ProductDetailsDialog 
+                isOpen={isOpen}
+                onClose={handleCloseProductDetails}
+                product={selectedProduct}
+            />
             <StyledProductsSection>
                 {pageOfProducts.items.map((product: Product, index: number) => (
                     <Card
                         key={index}
-                        imageUrl={product.image.file.url}
-                        imageAltTitle={product.image.title}
-                        onClick={handleClickCard}
+                        product={product}
+                        onClick={handleOpenProductDetails}
                     />
                 ))}
             </StyledProductsSection>
