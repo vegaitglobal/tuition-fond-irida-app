@@ -1,19 +1,19 @@
 import { StyledCard } from "./Card.style";
 import { Button } from "../Button/Button";
+import { Product } from "core/models/product";
 
 interface Props {
-    imageUrl: string;
-    imageAltTitle: string;
-    onClick: () => void;
+    product: Product;
+    onClick: (product: Product) => void;
 }
 
 export const Card = (props: Props) => {
-    const { imageUrl, imageAltTitle, onClick } = props;
+    const {product, onClick } = props;
 
     return (
-        <StyledCard style={{ backgroundImage: `url('${imageUrl}'` }}>
-            <img src={imageUrl} alt={imageAltTitle} />
-            <Button text="Poruči i doniraj" />
+        <StyledCard style={{ backgroundImage: `url('${product.image.file.url}'` }}>
+            <img src={product.image.file.url} alt={product.image.title} />
+            <Button text="Poruči i doniraj" onClick={() => onClick(product)}/>
         </StyledCard>
     );
 };
