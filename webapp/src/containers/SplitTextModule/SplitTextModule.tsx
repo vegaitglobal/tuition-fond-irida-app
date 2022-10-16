@@ -1,6 +1,7 @@
 import { Link } from "components";
 import { ContentModule } from "core/services/contentful/queries/getModulesByPageId";
 import { StyledSplitTextModule } from "./SplitTextModule.style";
+import Markdown from "markdown-to-jsx";
 
 export enum TextPosition {
     "left",
@@ -36,7 +37,7 @@ export const SplitTextModule = (props: Props) => {
                             <div className="content">
 
                                 <h1 >{header}</h1>
-                                <p>{paragraph}</p>
+                                <Markdown>{paragraph || ""}</Markdown>
                                 {primaryActionElement}
                             </div>
                         </div>
