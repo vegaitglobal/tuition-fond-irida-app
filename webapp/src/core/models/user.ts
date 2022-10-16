@@ -1,23 +1,23 @@
 export class User {
     firstName: string;
     lastName: string;
-    email: string;
+    emailAddress: string;
     phoneNumber: string;
-    comment: string;
+    additionalComment: string;
     size?: string;
     constructor(
         firstName: string,
         lastName: string,
-        email: string,
+        emailAddress: string,
         phoneNumber: string,
-        comment: string,
+        additionalComment: string,
         size?: string
     ) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
+        this.emailAddress = emailAddress;
         this.phoneNumber = phoneNumber;
-        this.comment = comment;
+        this.additionalComment = additionalComment;
         this.size = size;
     }
 }

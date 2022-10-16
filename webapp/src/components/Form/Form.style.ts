@@ -29,4 +29,9 @@ export const StyledForm = styled.div`
             font-weight: 700;
         }
     }
+
+    & .button-container {
+        border-radius: 20px;
+        text-align: center;
+    }
 `;

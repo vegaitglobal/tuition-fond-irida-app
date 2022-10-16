@@ -37,7 +37,7 @@ public class BlogController : ControllerBase
 
 
     [HttpGet]
-    [Route("/:{id}")]
+    [Route("{id}")]
     public async Task<ActionResult<BlogDto>> FindByIdAsync([FromRoute] string id,
         CancellationToken cancellationToken)
     {

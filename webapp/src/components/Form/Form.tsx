@@ -1,3 +1,6 @@
+import { Button } from "components/Button/Button";
+import { User } from "core/models/user";
+import { sendContactUsEmailAsync } from "core/services/email.service";
 import { useState } from "react";
 import { StyledForm } from "./Form.style";
 import { FormInput } from "./FormInput/FormInput";
@@ -10,14 +13,50 @@ export const Form = (props: Props) => {
     const { darkMode, showSizeDropdown } = props;
     // TODO - propagate sizes
     const sizeOptions = ["XS", "S", "M", "L", "XL", "XXL"];
-    const [userData, setUserData] = useState({});
+    const [userData, setUserData] = useState({} as User);
 
-    const onInputChange = (event: any) => {
-        const { name: key, value } = event.target;
+    const onEmailChange = (event: any) => {
+        const { value } = event.target;
         setUserData((prev: any) => ({
             ...prev,
-            [key]: value,
+            emailAddress: value,
         }));
+    };
+
+    const onFirstNameChange = (event: any) => {
+        const { value } = event.target;
+        setUserData((prev: any) => ({
+            ...prev,
+            firstName: value,
+        }));
+    };
+
+    const onLastNameChange = (event: any) => {
+        const { value } = event.target;
+        setUserData((prev: any) => ({
+            ...prev,
+            lastName: value,
+        }));
+    };
+
+    const onPhoneNumberChange = (event: any) => {
+        const { value } = event.target;
+        setUserData((prev: any) => ({
+            ...prev,
+            phoneNumber: value,
+        }));
+    };
+
+    const onCommentChange = (event: any) => {
+        const { value } = event.target;
+        setUserData((prev: any) => ({
+            ...prev,
+            additionalComment: value,
+        }));
+    };
+
+    const onClick = () => {
+        sendContactUsEmailAsync(userData);
     };
 
     const handleSelect = (event: any) => {
@@ -34,35 +73,35 @@ export const Form = (props: Props) => {
                 <div className="horizontal-container">
                     <FormInput
                         text="Ime"
-                        key="ime"
+                        key="name"
                         darkMode={darkMode}
-                        onChange={onInputChange}
+                        onChange={onFirstNameChange}
                     ></FormInput>
                     <FormInput
                         text="Prezime"
-                        key="prezime"
+                        key="lastName"
                         darkMode={darkMode}
-                        onChange={onInputChange}
+                        onChange={onLastNameChange}
                     ></FormInput>
                 </div>
                 <FormInput
                     text="Email"
                     key="email"
                     darkMode={darkMode}
-                    onChange={onInputChange}
+                    onChange={onEmailChange}
                 ></FormInput>
                 <FormInput
                     text="Broj telefona"
-                    key="brojTelefona"
+                    key="phoneNumber"
                     darkMode={darkMode}
-                    onChange={onInputChange}
+                    onChange={onPhoneNumberChange}
                 ></FormInput>
                 <FormInput
                     text="Komentar"
-                    key="komentar"
+                    key="comment"
                     textArea
                     darkMode={darkMode}
-                    onChange={onInputChange}
+                    onChange={onCommentChange}
                 ></FormInput>
                 {showSizeDropdown && (
                     <select onChange={handleSelect}>
@@ -71,6 +110,9 @@ export const Form = (props: Props) => {
                         ))}
                     </select>
                 )}
+                <div className="button-container">
+                    <Button onClick={onClick} text="Poruči i doniraj" variant="primary" />
+                </div>
             </div>
         </StyledForm>
     );
