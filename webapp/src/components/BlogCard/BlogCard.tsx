@@ -1,6 +1,7 @@
 import { Blog } from "../../core/models/blog";
 import { StyledBlogCard } from "./BlogCard.style";
 import { Button } from "../Button/Button";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
     blog: Blog;
@@ -8,6 +9,12 @@ interface Props {
 
 export const BlogCard = (props: Props) => {
     const { blog } = props;
+    const navigate = useNavigate();
+
+    const handleClickCard = () => {
+        navigate(`${blog.id}`, { replace: false });
+    };
+
     return (
         <StyledBlogCard>
             <div className="blog-card-image-wrapper" style={{}}>
@@ -16,6 +23,7 @@ export const BlogCard = (props: Props) => {
             <div className="blog-card-title">{blog.title}</div>
             <div className="blog-card-description">{blog.shortDescription}</div>
             <Button text="Pročitaj opširnije" variant="light" />
+            <button onClick={handleClickCard}>Temp button</button>
         </StyledBlogCard>
     );
 };

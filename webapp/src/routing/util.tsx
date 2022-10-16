@@ -12,7 +12,22 @@ import {
 import { ContentModule } from "../core/services/contentful/queries/getModulesByPageId";
 
 export const mapPagesToRoutes = (pages: PageReferenceEntry[]) => {
-    return pages.map((page) => {
+    const allPages = pages.reduce((previousValue, currentValue) => {
+        if (!currentValue.path.includes("/:")) return [...previousValue, currentValue];
+
+        return [
+            ...previousValue,
+            currentValue,
+            {
+                path: currentValue.path.split("/:")[0],
+                sys: currentValue.sys,
+                //TODO: specific title
+                title: currentValue.title,
+            },
+        ];
+    }, [] as PageReferenceEntry[]);
+
+    return allPages.map((page) => {
         return (
             <Route
                 key={page.path}

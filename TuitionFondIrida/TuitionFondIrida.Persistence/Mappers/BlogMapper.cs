@@ -16,12 +16,12 @@ namespace TuitionFondIrida.Persistence.Mappers;
             this.authorMapper = authorMapper;
         }
 
-        public Domain.Models.Read.Blog Create(Blog blog)
+        public Domain.Models.Read.Blog Create(Blog blog, string blogId)
         {
             var blogImage = this.assetMapper.Create(blog.Image);
             var content = this.documentMapper.MapDocument(blog.Content);
             var blogAuthor = this.authorMapper.Create(blog.Author);
-            return new Domain.Models.Read.Blog(blog.Title, blog.ShortDescription, blogImage, content, blog.Categories, blogAuthor);
+            return new Domain.Models.Read.Blog(blogId, blog.Title, blog.ShortDescription, blogImage, content, blog.Categories, blogAuthor);
         }
     }
 
