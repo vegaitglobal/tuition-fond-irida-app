@@ -1,6 +1,7 @@
 import {
     AccentButton,
     PrimaryButton,
+    SecondaryButton,
     DefaultButton,
     OutlinedButton,
     LightButton,
@@ -8,16 +9,18 @@ import {
 
 interface Props {
     text: string;
-    variant?: "primary" | "accent" | "outlined" | "light" | "default";
+    variant?: "primary" | "secondary" | "accent" | "outlined" | "light" | "default";
 }
 export const Button = (props: Props) => {
-    const { text, variant = "primary" } = props;
+    const { text, variant = "secondary" } = props;
 
     switch (variant) {
         case "accent":
             return <AccentButton>{text}</AccentButton>;
         case "primary":
             return <PrimaryButton>{text}</PrimaryButton>;
+        case "secondary":
+            return <SecondaryButton>{text}</SecondaryButton>;
         case "outlined":
             return <OutlinedButton>{text}</OutlinedButton>;
         case "light":
