@@ -1,7 +1,7 @@
 ﻿using TuitionFondIrida.Application.Abstractions;
 using TuitionFondIrida.Domain.Models.Common;
 
-namespace TuitionFondIrida.Application.Blog.Queries;
+namespace TuitionFondIrida.Application.Blog.Queries.FindAll;
 
 public class FindAllBlogsQuery : IQuery<PageOf<Domain.Models.Read.Blog>>
 {

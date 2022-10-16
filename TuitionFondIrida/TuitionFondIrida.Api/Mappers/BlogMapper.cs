@@ -2,29 +2,30 @@
 using TuitionFondIrida.Api.Mappers.Abstractions;
 using TuitionFondIrida.Domain.Models.Read;
 
-namespace TuitionFondIrida.Api.Mappers
+namespace TuitionFondIrida.Api.Mappers;
+
+public class BlogMapper : IBlogMapper
 {
-    public class BlogMapper : IBlogMapper
+    private readonly IAssetMapper assetMapper;
+    private readonly IAuthorMapper authorMapper;
+
+    public BlogMapper(IAssetMapper assetMapper, IAuthorMapper authorMapper)
     {
-        private readonly IAssetMapper assetMapper;
-        private readonly IAuthorMapper authorMapper;
+        this.assetMapper = assetMapper;
+        this.authorMapper = authorMapper;
+    }
 
-        public BlogMapper(IAssetMapper assetMapper, IAuthorMapper authorMapper)
+    public BlogDto Create(Blog blog)
+    {
+        return new BlogDto
         {
-            this.assetMapper = assetMapper;
-            this.authorMapper = authorMapper;
-        }
-
-        public BlogDto Create(Blog blog)
-        {
-            return new BlogDto
-            {
-                Title = blog.Title,
-                ShortDescription = blog.ShortDescription,
-                Image = this.assetMapper.Create(blog.Image),
-                Content = blog.Content,
-                BlogAuthor = this.authorMapper.Create(blog.BlogAuthor)
-            };
-        }
+            Id = blog.Id,
+            Title = blog.Title,
+            ShortDescription = blog.ShortDescription,
+            Image = this.assetMapper.Create(blog.Image),
+            Content = blog.Content,
+            BlogAuthor = this.authorMapper.Create(blog.BlogAuthor),
+            Categories = blog.Categories
+        };
     }
 }
