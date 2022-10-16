@@ -20,9 +20,9 @@ public class Blog : IBlog
 
     public IAsset Image { get; }
 
-    public string Content {get; set;}
+    public string Content {get; }
 
-    public IAuthor BlogAuthor {get; set;}
+    public IAuthor BlogAuthor {get; }
 
-    public IEnumerable<string> Categories { get; set; }
+    public IEnumerable<string> Categories { get; }
 }

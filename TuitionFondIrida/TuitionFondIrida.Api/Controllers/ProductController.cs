@@ -21,10 +21,10 @@ public class ProductController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<PageOfDto<ProductDto>>> FindAllAsync([FromQuery] int pageNumber,
+    public async Task<ActionResult<PageOfDto<ProductDto>>> FindAllAsync([FromQuery] int? pageNumber,
         CancellationToken cancellationToken)
     {
-        var pageOfProducts = await this.mediator.Send(new FindAllProductsQuery(pageNumber = 1), cancellationToken);
+        var pageOfProducts = await this.mediator.Send(new FindAllProductsQuery(pageNumber ?? 1), cancellationToken);
 
         return this.Ok(new PageOfDto<ProductDto>
         {
