@@ -4,6 +4,7 @@ import { PageReferenceEntry } from "../core/services/contentful/queries/getPageR
 import { ReactNode } from "react";
 import {
     CenteredTextModule,
+    ContactUsModule,
     SplitTextLeftModule,
     SplitTextModule,
     SplitTextRightModule,

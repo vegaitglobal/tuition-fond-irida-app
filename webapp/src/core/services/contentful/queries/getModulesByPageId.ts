@@ -20,6 +20,10 @@ export const generateQuery = (pageId: string) => {
               label
               url
             }
+            ... on Modal {
+              label
+              form
+            }
           }
           secondaryAction {
             __typename
@@ -32,6 +36,10 @@ export const generateQuery = (pageId: string) => {
             ... on ExternalLink {
               label
               url
+            }
+            ... on Modal {
+              label
+              form
             }
           }
         }
@@ -89,9 +97,9 @@ export interface ContentModule extends Module {
     paragraph?: string;
     backgroundColor: "primary" | "secondary" | "accent";
     backgroundImage?: { url: string };
-    layout: "split-text-left" | "split-text-right" | "centered" | "left" | "right";
-    primaryAction: Action | null;
-    secondaryAction: Action | null;
+    layout: "split-text-left" | "split-text-right" | "centered" | "left" | "right" | "contact-us";
+    primaryAction: Action | PageLink | ExternalLink | Modal | null;
+    secondaryAction: Action | PageLink | ExternalLink | Modal | null;
 }
 
 export interface ProductsModule extends Module {
@@ -104,9 +112,36 @@ export interface BlogsModule extends Module {
     itemsPerPage: number;
 }
 
-interface Action {
+export enum ActionType {
+    ExternalLink = "ExternalLink",
+    PageLink = "PageLink",
+    Modal = "Modal",
+}
+
+export enum FormType {
+    Contact = "contact",
+    Donate = "donate",
+    Quiz = "quiz",
+}
+
+export interface Action {
     label: string;
+    __typename: ActionType;
+}
+
+export interface ExternalLink extends Action {
+    __typename: ActionType.ExternalLink;
+    url: string;
+}
+
+export interface PageLink extends Action {
+    __typename: ActionType.PageLink;
     pageReference?: {
         path: string;
     };
+}
+
+export interface Modal extends Action {
+    __typename: ActionType.Modal;
+    form: FormType;
 }

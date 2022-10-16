@@ -1,11 +1,19 @@
-import { Link } from "components";
-import { ContentModule } from "core/services/contentful/queries/getModulesByPageId";
+import { Form, Link } from "components";
+import {
+    Action,
+    ActionType,
+    ContentModule,
+    ExternalLink,
+    FormType,
+    Modal,
+    PageLink,
+} from "core/services/contentful/queries/getModulesByPageId";
 import { StyledSplitTextModule } from "./SplitTextModule.style";
 import Markdown from "markdown-to-jsx";
 
 export enum TextPosition {
     "left",
-    "right"
+    "right",
 }
 
 interface Props {
@@ -15,30 +23,76 @@ interface Props {
 export const SplitTextModule = (props: Props) => {
     const { textPosition, moduleEntry } = props;
     const { header, paragraph, backgroundImage, backgroundColor, primaryAction } = moduleEntry;
-    console.log(backgroundColor);
 
-    const primaryActionElement = primaryAction && (
-        <Link
-            variant={backgroundColor == "secondary" ? "primary" : "secondary"}
-            type="button"
-            to={primaryAction.pageReference?.path || "/"}
-            text={primaryAction.label}
-        />
-    );
+    const actionElement = (action: PageLink | ExternalLink | Modal | Action | null) => {
+        console.log({ action });
+        switch (action?.__typename) {
+            case ActionType.ExternalLink:
+                return (
+                    <Link
+                        variant="outline"
+                        type="button"
+                        external={true}
+                        to={(action as ExternalLink).url || "/"}
+                        text={action.label}
+                    />
+                );
+            case ActionType.PageLink:
+                return (
+                    <Link
+                        variant="primary"
+                        type="button"
+                        to={(action as PageLink).pageReference?.path || "/"}
+                        text={action.label}
+                    />
+                );
+            case ActionType.Modal:
+                console.log("Modal");
+                switch ((action as Modal).form) {
+                    case FormType.Contact:
+                        console.log("contact");
+                        return (
+                            <Form
+                                showSizeDropdown={false}
+                                darkMode={backgroundColor === "primary" ? false : true}
+                            ></Form>
+                        );
+                    case FormType.Donate:
+                        return (
+                            <Form
+                                showSizeDropdown
+                                darkMode={backgroundColor === "primary" ? false : true}
+                            ></Form>
+                        );
+                    case FormType.Quiz:
+                        return (
+                            <Form
+                                showSizeDropdown
+                                darkMode={backgroundColor === "primary" ? false : true}
+                            ></Form>
+                        );
+                    default:
+                        return null;
+                }
+            default:
+                return null;
+        }
+    };
     const style = backgroundColor == "secondary" ? "secondary" : "primary";
 
     return (
         <>
-            {textPosition == TextPosition.left ? (
+            {textPosition === TextPosition.left ? (
                 <StyledSplitTextModule>
                     <div className={backgroundColor == "secondary" ? "secondary" : "primary"}>
                         <img src={backgroundImage?.url} alt={header} />
                         <div className={style}>
                             <div className="content">
-
-                                <h1 >{header}</h1>
-                                <Markdown>{paragraph || ""}</Markdown>
-                                {primaryActionElement}
+                                <>
+                                    <h1>{header}</h1>
+                                    <Markdown>{paragraph || ""}</Markdown>
+                                    {actionElement(primaryAction)}
+                                </>
                             </div>
                         </div>
                     </div>
@@ -48,16 +102,17 @@ export const SplitTextModule = (props: Props) => {
                     <div className={backgroundColor == "secondary" ? "secondary" : "primary"}>
                         <div className={backgroundColor == "secondary" ? "secondary" : "primary"}>
                             <div className="content">
-                                <h1>{header}</h1>
-                                <p>{paragraph}</p>
-                                {primaryActionElement}
+                                <>
+                                    <h1>{header}</h1>
+                                    <p>{paragraph}</p>
+                                    {actionElement(primaryAction)}
+                                </>
                             </div>
                         </div>
                         <img src={backgroundImage?.url} alt={header} />
                     </div>
-                </StyledSplitTextModule >
-            )
-            }
+                </StyledSplitTextModule>
+            )}
         </>
-    )
+    );
 };
