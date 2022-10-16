@@ -7,4 +7,5 @@ public interface IAsset
     string Title { get; }
 
     IFile File { get; }
+
 }

@@ -83,7 +83,7 @@ export interface GetModulesByPageIdResponse {
 
 export enum ModuleType {
     Content = "Module",
-    Blogs = "BlogsModule",
+    Blogs = "BlogModule",
     Products = "ProductsModule",
 }
 

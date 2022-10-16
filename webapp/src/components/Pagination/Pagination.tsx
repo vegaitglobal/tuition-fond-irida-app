@@ -15,9 +15,14 @@ export const Pagination = (props: Props) => {
         handlePageNumberClick(pageNumber);
     };
 
+    const totalCountOfPages =
+        totalCountOfItems % pageSize !== 0
+            ? totalCountOfItems / pageSize + 1
+            : totalCountOfItems / pageSize;
+
     return (
         <StyledPagination>
-            {Array.from({ length: totalCountOfItems / pageSize }, (_, i) => (
+            {Array.from({ length: totalCountOfPages }, (_, i) => (
                 <button
                     key={i}
                     className={activePageNumber === i + 1 ? "active" : ""}

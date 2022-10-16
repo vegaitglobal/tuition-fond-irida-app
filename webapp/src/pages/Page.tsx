@@ -7,6 +7,9 @@ import {
 } from "../core/services/contentful/queries/getModulesByPageId";
 import { getModuleEntryComponent } from "../routing/util";
 import { ProductsSection } from "./DonatePage/ProductsSection";
+import { BlogsSection } from "./BlogsPage/BlogsSection";
+import { useParams } from "react-router-dom";
+import { BlogsDetailsPage } from "./BlogsDetailsPage/BlogsDetailsPage";
 
 interface Props {
     pageId: string;
@@ -14,6 +17,9 @@ interface Props {
 
 export const Page = (props: Props) => {
     const { pageId } = props;
+    const params = useParams();
+    console.log("params");
+    console.log(params);
 
     const [modules, setModules] = useState<Module[]>([]);
 
@@ -30,6 +36,9 @@ export const Page = (props: Props) => {
 
             case ModuleType.Products:
                 return <ProductsSection />;
+
+            case ModuleType.Blogs:
+                return params.id ? <BlogsDetailsPage /> : <BlogsSection />;
 
             default:
                 return null;

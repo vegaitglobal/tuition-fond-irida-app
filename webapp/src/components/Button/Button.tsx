@@ -1,6 +1,7 @@
 import {
     AccentButton,
     PrimaryButton,
+    SecondaryButton,
     DefaultButton,
     OutlinedButton,
     LightButton,
@@ -8,21 +9,24 @@ import {
 
 interface Props {
     text: string;
-    variant?: "primary" | "accent" | "outlined" | "light" | "default";
+    variant?: "primary" | "secondary" | "accent" | "outlined" | "light" | "default";
+    onClick?: () => void;
 }
 export const Button = (props: Props) => {
-    const { text, variant = "primary" } = props;
+    const { text, variant = "secondary", onClick } = props;
 
     switch (variant) {
         case "accent":
-            return <AccentButton>{text}</AccentButton>;
+            return <AccentButton onClick={onClick}>{text}</AccentButton>;
         case "primary":
-            return <PrimaryButton>{text}</PrimaryButton>;
+            return <PrimaryButton onClick={onClick}>{text}</PrimaryButton>;
+        case "secondary":
+            return <SecondaryButton onClick={onClick}>{text}</SecondaryButton>;
         case "outlined":
-            return <OutlinedButton>{text}</OutlinedButton>;
+            return <OutlinedButton onClick={onClick}>{text}</OutlinedButton>;
         case "light":
-            return <LightButton>{text}</LightButton>;
+            return <LightButton onClick={onClick}>{text}</LightButton>;
         default:
-            return <DefaultButton>{text}</DefaultButton>;
+            return <DefaultButton onClick={onClick}>{text}</DefaultButton>;
     }
 };
