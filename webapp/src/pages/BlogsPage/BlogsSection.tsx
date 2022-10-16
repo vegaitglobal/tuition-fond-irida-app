@@ -23,11 +23,13 @@ export const BlogsSection = () => {
     };
 
     return (
-        <div>
+        <>
             <StyledBlogsSection>
-                {pageOfBlogs.items.map((blog: Blog, index: number) => (
-                    <BlogCard blog={blog} key={index} />
-                ))}
+                <div className="blog-cards-wrapper">
+                    {pageOfBlogs.items.map((blog: Blog, index: number) => (
+                        <BlogCard blog={blog} key={index} />
+                    ))}
+                </div>
             </StyledBlogsSection>
             <Pagination
                 pageSize={pageOfBlogs.pageSize}
@@ -35,6 +37,6 @@ export const BlogsSection = () => {
                 handlePageNumberClick={handleClickPaginationButton}
                 activePageNumber={currentPage}
             />
-        </div>
+        </>
     );
 };

@@ -1,5 +1,6 @@
 import { Blog } from "../../core/models/blog";
 import { StyledBlogCard } from "./BlogCard.style";
+import { Button } from "../Button/Button";
 
 interface Props {
     blog: Blog;
@@ -13,7 +14,8 @@ export const BlogCard = (props: Props) => {
                 <img src={blog.image.file.url} alt={blog.image.title} />
             </div>
             <div className="blog-card-title">{blog.title}</div>
-            <div className="blog-card-description">asdfasdfasdf{blog.description}</div>
+            <div className="blog-card-description">{blog.shortDescription}</div>
+            <Button text="Pročitaj opširnije" variant="light" />
         </StyledBlogCard>
     );
 };

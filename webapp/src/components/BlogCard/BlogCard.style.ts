@@ -6,8 +6,9 @@ export const StyledBlogCard = styled.div`
     border-radius: 50px;
     width: 455px;
     height: 519px;
-    margin: 50px;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
 
     & div.blog-card-image-wrapper {
         height: 238px;
@@ -35,5 +36,10 @@ export const StyledBlogCard = styled.div`
         line-height: 18px;
         font-family: Lato, sans-serif;
         margin-top: 15px;
+    }
+
+    & Button {
+        margin-top: 23px;
+        align-self: center;
     }
 `;
