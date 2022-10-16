@@ -14,6 +14,9 @@ export const StyledBlogCard = styled.div`
         height: 238px;
         overflow: hidden;
         margin-bottom: 20px;
+        & .background {
+            background-color: ${(props) => props.theme.colors.primary.main};
+        }
 
         & img {
             width: 100%;

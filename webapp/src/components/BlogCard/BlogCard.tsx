@@ -8,10 +8,11 @@ interface Props {
 
 export const BlogCard = (props: Props) => {
     const { blog } = props;
+    var className = blog.image.file.url ? "blog-card-image-wrapper" :"blog-card-image-wrapper background";
     return (
         <StyledBlogCard>
-            <div className="blog-card-image-wrapper" style={{}}>
-                <img src={blog.image.file.url} alt={blog.image.title} />
+            <div className = {className} style={{}} >
+                { blog.image.file.url && (<img src={blog.image.file.url} alt={blog.image.title} />)}                
             </div>
             <div className="blog-card-title">{blog.title}</div>
             <div className="blog-card-description">{blog.shortDescription}</div>
