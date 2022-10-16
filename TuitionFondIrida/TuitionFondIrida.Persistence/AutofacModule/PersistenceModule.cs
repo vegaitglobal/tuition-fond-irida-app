@@ -20,6 +20,7 @@ public class PersistenceModule : Module
     {
         builder.RegisterType<ProductMapper>().AsImplementedInterfaces().InstancePerLifetimeScope();
         builder.RegisterType<AssetMapper>().AsImplementedInterfaces().InstancePerLifetimeScope();
+        builder.RegisterType<QuizMapper>().AsImplementedInterfaces().InstancePerLifetimeScope();
 
         builder.RegisterAssemblyTypes(typeof(PersistenceModule).Assembly)
             .Where(t => t.IsInNamespaceOf<ProductReadRepository>())
