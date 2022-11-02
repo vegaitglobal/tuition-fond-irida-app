@@ -19,7 +19,7 @@ services:
     image: codeforacause/tuition-fond-irida-app:web-#{TAG_NUMBER}#
     container_name: fond-irida-web
     ports:
-      - "23000:3000"
+      - "25000:3000"
     environment:
       - REACT_APP_API_URL=http://api
       - REACT_APP_CONTENTFUL_DELIVERY_ACCESS_KEY=#{DELIVERY_ACCESS_KEY}#
