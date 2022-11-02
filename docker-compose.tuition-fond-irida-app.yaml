@@ -3,7 +3,7 @@ version: "3.4"
 services:
   api:
     image: codeforacause/tuition-fond-irida-app:backend-#{TAG_NUMBER}#
-    container_name: animal-rescue-api
+    container_name: fond-irida-api
     ports:
       - 5069
     environment:
@@ -17,7 +17,7 @@ services:
       - AppSettings__EmailClient__SmtpClient=smtp.gmail.com
   web:
     image: codeforacause/tuition-fond-irida-app:web-#{TAG_NUMBER}#
-    container_name: animal-rescue-web
+    container_name: fond-irida-web
     ports:
       - "23000:3000"
     environment:
