@@ -1,6 +1,4 @@
 ﻿using Contentful.Core;
-using Contentful.Core.Search;
-using TuitionFondIrida.Domain.Models.Contracts;
 using TuitionFondIrida.Domain.Repositories;
 using TuitionFondIrida.Persistence.Mappers.Abstractions;
 using TuitionIridaFond.Persistence.Contracts.Models;

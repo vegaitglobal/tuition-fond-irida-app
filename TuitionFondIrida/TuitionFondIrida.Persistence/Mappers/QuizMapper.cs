@@ -1,5 +1,4 @@
-﻿using System.Text.Json.Nodes;
-using TuitionFondIrida.Persistence.Mappers.Abstractions;
+﻿using TuitionFondIrida.Persistence.Mappers.Abstractions;
 using TuitionIridaFond.Persistence.Contracts.Models;
 
 namespace TuitionFondIrida.Persistence.Mappers;
