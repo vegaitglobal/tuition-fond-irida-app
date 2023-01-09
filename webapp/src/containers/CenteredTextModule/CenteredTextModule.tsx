@@ -34,7 +34,7 @@ export const CenteredTextModule = (props: Props) => {
             case ActionType.PageLink:
                 return (
                     <Link
-                        variant="primary"
+                        variant={(action as PageLink).background}
                         type="button"
                         to={(action as PageLink).pageReference?.path || "/"}
                         text={action.label}
