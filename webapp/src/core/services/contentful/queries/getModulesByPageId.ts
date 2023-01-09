@@ -12,6 +12,7 @@ export const generateQuery = (pageId: string) => {
             __typename
             ...on PageLink {
               label
+              background
               pageReference {
                 path
               }
@@ -29,6 +30,7 @@ export const generateQuery = (pageId: string) => {
             __typename
             ...on PageLink {
               label
+              background
               pageReference {
                 path
               }
@@ -136,6 +138,7 @@ export interface ExternalLink extends Action {
 
 export interface PageLink extends Action {
     __typename: ActionType.PageLink;
+    background: "accent" | "light" | "outline" | "primary" | "secondary";
     pageReference?: {
         path: string;
     };

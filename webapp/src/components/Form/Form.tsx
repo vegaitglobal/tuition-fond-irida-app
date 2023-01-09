@@ -111,7 +111,7 @@ export const Form = (props: Props) => {
                     </select>
                 )}
                 <div className="button-container">
-                    <Button onClick={onClick} text="Poruči i doniraj" variant="primary" />
+                    <Button onClick={onClick} text="Pošalji" variant="primary" />
                 </div>
             </div>
         </StyledForm>
