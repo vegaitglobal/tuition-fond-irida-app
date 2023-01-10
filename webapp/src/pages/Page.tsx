@@ -8,7 +8,7 @@ import {
 import { getModuleEntryComponent } from "../routing/util";
 import { ProductsSection } from "./DonatePage/ProductsSection";
 import { BlogsSection } from "./BlogsPage/BlogsSection";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { BlogDetailsPage } from "./BlogsDetailsPage/BlogDetailsPage";
 import { Loader } from "../components";
 
@@ -19,6 +19,7 @@ interface Props {
 export const Page = (props: Props) => {
     const { pageId } = props;
     const params = useParams();
+    const navigate = useNavigate();
     console.log("params");
     console.log(params);
 
@@ -33,10 +34,10 @@ export const Page = (props: Props) => {
                 setLoading(false);
             })
             .catch(() => {
-                // oops
                 setLoading(false);
+                navigate("/greska");
             });
-    }, [pageId]);
+    }, [pageId, navigate]);
 
     const mappedModules = modules.map((m) => {
         switch (m.__typename) {
