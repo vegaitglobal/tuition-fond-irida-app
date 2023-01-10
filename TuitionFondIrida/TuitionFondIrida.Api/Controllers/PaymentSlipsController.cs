@@ -9,12 +9,12 @@ namespace TuitionFondIrida.Api.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 [Produces("application/json")]
-public class PaymentSlipController
+public class PaymentSlipsController
 {
     private readonly IMediator mediator;
     private readonly IPaymentSlipMapper paymentSlipMapper;
 
-    public PaymentSlipController(IMediator mediator, IPaymentSlipMapper paymentSlipMapper)
+    public PaymentSlipsController(IMediator mediator, IPaymentSlipMapper paymentSlipMapper)
     {
         this.mediator = mediator;
         this.paymentSlipMapper = paymentSlipMapper;

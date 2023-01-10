@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import { Product } from "../../core/models/product";
-import { fetchProducts } from "../../core/services";
-import { Card } from "../../components/Card/Card";
-import { StyledProductsSection } from "./ProductsSection.style";
-import { PageOf } from "../../core/models/common/pageOf";
-import { Pagination } from "../../components/Pagination/Pagination";
-import { ProductDetailsDialog } from "components/ProductDetailsDialog/ProductDetailsDialog";
+import {useEffect, useState} from "react";
+import {Product} from "../../core/models/product";
+import {fetchProducts} from "../../core/services";
+import {Card} from "../../components/Card/Card";
+import {StyledProductsSection} from "./ProductsSection.style";
+import {PageOf} from "../../core/models/common/pageOf";
+import {Pagination} from "../../components/Pagination/Pagination";
+import {ProductDetailsDialog} from "components/ProductDetailsDialog/ProductDetailsDialog";
 
 
 export const ProductsSection = () => {
@@ -37,13 +37,14 @@ export const ProductsSection = () => {
 
     return (
         <div>
-            
-            <ProductDetailsDialog 
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
-                onClose={handleCloseProductDetails}
-                product={selectedProduct}
-            />
+            {
+                isOpen && <ProductDetailsDialog
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+                    onClose={handleCloseProductDetails}
+                    product={selectedProduct}
+                />
+            }
             <StyledProductsSection>
                 {pageOfProducts.items.map((product: Product, index: number) => (
                     <Card

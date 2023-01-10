@@ -9,12 +9,12 @@ namespace TuitionFondIrida.Api.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 [Produces("application/json")]
-public class ProductController : ControllerBase
+public class ProductsController : ControllerBase
 {
     private readonly IMediator mediator;
     private readonly IProductMapper productMapper;
 
-    public ProductController(IMediator mediator, IProductMapper productMapper)
+    public ProductsController(IMediator mediator, IProductMapper productMapper)
     {
         this.mediator = mediator;
         this.productMapper = productMapper;
