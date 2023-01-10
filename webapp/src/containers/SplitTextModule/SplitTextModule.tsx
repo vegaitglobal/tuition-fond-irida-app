@@ -84,7 +84,7 @@ export const SplitTextModule = (props: Props) => {
         <>
             {textPosition === TextPosition.left ? (
                 <StyledSplitTextModule>
-                    <div className={backgroundColor == "secondary" ? "secondary" : "primary"}>
+                    <div className={backgroundColor === "secondary" ? "secondary" : "primary"}>
                         <img src={backgroundImage?.url} alt={header} />
                         <div className={style}>
                             <div className="content">
@@ -99,8 +99,8 @@ export const SplitTextModule = (props: Props) => {
                 </StyledSplitTextModule>
             ) : (
                 <StyledSplitTextModule>
-                    <div className={backgroundColor == "secondary" ? "secondary" : "primary"}>
-                        <div className={backgroundColor == "secondary" ? "secondary" : "primary"}>
+                    <div className={backgroundColor === "secondary" ? "secondary" : "primary"}>
+                        <div className={backgroundColor === "secondary" ? "secondary" : "primary"}>
                             <div className="content">
                                 <>
                                     <h1>{header}</h1>

@@ -4,15 +4,22 @@ export const StyledSplitTextModule = styled.div`
     position: relative;
     display: flex;
     flex-direction: row;
+    overflow-x: hidden;
 
     & .content {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        margin-left: 180px;
-        margin-right: 180px;
-        margin-top: 60px;
+        justify-content: center;
+        gap: 20px;
+        margin: 60px 10%;
         width: 50%;
+        @media ${(props) => props.theme.breakpoints.tablet} {
+            width: 100%;
+            margin: 0;
+            padding: 60px 10px;
+            align-items: center;
+        }
     }
 
     & .secondary {
@@ -20,6 +27,11 @@ export const StyledSplitTextModule = styled.div`
         background-color: ${(props) => props.theme.colors.white.main};
         display: flex;
         flex-direction: row;
+        width: 100%;
+
+        @media ${(props) => props.theme.breakpoints.tablet} {
+            flex-direction: column;
+        }
     }
 
     & .primary {
@@ -27,16 +39,24 @@ export const StyledSplitTextModule = styled.div`
         background-color: ${(props) => props.theme.colors.primary.main};
         display: flex;
         flex-direction: row;
+
+        @media ${(props) => props.theme.breakpoints.tablet} {
+            flex-direction: column;
+        }
     }
 
     & img {
         max-width: 50%;
+        object-fit: cover;
+        @media ${(props) => props.theme.breakpoints.tablet} {
+            max-width: 100%;
+        }
     }
 
     & h1 {
         font-weight: 600;
         font-size: 48px;
-        margin-bottom: 60px;
+        margin-bottom: 20px;
         line-height: 110%;
     }
 
@@ -44,7 +64,7 @@ export const StyledSplitTextModule = styled.div`
         font-weight: 400;
         font-size: 16px;
         max-width: 80%;
-        margin-bottom: 90px;
+        margin-bottom: 10px;
         line-height: 17.6px;
     }
 `;
