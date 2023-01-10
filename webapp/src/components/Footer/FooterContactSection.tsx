@@ -1,3 +1,4 @@
+import { HashLink } from 'react-router-hash-link'
 import { StyledFooterContactSection } from "./Footer.style";
 import { ReactComponent as LinkedinIcon } from "assets/images/linkedin.svg";
 import { ReactComponent as FacebookIcon } from "assets/images/facebook.svg";
@@ -8,7 +9,7 @@ import { Link } from "../Link/Link";
 export const FooterContactSection = () => {
     return (
         <StyledFooterContactSection>
-            <Link to="/text" text="Kontaktiraj nas" variant="light" type="button" />
+            <HashLink className="contact-us" to="/kontakt#contact-us-form">Kontaktiraj nas</HashLink>
             <div className="footer-contact-section-socials">
                 <IconButton icon={<LinkedinIcon />} url="https://linkedin.com" />
                 <IconButton icon={<FacebookIcon />} url="https://facebook.com" />
