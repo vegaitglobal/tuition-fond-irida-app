@@ -18,10 +18,8 @@ export const Routes = () => {
                 setLoading(false);
                 setPages(res);
             })
-            .catch((err) => {
-                // oops
+            .catch(() => {
                 setLoading(false);
-                console.log(err);
             });
     }, []);
 
