@@ -6,9 +6,10 @@ interface Props {
     text: string;
     textArea: boolean;
     onChange: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+    value: string;
 }
 export const FormInput = (props: Props) => {
-    const { darkMode, text, textArea, onChange } = props;
+    const { darkMode, text, textArea, onChange, value } = props;
 
     return (
         <StyledFormInput>
@@ -20,6 +21,7 @@ export const FormInput = (props: Props) => {
                     onChange={onChange}
                     key={text}
                     name={text}
+                    value={value}
                 ></textarea>
             ) : (
                 <input
@@ -28,6 +30,7 @@ export const FormInput = (props: Props) => {
                     onChange={onChange}
                     key={text}
                     name={text}
+                    value={value}
                 ></input>
             )}
         </StyledFormInput>
@@ -38,4 +41,5 @@ FormInput.defaultProps = {
     darkMode: false,
     text: "",
     textArea: false,
+    value: "",
 };

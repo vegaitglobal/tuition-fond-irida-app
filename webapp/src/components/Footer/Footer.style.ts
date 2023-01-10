@@ -138,4 +138,26 @@ export const StyledFooterContactSection = styled.div`
             opacity: 0.6;
         }
     }
+
+    & .contact-us {
+        background-color: ${(props) => props.theme.colors.white.main};
+        width: 205px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 14px 24px;
+        border-radius: 0.7rem;
+        transition-property: background-color;
+        cursor: pointer;
+        color: ${(props) => props.theme.colors.primary.main};
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 16px;
+        transition: 200ms ease;
+        transition-property: color;
+
+        &:hover {
+            background-color: ${(props) => props.theme.colors.accent.main};
+            color: ${(props) => props.theme.colors.white.main};
+    }
 `;

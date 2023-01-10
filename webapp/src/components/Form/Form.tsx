@@ -13,7 +13,8 @@ export const Form = (props: Props) => {
     const { darkMode, showSizeDropdown } = props;
     // TODO - propagate sizes
     const sizeOptions = ["XS", "S", "M", "L", "XL", "XXL"];
-    const [userData, setUserData] = useState({} as User);
+    const [userData, setUserData] = useState(new User("", "", "", "", "", ""));
+    const [sendButtonText, setSendButtonText] = useState("Pošalji")
 
     const onEmailChange = (event: any) => {
         const { value } = event.target;
@@ -55,8 +56,17 @@ export const Form = (props: Props) => {
         }));
     };
 
+    const sleep = (milliseconds: number) => {
+        return new Promise(resolve => setTimeout(resolve, milliseconds))
+    }
+
     const onClick = () => {
         sendContactUsEmailAsync(userData);
+        setSendButtonText("Uspešno poslato!");
+        sleep(2200).then(r => {
+            setSendButtonText("Pošalji");
+            setUserData(new User("", "", "", "", "", ""));
+        });
     };
 
     const handleSelect = (event: any) => {
@@ -69,17 +79,19 @@ export const Form = (props: Props) => {
 
     return (
         <StyledForm>
-            <div className={`container ${darkMode ? "dark" : "light"}`}>
+            <div id="contact-us-form" className={`container ${darkMode ? "dark" : "light"}`}>
                 <div className="horizontal-container">
                     <FormInput
                         text="Ime"
                         key="name"
+                        value={userData.firstName}
                         darkMode={darkMode}
                         onChange={onFirstNameChange}
                     ></FormInput>
                     <FormInput
                         text="Prezime"
                         key="lastName"
+                        value={userData.lastName}
                         darkMode={darkMode}
                         onChange={onLastNameChange}
                     ></FormInput>
@@ -87,18 +99,21 @@ export const Form = (props: Props) => {
                 <FormInput
                     text="Email"
                     key="email"
+                    value={userData.emailAddress}
                     darkMode={darkMode}
                     onChange={onEmailChange}
                 ></FormInput>
                 <FormInput
                     text="Broj telefona"
                     key="phoneNumber"
+                    value={userData.phoneNumber}
                     darkMode={darkMode}
                     onChange={onPhoneNumberChange}
                 ></FormInput>
                 <FormInput
                     text="Komentar"
                     key="comment"
+                    value={userData.additionalComment}
                     textArea
                     darkMode={darkMode}
                     onChange={onCommentChange}
@@ -111,7 +126,7 @@ export const Form = (props: Props) => {
                     </select>
                 )}
                 <div className="button-container">
-                    <Button onClick={onClick} text="Pošalji" variant="primary" />
+                    <Button onClick={onClick} text={sendButtonText} variant="primary" />
                 </div>
             </div>
         </StyledForm>
