@@ -8,8 +8,9 @@ import {
 import { getModuleEntryComponent } from "../routing/util";
 import { ProductsSection } from "./DonatePage/ProductsSection";
 import { BlogsSection } from "./BlogsPage/BlogsSection";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { BlogDetailsPage } from "./BlogsDetailsPage/BlogDetailsPage";
+import { Loader } from "../components";
 
 interface Props {
     pageId: string;
@@ -18,16 +19,25 @@ interface Props {
 export const Page = (props: Props) => {
     const { pageId } = props;
     const params = useParams();
+    const navigate = useNavigate();
     console.log("params");
     console.log(params);
 
     const [modules, setModules] = useState<Module[]>([]);
+    const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
-        getModulesByPageId(pageId).then((modules) => {
-            setModules(modules);
-        });
-    }, []);
+        setLoading(true);
+        getModulesByPageId(pageId)
+            .then((modules) => {
+                setModules(modules);
+                setLoading(false);
+            })
+            .catch(() => {
+                setLoading(false);
+                navigate("/greska");
+            });
+    }, [pageId, navigate]);
 
     const mappedModules = modules.map((m) => {
         switch (m.__typename) {
@@ -45,5 +55,5 @@ export const Page = (props: Props) => {
         }
     });
 
-    return <>{mappedModules}</>;
+    return <>{loading ? <Loader center /> : mappedModules}</>;
 };
