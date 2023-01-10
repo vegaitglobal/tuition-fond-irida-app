@@ -92,7 +92,7 @@ export const StyledLink = styled.div`
             color: ${(props) => props.theme.colors.primary.main};
         }
         &:hover {
-            background-color: ${(props) => props.theme.colors.primary.main};
+            background-color: ${(props) => props.theme.colors.accent.main};
             color: ${(props) => props.theme.colors.white.main};
         }
         &:hover a {
