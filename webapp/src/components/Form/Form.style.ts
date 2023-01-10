@@ -33,5 +33,13 @@ export const StyledForm = styled.div`
     & .button-container {
         border-radius: 20px;
         text-align: center;
+
+        & button {
+            width: 205px;
+            padding: 14px 24px;
+            border-radius: 0.7rem;
+            font-weight: 700;
+            font-size: 16px;
+        }
     }
 `;

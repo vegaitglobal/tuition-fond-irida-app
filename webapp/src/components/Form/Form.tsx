@@ -69,7 +69,7 @@ export const Form = (props: Props) => {
 
     return (
         <StyledForm>
-            <div className={`container ${darkMode ? "dark" : "light"}`}>
+            <div id="contact-us-form" className={`container ${darkMode ? "dark" : "light"}`}>
                 <div className="horizontal-container">
                     <FormInput
                         text="Ime"
