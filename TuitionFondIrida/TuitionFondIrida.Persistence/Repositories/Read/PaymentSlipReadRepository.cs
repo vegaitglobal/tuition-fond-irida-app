@@ -1,4 +1,5 @@
 ﻿using Contentful.Core;
+using Contentful.Core.Search;
 using TuitionFondIrida.Domain.Repositories;
 using TuitionFondIrida.Persistence.Mappers.Abstractions;
 using TuitionIridaFond.Persistence.Contracts.Models;
@@ -18,22 +19,9 @@ public class PaymentSlipReadRepository : IPaymentSlipReadRepository
 
     public async Task<Domain.Models.Read.PaymentSlip> GetAsync(CancellationToken cancellationToken)
     {
-        return this.paymentSlipMapper.Create(new PaymentSlip
-        {
-            Sender = "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet",
-            PurposeOfPayment = "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet",
-            Receiver = "Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet",
-            CodeOfPayment = 165,
-            Currency = "RSD",
-            Amount = 100_000,
-            ReceiverAccount = "250-5555565564254-13",
-            ModelNumber = 97,
-            ReferenceNumber = string.Empty
-        });
+        var paymentSlip = await this.contentfulClient.GetEntriesByType(
+            ContentfulContentTypeIds.PaymentSlip, new QueryBuilder<PaymentSlip>(), cancellationToken);
 
-        // var paymentSlip = await this.contentfulClient.GetEntriesByType(
-        //     ContentfulContentTypeIds.PaymentSlip, new QueryBuilder<PaymentSlip>(), cancellationToken);
-        //
-        // return this.paymentSlipMapper.Create(paymentSlip.First());
+        return this.paymentSlipMapper.Create(paymentSlip.First());
     }
 }

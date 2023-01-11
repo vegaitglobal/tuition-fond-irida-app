@@ -92,7 +92,10 @@ export const PaymentSlip = (props: Props) => {
 
                             <div className="smaller-input">
                                 <PaymentSlipInput text="Broj modela" key="modelNumber"
-                                                  inputValue={paymentSlip?.modelNumber.toString() ?? ''}
+                                                  inputValue={
+                                                      (paymentSlip?.modelNumber.toString() === undefined || paymentSlip?.modelNumber.toString() === '0')
+                                                          ? ''
+                                                          : paymentSlip?.modelNumber.toString()}
                                                   darkMode={false}/>
                             </div>
 
