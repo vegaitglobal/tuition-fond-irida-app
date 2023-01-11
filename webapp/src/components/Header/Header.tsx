@@ -11,7 +11,7 @@ export const Header = () => {
                 <Link to="/doniraj" text="Doniraj" />
                 <Link to="/o-nama" text="O nama" />
                 <Link to="/blog" text="Blog" />
-                <Link to="/kontakt" text="Kontaktiraj nas" type="button" variant="light"/>
+                <Link to="/kontakt" text="Kontaktiraj nas" type="button" variant="light-accent"/>
             </div>
 
             <HamburgerMenu />
