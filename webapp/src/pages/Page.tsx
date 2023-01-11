@@ -38,7 +38,7 @@ export const Page = (props: Props) => {
             });
     }, [pageId, navigate]);
 
-    const mappedModules = modules.map((m) => {
+    const mappedModules = modules.map((m, index) => {
         switch (m.__typename) {
             case ModuleType.Content:
                 return getModuleEntryComponent(m as ContentModule);
@@ -47,7 +47,7 @@ export const Page = (props: Props) => {
                 return <ProductsSection />;
 
             case ModuleType.Blogs:
-                return params.id ? <BlogDetailsPage /> : <BlogsSection />;
+                return params.id ? <BlogDetailsPage /> : <BlogsSection key={index} />;
 
             default:
                 return null;
