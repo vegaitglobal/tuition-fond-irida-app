@@ -17,12 +17,11 @@ interface Props {
 
 export const ProductDetailsDialog = (props: Props) => {
   const { isOpen, setIsOpen, onClose, product } = props;
-  
+
   const [isOpenPaymentSlip, setIsOpenPaymentSlip] = useState(false);
 
 
   const handleOpenPaymentSlip = () => {
-    console.log("Gandrijev MNodal")
     setIsOpenPaymentSlip(true);
     setIsOpen(false);
   }
@@ -78,7 +77,7 @@ export const ProductDetailsDialog = (props: Props) => {
                 amount=""
                 recipientAccount=""
                 buttonText=""
-                buttonUrl="" /> 
+                buttonUrl="" />
     </div>
   );
 };

@@ -20,8 +20,7 @@ export const Page = (props: Props) => {
     const { pageId } = props;
     const params = useParams();
     const navigate = useNavigate();
-    console.log("params");
-    console.log(params);
+
 
     const [modules, setModules] = useState<Module[]>([]);
     const [loading, setLoading] = useState<boolean>(false);

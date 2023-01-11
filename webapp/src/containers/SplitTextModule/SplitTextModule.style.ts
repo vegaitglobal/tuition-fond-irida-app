@@ -67,4 +67,16 @@ export const StyledSplitTextModule = styled.div`
         margin-bottom: 10px;
         line-height: 17.6px;
     }
+
+    & span {
+        font-weight: 400;
+        font-size: 16px;
+        max-width: 80%;
+        margin-bottom: 90px;
+        line-height: 17.6px;
+    }
+
+    & .button-link {
+        margin-bottom: 90px
+    }
 `;

@@ -25,7 +25,6 @@ export const SplitTextModule = (props: Props) => {
     const { header, paragraph, backgroundImage, backgroundColor, primaryAction } = moduleEntry;
 
     const actionElement = (action: PageLink | ExternalLink | Modal | Action | null) => {
-        console.log({ action });
         switch (action?.__typename) {
             case ActionType.ExternalLink:
                 return (
@@ -47,28 +46,26 @@ export const SplitTextModule = (props: Props) => {
                     />
                 );
             case ActionType.Modal:
-                console.log("Modal");
                 switch ((action as Modal).form) {
                     case FormType.Contact:
-                        console.log("contact");
                         return (
                             <Form
                                 showSizeDropdown={false}
-                                darkMode={backgroundColor === "primary" ? false : true}
+                                darkMode={backgroundColor !== "primary"}
                             ></Form>
                         );
                     case FormType.Donate:
                         return (
                             <Form
                                 showSizeDropdown
-                                darkMode={backgroundColor === "primary" ? false : true}
+                                darkMode={backgroundColor !== "primary"}
                             ></Form>
                         );
                     case FormType.Quiz:
                         return (
                             <Form
                                 showSizeDropdown
-                                darkMode={backgroundColor === "primary" ? false : true}
+                                darkMode={backgroundColor !== "primary"}
                             ></Form>
                         );
                     default:
@@ -78,7 +75,7 @@ export const SplitTextModule = (props: Props) => {
                 return null;
         }
     };
-    const style = backgroundColor == "secondary" ? "secondary" : "primary";
+    const style = backgroundColor === "secondary" ? "secondary" : "primary";
 
     return (
         <>
