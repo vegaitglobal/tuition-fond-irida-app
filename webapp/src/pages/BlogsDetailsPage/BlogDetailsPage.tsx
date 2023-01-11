@@ -6,20 +6,23 @@ import { StyledBlogDetailsPage } from "./BlogDetailsPage.style";
 
 export const BlogDetailsPage = () => {
     const params = useParams();
-    const id = params.id;
+    const id = params.id!;
 
     const [blog, setBlog] = useState<Blog>();
 
     useEffect(() => {
-        fetchBlogById(id!).then((blog) => setBlog(blog));
+        fetchBlogById(id).then((blog) => setBlog(blog));
     }, []);
+
+    if(!blog) return null;
+
 
     return (
         <StyledBlogDetailsPage>
-            <div className="blog-item-title">{blog && blog.title}</div>
+            <div className="blog-item-title">{blog.title}</div>
             <div
                 className="blog-item-description"
-                dangerouslySetInnerHTML={{ __html: blog?.content ?? "" }}
+                dangerouslySetInnerHTML={{ __html: blog.content ?? "" }}
             ></div>
         </StyledBlogDetailsPage>
     );

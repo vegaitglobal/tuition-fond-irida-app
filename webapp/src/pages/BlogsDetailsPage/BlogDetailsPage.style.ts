@@ -17,6 +17,17 @@ export const StyledBlogDetailsPage = styled.div`
   color: ${(props) => props.theme.colors.primary.main};
 }
 
+& .blog-item-short-description {
+  font-family: Lato, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.05em;
+  text-align: left;
+  margin-top: 60px;
+  color: ${(props) => props.theme.colors.primary.main};
+}
+
 & .blog-item-description {
   font-family: Lato, sans-serif;
   font-size: 16px;
@@ -26,5 +37,17 @@ export const StyledBlogDetailsPage = styled.div`
   text-align: left;
   margin-top: 60px;
   color: ${(props) => props.theme.colors.primary.main};
+}
+
+img {
+  margin-bottom: 60px;
+  margin-top: 60px;
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+p {
+  margin-bottom: 10px;
 }
 `;
