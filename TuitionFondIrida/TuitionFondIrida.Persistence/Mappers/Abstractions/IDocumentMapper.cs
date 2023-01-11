@@ -3,7 +3,7 @@ using Contentful.Core.Models;
 
 namespace TuitionFondIrida.Persistence.Mappers.Abstractions;
 
-public interface IDocumenMapper {
+public interface IDocumentMapper {
 
-    String MapDocument(Document document);
+    string Create(Document document);
 }

@@ -12,5 +12,6 @@ public class ApiModule : Module
         builder.RegisterType<BlogMapper>().AsImplementedInterfaces().InstancePerLifetimeScope();
         builder.RegisterType<AuthorMapper>().AsImplementedInterfaces().InstancePerLifetimeScope();
         builder.RegisterType<QuestionMapper>().AsImplementedInterfaces().InstancePerLifetimeScope();
+        builder.RegisterType<PaymentSlipMapper>().AsImplementedInterfaces().InstancePerLifetimeScope();
     }
 }
