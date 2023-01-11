@@ -39,6 +39,12 @@ export const StyledLink = styled.div`
         & a {
             color: ${(props) => props.theme.colors.white.main};
         }
+        &:hover {
+            background-color: ${(props) => props.theme.colors.white.main};
+        }
+        &:hover a {
+            color: ${(props) => props.theme.colors.primary.main};
+        }
     }
     & .button-link.outline {
         background-color: transparent;
@@ -78,6 +84,35 @@ export const StyledLink = styled.div`
         }
         &:hover {
             background-color: ${(props) => props.theme.colors.primary.light};
+            color: ${(props) => props.theme.colors.white.main};
+        }
+    }
+    & .button-link.light {
+        background-color: ${(props) => props.theme.colors.white.main};
+        color: ${(props) => props.theme.colors.primary.main};
+        border: 3px solid ${(props) => props.theme.colors.primary.main};
+        & a {
+            color: ${(props) => props.theme.colors.primary.main};
+        }
+        &:hover {
+            background-color: ${(props) => props.theme.colors.primary.main};
+            color: ${(props) => props.theme.colors.white.main};
+        }
+        &:hover a {
+            color: ${(props) => props.theme.colors.white.main};
+        }
+    }
+    & .button-link.light-accent {
+        background-color: ${(props) => props.theme.colors.white.main};
+        color: ${(props) => props.theme.colors.primary.main};
+        & a {
+            color: ${(props) => props.theme.colors.primary.main};
+        }
+        &:hover {
+            background-color: ${(props) => props.theme.colors.accent.main};
+            color: ${(props) => props.theme.colors.white.main};
+        }
+        &:hover a {
             color: ${(props) => props.theme.colors.white.main};
         }
     }

@@ -25,7 +25,6 @@ export const SplitTextModule = (props: Props) => {
     const { header, paragraph, backgroundImage, backgroundColor, primaryAction } = moduleEntry;
 
     const actionElement = (action: PageLink | ExternalLink | Modal | Action | null) => {
-        console.log({ action });
         switch (action?.__typename) {
             case ActionType.ExternalLink:
                 return (
@@ -40,35 +39,33 @@ export const SplitTextModule = (props: Props) => {
             case ActionType.PageLink:
                 return (
                     <Link
-                        variant="primary"
+                        variant={(action as PageLink).background}
                         type="button"
                         to={(action as PageLink).pageReference?.path || "/"}
                         text={action.label}
                     />
                 );
             case ActionType.Modal:
-                console.log("Modal");
                 switch ((action as Modal).form) {
                     case FormType.Contact:
-                        console.log("contact");
                         return (
                             <Form
                                 showSizeDropdown={false}
-                                darkMode={backgroundColor === "primary" ? false : true}
+                                darkMode={backgroundColor !== "primary"}
                             ></Form>
                         );
                     case FormType.Donate:
                         return (
                             <Form
                                 showSizeDropdown
-                                darkMode={backgroundColor === "primary" ? false : true}
+                                darkMode={backgroundColor !== "primary"}
                             ></Form>
                         );
                     case FormType.Quiz:
                         return (
                             <Form
                                 showSizeDropdown
-                                darkMode={backgroundColor === "primary" ? false : true}
+                                darkMode={backgroundColor !== "primary"}
                             ></Form>
                         );
                     default:
@@ -78,13 +75,13 @@ export const SplitTextModule = (props: Props) => {
                 return null;
         }
     };
-    const style = backgroundColor == "secondary" ? "secondary" : "primary";
+    const style = backgroundColor === "secondary" ? "secondary" : "primary";
 
     return (
         <>
             {textPosition === TextPosition.left ? (
                 <StyledSplitTextModule>
-                    <div className={backgroundColor == "secondary" ? "secondary" : "primary"}>
+                    <div className={backgroundColor === "secondary" ? "secondary" : "primary"}>
                         <img src={backgroundImage?.url} alt={header} />
                         <div className={style}>
                             <div className="content">
@@ -99,8 +96,8 @@ export const SplitTextModule = (props: Props) => {
                 </StyledSplitTextModule>
             ) : (
                 <StyledSplitTextModule>
-                    <div className={backgroundColor == "secondary" ? "secondary" : "primary"}>
-                        <div className={backgroundColor == "secondary" ? "secondary" : "primary"}>
+                    <div className={backgroundColor === "secondary" ? "secondary" : "primary"}>
+                        <div className={backgroundColor === "secondary" ? "secondary" : "primary"}>
                             <div className="content">
                                 <>
                                     <h1>{header}</h1>

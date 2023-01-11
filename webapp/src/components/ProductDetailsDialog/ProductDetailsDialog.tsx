@@ -23,7 +23,6 @@ export const ProductDetailsDialog = (props: Props) => {
 
     const handleOpenPaymentSlip = () => {
         setIsOpenPaymentSlip(true);
-        // setIsOpen(false);
     }
 
     const handleClosePaymentSlip = () => {
