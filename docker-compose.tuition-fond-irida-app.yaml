@@ -5,7 +5,7 @@ services:
     image: codeforacause/tuition-fond-irida-app:backend-#{TAG_NUMBER}#
     container_name: fond-irida-api
     ports:
-      - 5069:80
+      - 5069
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - AppSettings__Contentful__DeliveryApiKey=#{DELIVERYAPIKEY}#
@@ -21,7 +21,7 @@ services:
     ports:
       - "25000:3000"
     environment:
-      - REACT_APP_API_URL=http://api:80
+      - REACT_APP_API_URL=https://api
       - REACT_APP_CONTENTFUL_DELIVERY_ACCESS_KEY=#{DELIVERY_ACCESS_KEY}#
       - REACT_APP_CONTENTFUL_BASE_GRAPHQL_URL=https://graphql.contentful.com/content/v1/spaces/lpy11m2kyblz/environments/ui
     depends_on:
