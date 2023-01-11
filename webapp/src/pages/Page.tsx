@@ -47,7 +47,7 @@ export const Page = (props: Props) => {
                 return <ProductsSection />;
 
             case ModuleType.Blogs:
-                return params.id ? <BlogDetailsPage /> : <BlogsSection key={index} />;
+                return params.id ? <BlogDetailsPage key={pageId}/> : <BlogsSection key={pageId} />;
 
             default:
                 return null;
