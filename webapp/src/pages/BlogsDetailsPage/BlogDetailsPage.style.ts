@@ -8,6 +8,17 @@ export const StyledBlogDetailsPage = styled.div`
   overflow: hidden;
 }
 
+& .banner {
+  width: 100%;
+  & .banner-image {
+    width: 100%;
+    height: 450px;
+   
+    object-fit: cover;
+  }
+
+}
+
 & .blog-item-title {
   font-family: Montserrat, sans-serif;
   font-weight: 600;
@@ -37,17 +48,19 @@ export const StyledBlogDetailsPage = styled.div`
   text-align: left;
   margin-top: 60px;
   color: ${(props) => props.theme.colors.primary.main};
+  
+  img {
+    margin-bottom: 60px;
+    margin-top: 60px;
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
 }
 
-img {
-  margin-bottom: 60px;
-  margin-top: 60px;
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;
-}
 
-p {
-  margin-bottom: 10px;
-}
 `;

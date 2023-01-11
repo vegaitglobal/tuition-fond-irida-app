@@ -16,9 +16,11 @@ export const BlogDetailsPage = () => {
 
     if(!blog) return null;
 
+    console.log(blog);
 
     return (
         <StyledBlogDetailsPage>
+            <div className="banner"><img className="banner-image" src={blog.image.file.url} alt={blog.image.description}/></div>
             <div className="blog-item-title">{blog.title}</div>
             <div
                 className="blog-item-description"
