@@ -18,8 +18,6 @@ interface Props {
 export const Page = (props: Props) => {
     const { pageId } = props;
     const params = useParams();
-    console.log("params");
-    console.log(params);
 
     const [modules, setModules] = useState<Module[]>([]);
 
