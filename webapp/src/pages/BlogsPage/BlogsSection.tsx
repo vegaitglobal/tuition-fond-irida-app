@@ -16,8 +16,6 @@ export const BlogsSection = () => {
         });
     }, [currentPage]);
 
-    const handleClickCard = () => {};
-
     const handleClickPaginationButton = (newPageNumber: number) => {
         setCurrentPage(newPageNumber);
     };
