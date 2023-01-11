@@ -34,8 +34,40 @@ export const StyledBlogDetailsPage = styled.div<{
                 letter-spacing: -0.09em;
                 color: ${(props) => props.theme.colors.primary.main};
             }
+
+            & .blog-author-profile-picture {
+                background-color: ${(props) => props.theme.colors.primary.main};
+                width: 66px;
+                height: 66px;
+                border-radius: 50%;
+                padding: 3px;
+                margin-left: 150px;
+                margin-top: 30px;
+
+                img {
+                    display: block;
+                    filter: grayscale(100%);
+                    width: 100%;
+                    border-radius: 50%;
+                }
+            }
+
+            & .blog-author-name {
+                font-family: "Lato", sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 110%;
+                letter-spacing: -0.05em;
+                color: ${(props) => props.theme.colors.primary.main};
+                position: relative;
+                top: -40px;
+                left: 60px;
+                white-space: nowrap;
+            }
         }
     }
+
     & .content {
         padding: 0 150px;
     }

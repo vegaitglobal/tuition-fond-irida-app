@@ -26,7 +26,12 @@ export const BlogDetailsPage = () => {
             <div className="banner">
                 <div className="author">
                     <h2 className="blog-author-item-title">{blog.title}</h2>
-                    <div></div>
+                    <div className="blog-author-profile-picture">
+                        <img
+                            src={blog.blogAuthor.picture.file.url + "?w=66&h=66&f=center&fit=thumb"}
+                        />
+                    </div>
+                    <div className="blog-author-name">{blog.blogAuthor.name}</div>
                 </div>
             </div>
             <div className="content">
