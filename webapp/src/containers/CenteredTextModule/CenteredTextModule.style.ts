@@ -26,6 +26,10 @@ export const StyledCenteredTextModule = styled.div<Props>`
         background-color: ${(props) => props.theme.colors.accent.main};
     }
 
+    & h1 {
+        font-size: 68px;
+    }
+
     & h2 {
         font-size: 48px;
         line-height: 110%;

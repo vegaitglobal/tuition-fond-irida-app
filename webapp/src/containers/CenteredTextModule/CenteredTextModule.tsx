@@ -1,3 +1,4 @@
+import ReactMarkdown from 'react-markdown'
 import { StyledCenteredTextModule } from "./CenteredTextModule.style";
 import {
     ActionType,
@@ -70,7 +71,7 @@ export const CenteredTextModule = (props: Props) => {
     return (
         <StyledCenteredTextModule className={backgroundColor} imageUrl={backgroundImage?.url}>
             <h2>{header}</h2>
-            {paragraph && <p>{paragraph}</p>}
+            {paragraph && <ReactMarkdown>{paragraph}</ReactMarkdown>}
             {actionElement(primaryAction)}
             {actionElement(secondaryAction)}
         </StyledCenteredTextModule>
