@@ -14,18 +14,28 @@ export const BlogDetailsPage = () => {
         fetchBlogById(id).then((blog) => setBlog(blog));
     }, []);
 
-    if(!blog) return null;
+    if (!blog) return null;
 
     console.log(blog);
 
     return (
-        <StyledBlogDetailsPage>
-            <div className="banner"><img className="banner-image" src={blog.image.file.url} alt={blog.image.description}/></div>
-            <div className="blog-item-title">{blog.title}</div>
-            <div
-                className="blog-item-description"
-                dangerouslySetInnerHTML={{ __html: blog.content ?? "" }}
-            ></div>
+        <StyledBlogDetailsPage
+            backgroundImage={blog.image.file.url}
+            profilePictureImage={blog.blogAuthor.picture.file.url}
+        >
+            <div className="banner">
+                <div className="author">
+                    <h2 className="blog-author-item-title">{blog.title}</h2>
+                    <div></div>
+                </div>
+            </div>
+            <div className="content">
+                <div className="blog-item-title">{blog.title}</div>
+                <div
+                    className="blog-item-description"
+                    dangerouslySetInnerHTML={{ __html: blog.content ?? "" }}
+                ></div>
+            </div>
         </StyledBlogDetailsPage>
     );
 };
