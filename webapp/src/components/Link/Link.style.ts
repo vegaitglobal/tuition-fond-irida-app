@@ -40,7 +40,10 @@ export const StyledLink = styled.div`
             color: ${(props) => props.theme.colors.white.main};
         }
         &:hover {
-            background-color: ${(props) => props.theme.colors.primary.main};
+            background-color: ${(props) => props.theme.colors.white.main};
+        }
+        &:hover a {
+            color: ${(props) => props.theme.colors.primary.main};
         }
     }
     & .button-link.outline {
