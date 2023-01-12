@@ -8,6 +8,7 @@ import { FormInput } from "./FormInput/FormInput";
 interface Props {
     darkMode: boolean;
     showSizeDropdown: boolean;
+    onClick: () => void;
 }
 export const Form = (props: Props) => {
     const { darkMode, showSizeDropdown } = props;
@@ -67,6 +68,7 @@ export const Form = (props: Props) => {
             setSendButtonText("Pošalji");
             setUserData(new User("", "", "", "", "", ""));
         });
+        props.onClick();
     };
 
     const handleSelect = (event: any) => {
@@ -136,4 +138,5 @@ export const Form = (props: Props) => {
 Form.defaultProps = {
     darkMode: true,
     showSizeDropdown: true,
+    onClick: () => {},
 };
