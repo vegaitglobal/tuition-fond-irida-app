@@ -40,7 +40,10 @@ export const StyledLink = styled.div`
             color: ${(props) => props.theme.colors.white.main};
         }
         &:hover {
-            background-color: ${(props) => props.theme.colors.primary.main};
+            background-color: ${(props) => props.theme.colors.white.main};
+        }
+        &:hover a {
+            color: ${(props) => props.theme.colors.primary.main};
         }
     }
     & .button-link.outline {
@@ -93,6 +96,20 @@ export const StyledLink = styled.div`
         }
         &:hover {
             background-color: ${(props) => props.theme.colors.primary.main};
+            color: ${(props) => props.theme.colors.white.main};
+        }
+        &:hover a {
+            color: ${(props) => props.theme.colors.white.main};
+        }
+    }
+    & .button-link.light-accent {
+        background-color: ${(props) => props.theme.colors.white.main};
+        color: ${(props) => props.theme.colors.primary.main};
+        & a {
+            color: ${(props) => props.theme.colors.primary.main};
+        }
+        &:hover {
+            background-color: ${(props) => props.theme.colors.accent.main};
             color: ${(props) => props.theme.colors.white.main};
         }
         &:hover a {

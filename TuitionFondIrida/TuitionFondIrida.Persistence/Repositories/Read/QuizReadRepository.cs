@@ -1,13 +1,8 @@
 ﻿using Contentful.Core;
 using Contentful.Core.Search;
 using Newtonsoft.Json;
-using System.IO;
-using TuitionFondIrida.Domain.Models.Common;
-using TuitionFondIrida.Domain.Models.Read;
 using TuitionFondIrida.Domain.Repositories;
 using TuitionFondIrida.Persistence.Mappers.Abstractions;
-using TuitionIridaFond.Persistence.Contracts.Models;
-using Question = TuitionIridaFond.Persistence.Contracts.Models.Question;
 using Quiz = TuitionIridaFond.Persistence.Contracts.Models.Quiz;
 
 namespace TuitionFondIrida.Persistence.Repositories.Read;

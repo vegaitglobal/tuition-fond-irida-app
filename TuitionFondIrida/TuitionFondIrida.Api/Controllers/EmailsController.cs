@@ -9,11 +9,11 @@ namespace TuitionFondIrida.Api.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 [Produces("application/json")]
-public class EmailController : ControllerBase
+public class EmailsController : ControllerBase
 {
     private readonly IMediator mediator;
 
-    public EmailController(IMediator mediator)
+    public EmailsController(IMediator mediator)
     {
         this.mediator = mediator;
     }

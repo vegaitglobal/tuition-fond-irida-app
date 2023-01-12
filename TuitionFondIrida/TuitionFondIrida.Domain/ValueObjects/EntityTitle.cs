@@ -6,7 +6,7 @@ public class EntityTitle : ValueObject
 {
     private readonly string value;
 
-    public EntityTitle(string value)
+    private EntityTitle(string value)
     {
         this.value = value;
     }

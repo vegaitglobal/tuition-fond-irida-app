@@ -10,12 +10,12 @@ namespace TuitionFondIrida.Api.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 [Produces("application/json")]
-public class BlogController : ControllerBase
+public class BlogsController : ControllerBase
 {
     private readonly IMediator mediator;
     private readonly IBlogMapper blogMapper;
 
-    public BlogController(IMediator mediator, IBlogMapper blogMapper)
+    public BlogsController(IMediator mediator, IBlogMapper blogMapper)
     {
         this.mediator = mediator;
         this.blogMapper = blogMapper;

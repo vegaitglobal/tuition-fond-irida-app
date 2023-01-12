@@ -4,7 +4,7 @@ using TuitionFondIrida.Domain.Repositories;
 
 namespace TuitionFondIrida.Application.Quiz.Queries.GetRandomQuestions;
 
-public class GetRandomQuestionsQueryHandler : IQueryHandler<GetRandomQuestionsQuery, IEnumerable<Domain.Models.Read.Question>>
+public class GetRandomQuestionsQueryHandler : IQueryHandler<GetRandomQuestionsQuery, IEnumerable<Question>>
 {
     private readonly IQuizReadRepository quizReadRepository;
 
