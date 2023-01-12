@@ -41,7 +41,11 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
 var hosts = builder.Configuration["AllowedHosts"];
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowPreflightRequests", configure => configure.WithOrigins(hosts).AllowAnyHeader().AllowAnyMethod());
+    options.AddPolicy("AllowPreflightRequests",
+        configure => configure
+            .WithOrigins("https://fond-irida.codeforacause.rs/", "https://localhost:3000")
+            .AllowAnyHeader()
+            .AllowAnyMethod());
 });
 
 
