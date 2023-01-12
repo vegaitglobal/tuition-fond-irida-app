@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const StyledBlogDetailsPage = styled.div<{
     backgroundImage: string;
-    profilePictureImage: string;
 }>`
     text-align: center;
     margin: 0 auto;
@@ -78,18 +77,9 @@ export const StyledBlogDetailsPage = styled.div<{
         font-size: 48px;
         line-height: 53px;
         margin-top: 50px;
+        font-style: normal;
         color: ${(props) => props.theme.colors.primary.main};
-    }
-
-    & .blog-item-short-description {
-        font-family: Lato, sans-serif;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 18px;
-        letter-spacing: -0.05em;
-        text-align: left;
-        margin-top: 60px;
-        color: ${(props) => props.theme.colors.primary.main};
+        margin-bottom: 60px;
     }
 
     & .blog-item-description {
@@ -99,7 +89,7 @@ export const StyledBlogDetailsPage = styled.div<{
         line-height: 18px;
         letter-spacing: -0.05em;
         text-align: left;
-        margin-top: 60px;
+
         color: ${(props) => props.theme.colors.primary.main};
 
         img {
@@ -112,6 +102,17 @@ export const StyledBlogDetailsPage = styled.div<{
 
         p {
             margin-bottom: 10px;
+        }
+
+        h2 {
+            margin-top: 60px;
+            margin-bottom: 30px;
+            font-family: "Montserrat", sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 110%;
+            letter-spacing: -0.09em;
         }
     }
 `;

@@ -12,23 +12,19 @@ export const BlogDetailsPage = () => {
 
     useEffect(() => {
         fetchBlogById(id).then((blog) => setBlog(blog));
-    }, []);
+    }, [id]);
 
     if (!blog) return null;
 
-    console.log(blog);
-
     return (
-        <StyledBlogDetailsPage
-            backgroundImage={blog.image.file.url}
-            profilePictureImage={blog.blogAuthor.picture.file.url}
-        >
+        <StyledBlogDetailsPage backgroundImage={blog.image.file.url}>
             <div className="banner">
                 <div className="author">
                     <h2 className="blog-author-item-title">{blog.title}</h2>
                     <div className="blog-author-profile-picture">
                         <img
                             src={blog.blogAuthor.picture.file.url + "?w=66&h=66&f=center&fit=thumb"}
+                            alt={blog.blogAuthor.name}
                         />
                     </div>
                     <div className="blog-author-name">{blog.blogAuthor.name}</div>
