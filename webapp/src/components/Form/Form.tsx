@@ -8,14 +8,16 @@ import { FormInput } from "./FormInput/FormInput";
 interface Props {
     darkMode: boolean;
     showSizeDropdown: boolean;
+    sendButtonText: string;
+    sendButtonVariant: "primary" | "secondary" | "accent" | "outlined" | "light" | "default";
     onClick: () => void;
 }
 export const Form = (props: Props) => {
-    const { darkMode, showSizeDropdown } = props;
+    const { darkMode, showSizeDropdown, sendButtonVariant } = props;
     // TODO - propagate sizes
     const sizeOptions = ["XS", "S", "M", "L", "XL", "XXL"];
     const [userData, setUserData] = useState(new User("", "", "", "", "", ""));
-    const [sendButtonText, setSendButtonText] = useState("Pošalji")
+    const [sendButtonText, setSendButtonText] = useState(props.sendButtonText)
 
     const onEmailChange = (event: any) => {
         const { value } = event.target;
@@ -128,7 +130,7 @@ export const Form = (props: Props) => {
                     </select>
                 )}
                 <div className="button-container">
-                    <Button onClick={onClick} text={sendButtonText} variant="primary" />
+                    <Button onClick={onClick} text={sendButtonText} variant={sendButtonVariant}/>
                 </div>
             </div>
         </StyledForm>
@@ -138,5 +140,7 @@ export const Form = (props: Props) => {
 Form.defaultProps = {
     darkMode: true,
     showSizeDropdown: true,
+    sendButtonText: "Pošalji",
+    sendButtonVariant: "primary",
     onClick: () => {},
 };

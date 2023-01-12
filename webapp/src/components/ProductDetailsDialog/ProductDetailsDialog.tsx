@@ -64,7 +64,13 @@ export const ProductDetailsDialog = (props: Props) => {
               </div>
               <Button variant="light" text="Poruči i doniraj" onClick={handleShowDonateForm}></Button>
             </div>}
-            {showDonateForm && <Form darkMode={true} showSizeDropdown={true} onClick={() => setIsOpen(false)}/>}
+            {showDonateForm && <Form
+              darkMode={false}
+              showSizeDropdown={true}
+              sendButtonText="Poruči i doniraj"
+              sendButtonVariant="accent"
+              onClick={() => setIsOpen(false)}
+            />}
           </div>
         </StyledProductDetailsDialog>
       </Modal>
