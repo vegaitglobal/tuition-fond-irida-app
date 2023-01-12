@@ -35,7 +35,6 @@ public class BlogsController : ControllerBase
         });
     }
 
-
     [HttpGet]
     [Route("{id}")]
     public async Task<ActionResult<BlogDto>> FindByIdAsync([FromRoute] string id,
@@ -45,4 +44,9 @@ public class BlogsController : ControllerBase
 
         return this.blogMapper.Create(blog);
     }
+
+    [HttpGet]
+    [Route("Categories")]
+    public async Task<ActionResult<IList<string>>> FindAllBlogsCategoriesAsync(CancellationToken cancellationToken = default) =>
+        Ok(await this.mediator.Send(new FindAllBlogsCategoriesQuery(), cancellationToken));
 }
