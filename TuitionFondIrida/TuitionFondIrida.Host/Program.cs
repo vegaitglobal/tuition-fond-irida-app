@@ -55,6 +55,8 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+app.UseRouting();
+
 app.UseCors("MyPolicy");
 
 // Configure the HTTP request pipeline.
