@@ -62,12 +62,7 @@ export const SplitTextModule = (props: Props) => {
                             ></Form>
                         );
                     case FormType.Quiz:
-                        return (
-                            <Form
-                                showSizeDropdown
-                                darkMode={backgroundColor !== "primary"}
-                            ></Form>
-                        );
+                        return;
                     default:
                         return null;
                 }
