@@ -16,6 +16,6 @@ public class FindAllBlogsQueryHandler : IQueryHandler<FindAllBlogsQuery, PageOf<
     public async Task<PageOf<Domain.Models.Read.Blog>> Handle(FindAllBlogsQuery request,
         CancellationToken cancellationToken)
     {
-        return await this.blogReadRepository.FindAllAsync(request.PageNumber, cancellationToken);
+        return await this.blogReadRepository.FindAllAsync(request.PageNumber, request.BlogCategory, cancellationToken);
     }
 }
