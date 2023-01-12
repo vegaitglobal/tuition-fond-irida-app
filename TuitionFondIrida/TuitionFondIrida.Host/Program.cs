@@ -38,20 +38,24 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
     containerBuilder.RegisterModule(new CompositionRootModule(builder.Configuration)));
 
 // Add Cors for SPA / Third Parties
-var hosts = builder.Configuration["AllowedHosts"];
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowPreflightRequests", configure => configure
-        .WithOrigins("*")
-        .AllowAnyMethod()
-        .AllowAnyHeader()
-    );
+    options.AddPolicy(name: "MyPolicy",
+        policy =>
+        {
+            policy.WithOrigins(
+                    "https://localhost:3000",
+                    "https://api.fond-irida.codeforacause.rs"
+                )
+                .WithMethods("PUT", "DELETE", "GET", "POST")
+                .AllowAnyHeader();
+        });
 });
 
 
 var app = builder.Build();
 
-app.UseCors("AllowPreflightRequests");
+app.UseCors("MyPolicy");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
