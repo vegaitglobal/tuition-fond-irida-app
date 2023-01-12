@@ -5,7 +5,7 @@ services:
     image: codeforacause/tuition-fond-irida-app:backend-#{TAG_NUMBER}#
     container_name: fond-irida-api
     ports:
-      - 5069
+      - "25001:5069"
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - AppSettings__Contentful__DeliveryApiKey=#{DELIVERYAPIKEY}#
