@@ -43,7 +43,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowPreflightRequests",
         configure => configure
-            .WithOrigins("https://fond-irida.codeforacause.rs/", "https://localhost:3000")
+            .WithOrigins("https://fond-irida.codeforacause.rs", "https://localhost:3000")
             .AllowAnyHeader()
             .AllowAnyMethod());
 });
