@@ -43,11 +43,8 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: "MyPolicy",
         policy =>
         {
-            policy.WithOrigins(
-                    "https://localhost:3000",
-                    "https://api.fond-irida.codeforacause.rs"
-                )
-                .WithMethods("PUT", "DELETE", "GET", "POST")
+            policy.AllowAnyOrigin()
+                .AllowAnyMethod()
                 .AllowAnyHeader();
         });
 });
@@ -55,9 +52,10 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-app.UseRouting();
 
 app.UseCors("MyPolicy");
+
+app.UseRouting();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
