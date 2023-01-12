@@ -24,18 +24,20 @@ export const Page = (props: Props) => {
         getModulesByPageId(pageId).then((modules) => {
             setModules(modules);
         });
-    }, []);
+    }, [pageId]);
 
-    const mappedModules = modules.map((m) => {
+    const mappedModules = modules.map((m, index) => {
+        const key = index + pageId + m.__typename;
+
         switch (m.__typename) {
             case ModuleType.Content:
-                return getModuleEntryComponent(m as ContentModule);
+                return getModuleEntryComponent(m as ContentModule, key);
 
             case ModuleType.Products:
                 return <ProductsSection />;
 
             case ModuleType.Blogs:
-                return params.id ? <BlogDetailsPage /> : <BlogsSection />;
+                return params.id ? <BlogDetailsPage key={key} /> : <BlogsSection key={key} />;
 
             default:
                 return null;

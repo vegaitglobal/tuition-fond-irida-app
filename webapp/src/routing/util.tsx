@@ -4,11 +4,10 @@ import { PageReferenceEntry } from "../core/services/contentful/queries/getPageR
 import { ReactNode } from "react";
 import {
     CenteredTextModule,
-    ContactUsModule,
     SplitTextLeftModule,
     SplitTextModule,
     SplitTextRightModule,
-    TextPosition
+    TextPosition,
 } from "../containers";
 import { ContentModule } from "../core/services/contentful/queries/getModulesByPageId";
 
@@ -44,12 +43,16 @@ const mapContentfulPageToPage = (page: PageReferenceEntry) => {
     return <Page key={page.sys.id} pageId={page.sys.id} />;
 };
 
-export const getModuleEntryComponent = (module: ContentModule): ReactNode => {
+export const getModuleEntryComponent = (module: ContentModule, key: string): ReactNode => {
     switch (module.layout) {
         case "split-text-left":
-            return <SplitTextModule textPosition={TextPosition.left} key={module.header} moduleEntry={module}/>;
+            return (
+                <SplitTextModule textPosition={TextPosition.left} key={key} moduleEntry={module} />
+            );
         case "split-text-right":
-            return <SplitTextModule textPosition={TextPosition.right} key={module.header} moduleEntry={module}/>;
+            return (
+                <SplitTextModule textPosition={TextPosition.right} key={key} moduleEntry={module} />
+            );
         case "right":
             // TODO
             return <SplitTextRightModule />;
@@ -57,8 +60,8 @@ export const getModuleEntryComponent = (module: ContentModule): ReactNode => {
             // TODO
             return <SplitTextLeftModule />;
         case "centered":
-            return <CenteredTextModule key={module.header} moduleEntry={module} />;
+            return <CenteredTextModule key={key} moduleEntry={module} />;
         default:
-            return <div key={`module-${module.header}`}>Blank</div>;
+            return <div key={key}>Blank</div>;
     }
 };
