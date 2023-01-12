@@ -15,6 +15,7 @@ services:
       - AppSettings__EmailClient__FromEmailAddress=#{FROMEMAILADDRESS}#
       - AppSettings__EmailClient__FromEmailPassword=#{FROMEMAILPASSWORD}#
       - AppSettings__EmailClient__SmtpClient=smtp.gmail.com
+    restart: always
   web:
     image: codeforacause/tuition-fond-irida-app:web-#{TAG_NUMBER}#
     container_name: fond-irida-web
@@ -24,3 +25,4 @@ services:
       - REACT_APP_API_URL=https://api.fond-irida.codeforacause.rs
       - REACT_APP_CONTENTFUL_DELIVERY_ACCESS_KEY=#{DELIVERY_ACCESS_KEY}#
       - REACT_APP_CONTENTFUL_BASE_GRAPHQL_URL=https://graphql.contentful.com/content/v1/spaces/lpy11m2kyblz/environments/ui
+    restart: always
