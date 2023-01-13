@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledProductDetailsDialog = styled.div`
      & .modal-wrap {
         display: flex;
+        justify-content: center;
      }
 
      & .product-details-img {
