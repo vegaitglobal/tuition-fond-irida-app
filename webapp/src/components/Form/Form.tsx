@@ -93,6 +93,7 @@ export const Form = (props: Props) => {
                     border: "none",
                     backgroundColor: "#5F4477",
                     padding: "50px",
+                    justifyContent: "center",
                 },
                 overlay: {
                     zIndex: 9999
