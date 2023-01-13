@@ -59,7 +59,7 @@ export const ProductDetailsDialog = (props: Props) => {
             {showThankYouMessage ? (
               <StyledModalContent>
                 <div className="modal-content-title">Hvala Vam!</div>
-                <div className="modal-content-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu odio vel nunc fringilla euismod eget non eros. Morbi convallis auctor lectus eu facilisis. Aenean vitae lectus mollis, finibus arcu vel, aliquam est. Etiam gravida lectus quis vestibulum aliquam. Sed nec quam eget eros eleifend vehicula.Aenean vitae lectus mollis, finibus arcu vel, aliquam est. Etiam gravida lectus quis vestibulum aliquam.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                <div className="modal-content-description">Primili smo vašu porudžbinu</div>
                 <Button onClick={() => setIsOpen(false)} text="U redu" variant="light" />
               </StyledModalContent>
             ) : (
