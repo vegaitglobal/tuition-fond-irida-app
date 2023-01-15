@@ -59,7 +59,7 @@ export const StyledBlogDetailsPage = styled.div<{
                 }
 
                 & .blog-author-name {
-                    font-family: "Lato", sans-serif;
+                    font-family: "Montserrat", sans-serif;
                     font-style: normal;
                     font-weight: 400;
                     font-size: 16px;
