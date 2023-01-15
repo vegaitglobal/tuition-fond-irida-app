@@ -10,9 +10,11 @@ export const StyledBlogDetailsPage = styled.div<{
 
     & .banner {
         background-image: url(${(props) => props.backgroundImage});
-        height: 45vh;
+        background-repeat: no-repeat;
+        background-size: cover;
         background-position: center;
         object-fit: cover;
+        height: 45vh;
         display: flex;
         align-items: center;
         justify-content: center;
