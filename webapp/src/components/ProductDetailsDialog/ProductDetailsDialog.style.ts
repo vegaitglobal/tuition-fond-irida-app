@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledProductDetailsDialog = styled.div`
      & .modal-wrap {
         display: flex;
+        justify-content: center;
      }
 
      & .product-details-img {
@@ -24,6 +25,10 @@ export const StyledProductDetailsDialog = styled.div`
         display: flex;
         flex-direction: column;  
         justify-content:space-between;
+
+        & Button {
+            align-self: flex-end
+        }
     }
 
     & .product-details-title {
@@ -39,9 +44,4 @@ export const StyledProductDetailsDialog = styled.div`
         color: white;
         margin-bottom: 74px;
     }
-
-    & Button {
-        align-self: flex-end
-    }
-
 `;

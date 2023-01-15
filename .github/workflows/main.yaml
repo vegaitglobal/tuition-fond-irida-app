@@ -31,11 +31,11 @@ jobs:
           files: '["**docker-compose.tuition-fond-irida-app.yaml"]'
         env:
           TAG_NUMBER: "${{ github.run_number }}"
-          DeliveryApiKey: ${{ secrets.DeliveryApiKey }}
-          PreviewApiKey: ${{ secrets.PreviewApiKey }}
-          SpaceId: ${{ secrets.SpaceId }}
-          FromEmailAddress: ${{ secrets.FromEmailAddress }}
-          FromEmailPassword: ${{ secrets.FromEmailPassword }}
+          DELIVERYAPIKEY: ${{ secrets.DeliveryApiKey }}
+          PREVIEWAPIKEY: ${{ secrets.PreviewApiKey }}
+          SPACEID: ${{ secrets.SpaceId }}
+          FROMEMAILADDRESS: ${{ secrets.FromEmailAddress }}
+          FROMEMAILPASSWORD: ${{ secrets.FromEmailPassword }}
           DELIVERY_ACCESS_KEY: ${{ secrets.DELIVERY_ACCESS_KEY }}
       - name: copy file via ssh password
         uses: appleboy/scp-action@master

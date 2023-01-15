@@ -123,6 +123,7 @@ export enum ActionType {
 export enum FormType {
     Contact = "contact",
     Donate = "donate",
+    PaymentSlip = "payment-slip",
     Quiz = "quiz",
 }
 

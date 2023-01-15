@@ -105,7 +105,7 @@ export const PaymentSlip = (props: Props) => {
                         </div>
                     </div>
                 </div>
-                <Button variant="light" text="Hvala Vam!"></Button>
+                <Button variant="light" text="Hvala Vam!" onClick={() => closeModalDialog()}></Button>
             </StyledPaymentSlip>
         </Modal>
     );

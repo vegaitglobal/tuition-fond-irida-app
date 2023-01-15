@@ -22,10 +22,10 @@ public class BlogsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<PageOfDto<BlogDto>>> FindAllAsync([FromQuery] int? pageNumber,
-        CancellationToken cancellationToken)
+    public async Task<ActionResult<PageOfDto<BlogDto>>> FindAllAsync([FromQuery] int? pageNumber, [FromQuery] string? blogCategory = "",
+        CancellationToken cancellationToken = default)
     {
-        var pageOfProducts = await this.mediator.Send(new FindAllBlogsQuery(pageNumber ?? 1), cancellationToken);
+        var pageOfProducts = await this.mediator.Send(new FindAllBlogsQuery(pageNumber ?? 1, blogCategory), cancellationToken);
 
         return this.Ok(new PageOfDto<BlogDto>
         {
@@ -34,7 +34,6 @@ public class BlogsController : ControllerBase
             PageSize = pageOfProducts.PageSize
         });
     }
-
 
     [HttpGet]
     [Route("{id}")]
@@ -45,4 +44,9 @@ public class BlogsController : ControllerBase
 
         return this.blogMapper.Create(blog);
     }
+
+    [HttpGet]
+    [Route("Categories")]
+    public async Task<ActionResult<IList<string>>> FindAllBlogsCategoriesAsync(CancellationToken cancellationToken = default) =>
+        Ok(await this.mediator.Send(new FindAllBlogsCategoriesQuery(), cancellationToken));
 }

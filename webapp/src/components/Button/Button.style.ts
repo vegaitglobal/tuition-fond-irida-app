@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 const BaseButton = styled.button`
-    padding: 17px 45px;
+    padding: 14px 24px;
+    min-width: 205px;
     border: none;
     cursor: pointer;
     border-radius: 0.7rem;
     font-style: normal;
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 700;
     transition: 200ms ease;
     transition-property: background-color, color;

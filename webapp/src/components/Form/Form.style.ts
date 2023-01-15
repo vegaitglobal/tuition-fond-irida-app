@@ -43,3 +43,33 @@ export const StyledForm = styled.div`
         }
     }
 `;
+
+export const StyledModalContent = styled.div`
+    background-color: ${(props) => props.theme.colors.primary.main};
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    & .modal-content-title {
+        font-size: 24px;
+        font-weight: 700;
+        font-family: Montserrat, sans-serif;
+        line-height: 30px;
+    }
+
+    & .modal-content-description {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 18px;
+        font-family: Lato, sans-serif;
+        margin-top: 15px;
+    }
+
+    & Button {
+        margin-top: 23px;
+        align-self: center;
+    }
+`;

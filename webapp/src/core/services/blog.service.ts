@@ -4,7 +4,11 @@ import { PageOf } from "../models/common/pageOf";
 
 export const fetchBlogs = async (pageNumber: number): Promise<PageOf<Blog>> => {
     const baseUrl = process.env.REACT_APP_API_URL;
-    const { data } = await axios.get<PageOf<Blog>>(`${baseUrl}/api/Blog?pageNumber=${pageNumber}`);
+    const { data } = await axios.get<PageOf<Blog>>(`${baseUrl}/api/Blog?pageNumber=${pageNumber}`, {
+        headers: {
+            'Access-Control-Allow-Origin': '*'
+        }
+    });
 
     return new PageOf<Blog>(data.total, data.items, data.pageSize);
 };

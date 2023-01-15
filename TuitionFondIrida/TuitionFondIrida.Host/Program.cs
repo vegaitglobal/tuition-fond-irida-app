@@ -38,16 +38,24 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
     containerBuilder.RegisterModule(new CompositionRootModule(builder.Configuration)));
 
 // Add Cors for SPA / Third Parties
-var hosts = builder.Configuration["AllowedHosts"];
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowPreflightRequests", configure => configure.WithOrigins(hosts).AllowAnyHeader().AllowAnyMethod());
+    options.AddPolicy(name: "MyPolicy",
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+        });
 });
 
 
 var app = builder.Build();
 
-app.UseCors("AllowPreflightRequests");
+
+app.UseCors("MyPolicy");
+
+app.UseRouting();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
