@@ -8,9 +8,8 @@ import {
 import { getModuleEntryComponent } from "../routing/util";
 import { ProductsSection } from "./DonatePage/ProductsSection";
 import { BlogsSection } from "./BlogsPage/BlogsSection";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { BlogDetailsPage } from "./BlogsDetailsPage/BlogDetailsPage";
-import { Loader } from "../components";
 
 interface Props {
     pageId: string;
@@ -19,40 +18,31 @@ interface Props {
 export const Page = (props: Props) => {
     const { pageId } = props;
     const params = useParams();
-    const navigate = useNavigate();
-
-
     const [modules, setModules] = useState<Module[]>([]);
-    const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
-        setLoading(true);
-        getModulesByPageId(pageId)
-            .then((modules) => {
-                setModules(modules);
-                setLoading(false);
-            })
-            .catch(() => {
-                setLoading(false);
-                navigate("/greska");
-            });
-    }, [pageId, navigate]);
+        getModulesByPageId(pageId).then((modules) => {
+            setModules(modules);
+        });
+    }, [pageId]);
 
-    const mappedModules = modules.map((m) => {
+    const mappedModules = modules.map((m, index) => {
+        const key = index + pageId + m.__typename;
+
         switch (m.__typename) {
             case ModuleType.Content:
-                return getModuleEntryComponent(m as ContentModule);
+                return getModuleEntryComponent(m as ContentModule, key);
 
             case ModuleType.Products:
                 return <ProductsSection />;
 
             case ModuleType.Blogs:
-                return params.id ? <BlogDetailsPage /> : <BlogsSection />;
+                return params.id ? <BlogDetailsPage key={key} /> : <BlogsSection key={key} />;
 
             default:
                 return null;
         }
     });
 
-    return <>{loading ? <Loader center /> : mappedModules}</>;
+    return <>{mappedModules}</>;
 };

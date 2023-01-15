@@ -13,7 +13,7 @@ export const StyledSplitTextModule = styled.div`
         justify-content: center;
         gap: 20px;
         margin: 60px 10%;
-        width: 50%;
+        width: 100%;
         @media ${(props) => props.theme.breakpoints.tablet} {
             width: 100%;
             margin: 0;
@@ -77,6 +77,6 @@ export const StyledSplitTextModule = styled.div`
     }
 
     & .button-link {
-        margin-bottom: 90px
+        margin-bottom: 90px;
     }
 `;
