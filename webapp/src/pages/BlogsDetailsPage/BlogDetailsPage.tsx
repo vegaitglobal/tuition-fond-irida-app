@@ -3,17 +3,23 @@ import { useEffect, useState } from "react";
 import { Blog } from "../../core/models/blog";
 import { fetchBlogById } from "../../core/services";
 import { StyledBlogDetailsPage } from "./BlogDetailsPage.style";
+import { Loader } from "../../components";
 
 export const BlogDetailsPage = () => {
     const params = useParams();
     const id = params.id!;
 
     const [blog, setBlog] = useState<Blog>();
+    const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
-        fetchBlogById(id).then((blog) => setBlog(blog));
+        fetchBlogById(id).then((blog) => {
+            setBlog(blog);
+            setLoading(false);
+        });
     }, [id]);
 
+    if (loading) return <Loader center />;
     if (!blog) return null;
 
     return (
