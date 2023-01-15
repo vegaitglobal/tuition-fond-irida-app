@@ -24,10 +24,19 @@ export const FooterAppDescription = () => {
 
             <div className="footer-download-section">
                 <button className="download-mobile-app-button">
-                    <img src={appStore} alt="App Store" />
+                    {/*TODO: get the real app store link*/}
+                    <a href="https://google.com" target="_blank" rel="external">
+                        <img src={appStore} alt="App Store" />
+                    </a>
                 </button>
                 <button className="download-mobile-app-button">
-                    <img src={googlePlay} alt="Google Play" />
+                    <a
+                        href="https://play.google.com/store/apps/details?id=com.putevimazena"
+                        target="_blank"
+                        rel="external"
+                    >
+                        <img src={googlePlay} alt="Google Play" />
+                    </a>
                 </button>
             </div>
         </StyledFooterAppDescription>
