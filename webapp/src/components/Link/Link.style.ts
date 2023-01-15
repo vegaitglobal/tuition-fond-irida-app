@@ -11,11 +11,12 @@ export const StyledLink = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 14px 24px;
         border-radius: 0.7rem;
         transition: 200ms ease;
         transition-property: background-color;
         cursor: pointer;
+        padding: 0;
+        min-height: 46px;
 
         & a {
             color: ${(props) => props.theme.colors.primary.main};
@@ -24,6 +25,12 @@ export const StyledLink = styled.div`
             font-size: 16px;
             transition: 200ms ease;
             transition-property: color;
+            width: 100%;
+            height: 100%;
+            min-height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         &:hover {
