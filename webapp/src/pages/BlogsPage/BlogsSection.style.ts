@@ -8,9 +8,10 @@ export const StyledBlogsSection = styled.div`
     margin: 0 auto;
 
     & .blog-cards-wrapper {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 100px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 50px;
         margin-top: 60px;
     }
 `;
