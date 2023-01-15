@@ -45,4 +45,9 @@ export const StyledBlogCard = styled.div`
         margin-top: 23px;
         align-self: center;
     }
+
+    @media ${(props) => props.theme.breakpoints.tablet} {
+        width: 100%;
+        margin: 0 10px;
+    }
 `;
