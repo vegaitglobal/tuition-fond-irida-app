@@ -1,10 +1,10 @@
-import { useState } from "react";
+import {useState} from "react";
 import Modal from 'react-modal';
-import { Button } from "components/Button/Button";
-import { User } from "core/models/user";
-import { sendContactUsEmailAsync } from "core/services/email.service";
-import { StyledForm, StyledModalContent } from "./Form.style";
-import { FormInput } from "./FormInput/FormInput";
+import {Button} from "components/Button/Button";
+import {User} from "core/models/user";
+import {sendContactUsEmailAsync, sendOrderEmailAsync} from "core/services/email.service";
+import {StyledForm, StyledModalContent} from "./Form.style";
+import {FormInput} from "./FormInput/FormInput";
 
 interface Props {
     darkMode: boolean;
@@ -12,16 +12,19 @@ interface Props {
     sendButtonText: string;
     sendButtonVariant: "primary" | "secondary" | "accent" | "outlined" | "light" | "default";
     onClick: () => void;
+    isContactForm?: boolean;
+    productName?: string;
 }
+
 export const Form = (props: Props) => {
-    const { darkMode, showSizeDropdown, sendButtonText, sendButtonVariant } = props;
+    const {darkMode, showSizeDropdown, sendButtonText, sendButtonVariant, isContactForm, productName} = props;
     // TODO - propagate sizes
     const sizeOptions = ["XS", "S", "M", "L", "XL", "XXL"];
     const [userData, setUserData] = useState(new User("", "", "", "", "", ""));
     const [isOpen, setIsOpen] = useState(false)
 
     const onEmailChange = (event: any) => {
-        const { value } = event.target;
+        const {value} = event.target;
         setUserData((prev: any) => ({
             ...prev,
             emailAddress: value,
@@ -29,7 +32,7 @@ export const Form = (props: Props) => {
     };
 
     const onFirstNameChange = (event: any) => {
-        const { value } = event.target;
+        const {value} = event.target;
         setUserData((prev: any) => ({
             ...prev,
             firstName: value,
@@ -37,7 +40,7 @@ export const Form = (props: Props) => {
     };
 
     const onLastNameChange = (event: any) => {
-        const { value } = event.target;
+        const {value} = event.target;
         setUserData((prev: any) => ({
             ...prev,
             lastName: value,
@@ -45,7 +48,7 @@ export const Form = (props: Props) => {
     };
 
     const onPhoneNumberChange = (event: any) => {
-        const { value } = event.target;
+        const {value} = event.target;
         setUserData((prev: any) => ({
             ...prev,
             phoneNumber: value,
@@ -53,7 +56,7 @@ export const Form = (props: Props) => {
     };
 
     const onCommentChange = (event: any) => {
-        const { value } = event.target;
+        const {value} = event.target;
         setUserData((prev: any) => ({
             ...prev,
             additionalComment: value,
@@ -61,14 +64,30 @@ export const Form = (props: Props) => {
     };
 
     const onClick = () => {
-        sendContactUsEmailAsync(userData);
-        setIsOpen(true)
-        setUserData(new User("", "", "", "", "", ""));
-        props.onClick();
+        if (isContactForm) {
+            sendContactUsEmailAsync(userData)
+                .then(() => {
+                    setIsOpen(true)
+                    setUserData(new User("", "", "", "", "", ""));
+                    props.onClick();
+                });
+            props.onClick();
+        } else {
+            sendOrderEmailAsync({
+                ...userData,
+                selectedSize: userData.size!,
+                productName: productName!
+            })
+                .then(() => {
+                    setIsOpen(true)
+                    setUserData(new User("", "", "", "", "", ""));
+                    props.onClick();
+                });
+        }
     };
 
     const handleSelect = (event: any) => {
-        const { value } = event.target;
+        const {value} = event.target;
         setUserData((prev: any) => ({
             ...prev,
             size: value,
@@ -80,30 +99,30 @@ export const Form = (props: Props) => {
             <Modal
                 isOpen={isOpen}
                 style={{
-                content: {
-                    top: '50%',
-                    left: "50%",
-                    right: "auto",
-                    bottom: "auto",
-                    marginRight: "-50%",
-                    transform: "translate(-50%, -50%)",
-                    width: "calc(100vw - 40px)",
-                    maxWidth: "1258px",
-                    borderRadius: "50px",
-                    border: "none",
-                    backgroundColor: "#5F4477",
-                    padding: "50px",
-                    justifyContent: "center",
-                },
-                overlay: {
-                    zIndex: 9999
-                }
+                    content: {
+                        top: '50%',
+                        left: "50%",
+                        right: "auto",
+                        bottom: "auto",
+                        marginRight: "-50%",
+                        transform: "translate(-50%, -50%)",
+                        width: "calc(100vw - 40px)",
+                        maxWidth: "1258px",
+                        borderRadius: "50px",
+                        border: "none",
+                        backgroundColor: "#5F4477",
+                        padding: "50px",
+                        justifyContent: "center",
+                    },
+                    overlay: {
+                        zIndex: 9999
+                    }
                 }}
             >
                 <StyledModalContent>
                     <div className="modal-content-title">Poslato</div>
                     <div className="modal-content-description">Vaša poruka je poslata.</div>
-                    <Button onClick={() => setIsOpen(false)} text="U redu" variant="light" />
+                    <Button onClick={() => setIsOpen(false)} text="U redu" variant="light"/>
                 </StyledModalContent>
             </Modal>
             <StyledForm>
@@ -167,5 +186,6 @@ Form.defaultProps = {
     showSizeDropdown: true,
     sendButtonText: "Pošalji",
     sendButtonVariant: "primary",
-    onClick: () => {},
+    onClick: () => {
+    },
 };

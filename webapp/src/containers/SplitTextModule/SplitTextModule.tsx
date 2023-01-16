@@ -52,6 +52,7 @@ export const SplitTextModule = (props: Props) => {
                             <Form
                                 showSizeDropdown={false}
                                 darkMode={backgroundColor !== "primary"}
+                                isContactForm={true}
                             ></Form>
                         );
                     case FormType.Donate:
