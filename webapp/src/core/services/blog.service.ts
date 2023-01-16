@@ -2,10 +2,14 @@ import axios from "axios";
 import { Blog } from "../models/blog";
 import { PageOf } from "../models/common/pageOf";
 
-export const fetchBlogs = async (pageNumber: number): Promise<PageOf<Blog>> => {
+export const fetchBlogs = async (pageNumber: number, category?: string): Promise<PageOf<Blog>> => {
     const baseUrl = process.env.REACT_APP_API_URL;
+
+    const pageParam = `pageNumber=${pageNumber}`;
+    const categoryParam = `${category ? "&blogCategory=" + category : ""}`;
+
     const { data } = await axios.get<PageOf<Blog>>(
-        `${baseUrl}/api/Blogs?pageNumber=${pageNumber}`,
+        `${baseUrl}/api/Blogs?${pageParam}${categoryParam}`,
         {
             headers: {
                 "Access-Control-Allow-Origin": "*",

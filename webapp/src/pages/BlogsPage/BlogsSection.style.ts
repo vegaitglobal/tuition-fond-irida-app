@@ -45,6 +45,7 @@ export const StyledBlogsSection = styled.div`
             align-items: center;
             justify-content: center;
             width: 336px;
+            padding-top: 30px;
 
             & h3 {
                 color: ${(props) => props.theme.colors.primary.main};
@@ -68,9 +69,11 @@ export const StyledBlogsSection = styled.div`
     }
 
     & .blog-cards-wrapper {
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        align-items: flex-start;
         gap: 50px;
         margin-top: 60px;
     }
