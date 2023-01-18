@@ -1,12 +1,13 @@
-import { Outlet } from "react-router-dom";
-import { Footer, Header } from "../components";
+import {Outlet} from "react-router-dom";
+import {Footer, Header} from "../components";
+import {PageReferenceEntry} from "../core/services/contentful/queries/getPageReferences";
 
-export const Layout = () => {
+export const Layout = ({pages}: {pages: PageReferenceEntry[]}) => {
     return (
         <>
             <Header />
             <Outlet />
-            <Footer />
+            <Footer pages={pages}/>
         </>
     );
 };
