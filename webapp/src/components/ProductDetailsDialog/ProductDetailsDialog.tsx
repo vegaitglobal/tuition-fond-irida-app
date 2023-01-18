@@ -76,15 +76,17 @@ export const ProductDetailsDialog = (props: Props) => {
                                     <Button variant="light" text="Poruči i doniraj"
                                             onClick={handleShowDonateForm}></Button>
                                 </div>}
-                                {showDonateForm && <Form
-                                    isContactForm={false}
-                                    darkMode={false}
-                                    showSizeDropdown={true}
-                                    sendButtonText="Poruči i doniraj"
-                                    sendButtonVariant="accent"
-                                    onClick={() => setShowThankYouMessage(true)}
-                                    productName={product?.title}
-                                />}
+                                {showDonateForm && product && <div className="donate-form-wrap">
+                                    <Form
+                                        isContactForm={false}
+                                        darkMode={false}
+                                        sendButtonText="Poruči i doniraj"
+                                        sendButtonVariant="accent"
+                                        onClick={() => setShowThankYouMessage(true)}
+                                        productName={product.title}
+                                        sizeOptions={product.sizes}
+                                    />
+                                </div>}
                             </>
                         )}
                     </div>

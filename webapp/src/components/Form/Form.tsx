@@ -8,18 +8,16 @@ import {FormInput} from "./FormInput/FormInput";
 
 interface Props {
     darkMode: boolean;
-    showSizeDropdown: boolean;
     sendButtonText: string;
     sendButtonVariant: "primary" | "secondary" | "accent" | "outlined" | "light" | "default";
     onClick: () => void;
     isContactForm?: boolean;
     productName?: string;
+    sizeOptions?: string[]
 }
 
 export const Form = (props: Props) => {
-    const {darkMode, showSizeDropdown, sendButtonText, sendButtonVariant, isContactForm, productName} = props;
-    // TODO - propagate sizes
-    const sizeOptions = ["XS", "S", "M", "L", "XL", "XXL"];
+    const {darkMode, sizeOptions= [],sendButtonText, sendButtonVariant, isContactForm, productName} = props;
     const [userData, setUserData] = useState(new User("", "", "", "", "", ""));
     const [isOpen, setIsOpen] = useState(false)
 
@@ -98,26 +96,6 @@ export const Form = (props: Props) => {
         <>
             <Modal
                 isOpen={isOpen}
-                style={{
-                    content: {
-                        top: '50%',
-                        left: "50%",
-                        right: "auto",
-                        bottom: "auto",
-                        marginRight: "-50%",
-                        transform: "translate(-50%, -50%)",
-                        width: "calc(100vw - 40px)",
-                        maxWidth: "1258px",
-                        borderRadius: "50px",
-                        border: "none",
-                        backgroundColor: "#5F4477",
-                        padding: "50px",
-                        justifyContent: "center",
-                    },
-                    overlay: {
-                        zIndex: 9999
-                    }
-                }}
             >
                 <StyledModalContent>
                     <div className="modal-content-title">Poslato</div>
@@ -165,7 +143,7 @@ export const Form = (props: Props) => {
                         darkMode={darkMode}
                         onChange={onCommentChange}
                     ></FormInput>
-                    {showSizeDropdown && (
+                    {sizeOptions.length > 0 && (
                         <select onChange={handleSelect}>
                             {sizeOptions.map((option) => (
                                 <option key={option}>{option}</option>

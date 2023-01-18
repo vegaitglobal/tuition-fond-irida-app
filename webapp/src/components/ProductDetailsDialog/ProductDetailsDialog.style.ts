@@ -3,21 +3,25 @@ import styled from "styled-components";
 export const StyledProductDetailsDialog = styled.div`
      & .modal-wrap {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
+       gap: 50px;
      }
 
      & .product-details-img {
-        width: 455px;
-        overflow: hidden;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       width: 455px;
+       height: 520px;
+       overflow: hidden;
         border-radius: 25px;
-        margin-right: 50px;
-        height: 100%;
     }
 
     & .product-image {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
+      width: 455px;
+      height: 520px;       
+      object-fit: cover;
+      object-position: center;
     }
 
     & .product-details-content {
@@ -44,4 +48,8 @@ export const StyledProductDetailsDialog = styled.div`
         color: white;
         margin-bottom: 74px;
     }
+  
+  & .donate-form-wrap {
+    width: 100%
+  }
 `;
