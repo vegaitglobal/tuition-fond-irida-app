@@ -14,14 +14,24 @@ interface Props {
     onClick: () => void;
     isContactForm?: boolean;
     productName?: string;
+    setSentSuccessfully: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const Form = (props: Props) => {
-    const {darkMode, showSizeDropdown, sendButtonText, sendButtonVariant, isContactForm, productName} = props;
+    const {
+        darkMode,
+        showSizeDropdown,
+        sendButtonText,
+        sendButtonVariant,
+        isContactForm,
+        productName,
+        setSentSuccessfully,
+    } = props;
     // TODO - propagate sizes
     const sizeOptions = ["XS", "S", "M", "L", "XL", "XXL"];
     const [userData, setUserData] = useState(new User("", "", "", "", "", ""));
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
+    const [contactedSuccessfully, setContactedSuccessfully] = useState(false);
 
     const onEmailChange = (event: any) => {
         const {value} = event.target;
@@ -67,11 +77,17 @@ export const Form = (props: Props) => {
         if (isContactForm) {
             sendContactUsEmailAsync(userData)
                 .then(() => {
-                    setIsOpen(true)
+                    setIsOpen(true);
                     setUserData(new User("", "", "", "", "", ""));
+                    setSentSuccessfully(true);
+                    setContactedSuccessfully(true);
+                    props.onClick();
+                }).catch(() => {
+                    setIsOpen(true);
+                    setSentSuccessfully(false)
+                    setContactedSuccessfully(false);
                     props.onClick();
                 });
-            props.onClick();
         } else {
             sendOrderEmailAsync({
                 ...userData,
@@ -79,8 +95,15 @@ export const Form = (props: Props) => {
                 productName: productName!
             })
                 .then(() => {
-                    setIsOpen(true)
+                    setIsOpen(true);
                     setUserData(new User("", "", "", "", "", ""));
+                    setSentSuccessfully(true)
+                    setContactedSuccessfully(true);
+                    props.onClick();
+                }).catch(() => {
+                    setIsOpen(true);
+                    setSentSuccessfully(false);
+                    setContactedSuccessfully(false);
                     props.onClick();
                 });
         }
@@ -119,11 +142,19 @@ export const Form = (props: Props) => {
                     }
                 }}
             >
-                <StyledModalContent>
-                    <div className="modal-content-title">Poslato</div>
-                    <div className="modal-content-description">Vaša poruka je poslata.</div>
-                    <Button onClick={() => setIsOpen(false)} text="U redu" variant="light"/>
-                </StyledModalContent>
+                {contactedSuccessfully ? (
+                    <StyledModalContent>
+                        <div className="modal-content-title">Poslato</div>
+                        <div className="modal-content-description">Vaša poruka je poslata.</div>
+                        <Button onClick={() => setIsOpen(false)} text="U redu" variant="light"/>
+                    </StyledModalContent>
+                ) : (
+                    <StyledModalContent>
+                        <div className="modal-content-title">Greška</div>
+                        <div className="modal-content-description">Došlo je do greške tokom slanja Vaše poruke. Molimo pokušajte kasnije.</div>
+                        <Button onClick={() => setIsOpen(false)} text="U redu" variant="light"/>
+                    </StyledModalContent>
+                )}
             </Modal>
             <StyledForm>
                 <div id="contact-us-form" className={`container ${darkMode ? "dark" : "light"}`}>
@@ -186,6 +217,6 @@ Form.defaultProps = {
     showSizeDropdown: true,
     sendButtonText: "Pošalji",
     sendButtonVariant: "primary",
-    onClick: () => {
-    },
+    onClick: () => {},
+    setSentSuccessfully: () => {},
 };

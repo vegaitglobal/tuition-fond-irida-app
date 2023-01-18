@@ -19,6 +19,7 @@ interface Props {
 export const ProductDetailsDialog = (props: Props) => {
     const {isOpen, setIsOpen, onClose, product} = props;
 
+    const [sentSuccessfully, setSentSuccessfully] = useState(false);
     const [showDetailsText, setShowDetailsText] = useState(true);
     const [showDonateForm, setShowDonateForm] = useState(false);
     const [showThankYouMessage, setShowThankYouMessage] = useState(false);
@@ -56,12 +57,17 @@ export const ProductDetailsDialog = (props: Props) => {
             >
                 <StyledProductDetailsDialog>
                     <div className="modal-wrap">
-                        {showThankYouMessage ? (
-                            <StyledModalContent>
+                        {showThankYouMessage ? (<>
+                            {sentSuccessfully ? (<StyledModalContent>
                                 <div className="modal-content-title">Hvala Vam!</div>
                                 <div className="modal-content-description">Primili smo vašu porudžbinu</div>
                                 <Button onClick={() => setIsOpen(false)} text="U redu" variant="light"/>
+                            </StyledModalContent>) : (<StyledModalContent>
+                                <div className="modal-content-title">Greška</div>
+                                <div className="modal-content-description">Došlo je do greške prilikom slanja vaše porudžbine. Molimo pokušajte kasnije.</div>
+                                <Button onClick={() => setIsOpen(false)} text="U redu" variant="light"/>
                             </StyledModalContent>
+                            )}</>
                         ) : (
                             <>
                                 <div className="product-details-img">
@@ -84,6 +90,7 @@ export const ProductDetailsDialog = (props: Props) => {
                                     sendButtonVariant="accent"
                                     onClick={() => setShowThankYouMessage(true)}
                                     productName={product?.title}
+                                    setSentSuccessfully={setSentSuccessfully}
                                 />}
                             </>
                         )}
