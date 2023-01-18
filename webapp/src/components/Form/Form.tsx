@@ -1,10 +1,10 @@
-import {useState} from "react";
-import Modal from 'react-modal';
-import {Button} from "components/Button/Button";
-import {User} from "core/models/user";
-import {sendContactUsEmailAsync, sendOrderEmailAsync} from "core/services/email.service";
-import {StyledForm, StyledModalContent} from "./Form.style";
-import {FormInput} from "./FormInput/FormInput";
+import { useState } from "react";
+import Modal from "react-modal";
+import { Button } from "components/Button/Button";
+import { User } from "core/models/user";
+import { sendContactUsEmailAsync, sendOrderEmailAsync } from "core/services/email.service";
+import { StyledForm, StyledModalContent } from "./Form.style";
+import { FormInput } from "./FormInput/FormInput";
 
 interface Props {
     darkMode: boolean;
@@ -13,16 +13,23 @@ interface Props {
     onClick: () => void;
     isContactForm?: boolean;
     productName?: string;
-    sizeOptions?: string[]
+    sizeOptions?: string[];
 }
 
 export const Form = (props: Props) => {
-    const {darkMode, sizeOptions= [],sendButtonText, sendButtonVariant, isContactForm, productName} = props;
+    const {
+        darkMode,
+        sizeOptions = [],
+        sendButtonText,
+        sendButtonVariant,
+        isContactForm,
+        productName,
+    } = props;
     const [userData, setUserData] = useState(new User("", "", "", "", "", ""));
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
 
     const onEmailChange = (event: any) => {
-        const {value} = event.target;
+        const { value } = event.target;
         setUserData((prev: any) => ({
             ...prev,
             emailAddress: value,
@@ -30,7 +37,7 @@ export const Form = (props: Props) => {
     };
 
     const onFirstNameChange = (event: any) => {
-        const {value} = event.target;
+        const { value } = event.target;
         setUserData((prev: any) => ({
             ...prev,
             firstName: value,
@@ -38,7 +45,7 @@ export const Form = (props: Props) => {
     };
 
     const onLastNameChange = (event: any) => {
-        const {value} = event.target;
+        const { value } = event.target;
         setUserData((prev: any) => ({
             ...prev,
             lastName: value,
@@ -46,7 +53,7 @@ export const Form = (props: Props) => {
     };
 
     const onPhoneNumberChange = (event: any) => {
-        const {value} = event.target;
+        const { value } = event.target;
         setUserData((prev: any) => ({
             ...prev,
             phoneNumber: value,
@@ -54,7 +61,7 @@ export const Form = (props: Props) => {
     };
 
     const onCommentChange = (event: any) => {
-        const {value} = event.target;
+        const { value } = event.target;
         setUserData((prev: any) => ({
             ...prev,
             additionalComment: value,
@@ -63,29 +70,27 @@ export const Form = (props: Props) => {
 
     const onClick = () => {
         if (isContactForm) {
-            sendContactUsEmailAsync(userData)
-                .then(() => {
-                    setIsOpen(true)
-                    setUserData(new User("", "", "", "", "", ""));
-                    props.onClick();
-                });
+            sendContactUsEmailAsync(userData).then(() => {
+                setIsOpen(true);
+                setUserData(new User("", "", "", "", "", ""));
+                props.onClick();
+            });
             props.onClick();
         } else {
             sendOrderEmailAsync({
                 ...userData,
                 selectedSize: userData.size!,
-                productName: productName!
-            })
-                .then(() => {
-                    setIsOpen(true)
-                    setUserData(new User("", "", "", "", "", ""));
-                    props.onClick();
-                });
+                productName: productName!,
+            }).then(() => {
+                setIsOpen(true);
+                setUserData(new User("", "", "", "", "", ""));
+                props.onClick();
+            });
         }
     };
 
     const handleSelect = (event: any) => {
-        const {value} = event.target;
+        const { value } = event.target;
         setUserData((prev: any) => ({
             ...prev,
             size: value,
@@ -94,13 +99,11 @@ export const Form = (props: Props) => {
 
     return (
         <>
-            <Modal
-                isOpen={isOpen}
-            >
+            <Modal isOpen={isOpen}>
                 <StyledModalContent>
                     <div className="modal-content-title">Poslato</div>
                     <div className="modal-content-description">Vaša poruka je poslata.</div>
-                    <Button onClick={() => setIsOpen(false)} text="U redu" variant="light"/>
+                    <Button onClick={() => setIsOpen(false)} text="U redu" variant="light" />
                 </StyledModalContent>
             </Modal>
             <StyledForm>
@@ -151,7 +154,11 @@ export const Form = (props: Props) => {
                         </select>
                     )}
                     <div className="button-container">
-                        <Button onClick={onClick} text={sendButtonText} variant={sendButtonVariant}/>
+                        <Button
+                            onClick={onClick}
+                            text={sendButtonText}
+                            variant={sendButtonVariant}
+                        />
                     </div>
                 </div>
             </StyledForm>
@@ -164,6 +171,5 @@ Form.defaultProps = {
     showSizeDropdown: true,
     sendButtonText: "Pošalji",
     sendButtonVariant: "primary",
-    onClick: () => {
-    },
+    onClick: () => {},
 };

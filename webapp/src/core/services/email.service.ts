@@ -1,6 +1,6 @@
 import axios from "axios";
 import { User } from "core/models/user";
-import {Order} from "../models/order";
+import { Order } from "../models/order";
 
 export const sendContactUsEmailAsync = async (data: User): Promise<number> => {
     const baseUrl = process.env.REACT_APP_API_URL;

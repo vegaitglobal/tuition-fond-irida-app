@@ -5,7 +5,6 @@ export const StyledPaymentSlip = styled.div`
     display: flex;
     flex-direction: column;
 
-
     .grid-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -17,9 +16,9 @@ export const StyledPaymentSlip = styled.div`
     .grid-item-row {
         display: flex;
         width: max;
-        gap:20px;
+        gap: 20px;
     }
-    
+
     .smaller-input {
         width: 132px;
     }
@@ -41,7 +40,7 @@ export const StyledPaymentSlip = styled.div`
 
     .btn-modal-close {
         background: white;
-        border-radius: 26.5px; 
+        border-radius: 26.5px;
         position: absolute;
         width: 55px;
         height: 54px;
@@ -56,7 +55,7 @@ export const StyledPaymentSlip = styled.div`
 
         &:hover {
             color: white;
-            background: #B8331D;
+            background: #b8331d;
         }
     }
 `;

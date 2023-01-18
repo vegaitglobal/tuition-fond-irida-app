@@ -1,4 +1,4 @@
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from "react-markdown";
 import { StyledCenteredTextModule } from "./CenteredTextModule.style";
 import {
     ActionType,
@@ -10,8 +10,8 @@ import {
     Action,
 } from "../../core/services/contentful/queries/getModulesByPageId";
 import { Button, Form, Link } from "../../components";
-import { PaymentSlip } from 'containers/PaymentSlip/PaymentSlip';
-import { useState } from 'react';
+import { PaymentSlip } from "containers/PaymentSlip/PaymentSlip";
+import { useState } from "react";
 
 interface Props {
     moduleEntry: ContentModule;
@@ -21,7 +21,7 @@ export const CenteredTextModule = (props: Props) => {
     const { moduleEntry } = props;
     const { header, paragraph, backgroundColor, backgroundImage, primaryAction, secondaryAction } =
         moduleEntry;
-    const [isPaymentSlipOpen, setIsPaymentSlipOpen] = useState(false)
+    const [isPaymentSlipOpen, setIsPaymentSlipOpen] = useState(false);
 
     const actionElement = (action: PageLink | ExternalLink | Modal | Action | null) => {
         switch (action?.__typename) {
@@ -63,8 +63,15 @@ export const CenteredTextModule = (props: Props) => {
                     case FormType.PaymentSlip:
                         return (
                             <>
-                                <PaymentSlip isOpen={isPaymentSlipOpen} closeModalDialog={() => setIsPaymentSlipOpen(false)}/>
-                                <Button text='Doniraj' variant='accent' onClick={() => setIsPaymentSlipOpen(true)}/>
+                                <PaymentSlip
+                                    isOpen={isPaymentSlipOpen}
+                                    closeModalDialog={() => setIsPaymentSlipOpen(false)}
+                                />
+                                <Button
+                                    text="Doniraj"
+                                    variant="accent"
+                                    onClick={() => setIsPaymentSlipOpen(true)}
+                                />
                             </>
                         );
                     case FormType.Quiz:

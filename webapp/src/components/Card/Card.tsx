@@ -8,12 +8,12 @@ interface Props {
 }
 
 export const Card = (props: Props) => {
-    const {product, onClick } = props;
+    const { product, onClick } = props;
 
     return (
         <StyledCard style={{ backgroundImage: `url('${product.image.file.url}'` }}>
             <img src={product.image.file.url} alt={product.image.title} />
-            <Button text="Poruči i doniraj" onClick={() => onClick(product)}/>
+            <Button text="Poruči i doniraj" onClick={() => onClick(product)} />
         </StyledCard>
     );
 };
