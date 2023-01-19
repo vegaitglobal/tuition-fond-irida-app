@@ -4,7 +4,7 @@ import logo from "assets/images/logo.png";
 export const HeaderLogo = () => {
     return (
         <Link to="/">
-            <img height={55} src={logo} alt="Fondacija Putevima devojčica" />
+            <img height={45} src={logo} alt="Fondacija Putevima devojčica" />
         </Link>
     );
 };

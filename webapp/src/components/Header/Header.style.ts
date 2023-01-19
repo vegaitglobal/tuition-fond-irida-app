@@ -6,6 +6,7 @@ export const StyledHeader = styled.nav`
     position: relative;
 
     & .header-desktop {
+      height: 100%;
         padding: 14px 178px;
         display: flex;
         align-items: center;

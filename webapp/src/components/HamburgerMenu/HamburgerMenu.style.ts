@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const StyledHamburgerMenu = styled.div`
     display: none;
     height: 85px;
-    padding-left: 25px;
-
+    padding-left: 20px;
+  
     & button.hamburger-button,
     & button.hamburger-close-button {
         border: none;
