@@ -11,7 +11,22 @@ export const StyledFooter = styled.footer`
 
     & .footer-section-list {
         display: flex;
-        gap: 10px;
+        gap: 25px;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        & a {
+            display: block;
+            color: ${(props) => props.theme.colors.white.main};
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 16px;
+
+            &:hover {
+                color: ${(props) => props.theme.colors.white.dark};
+            }
+        }
 
         @media ${(props) => props.theme.breakpoints.laptopL} {
             display: none;
@@ -63,11 +78,17 @@ export const StyledFooterSection = styled.div`
 export const StyledFooterAppDescription = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 30px;
 
     & .footer-app-description-upper {
         display: flex;
         gap: 50px;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
 
         & img {
             margin: 25px 0 0 0;

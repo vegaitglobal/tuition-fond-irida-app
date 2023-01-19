@@ -1,4 +1,4 @@
-import {StyledFormInput} from "./PaymentSlipInput.style";
+import { StyledFormInput } from "./PaymentSlipInput.style";
 
 interface Props {
     darkMode: boolean;
@@ -8,7 +8,7 @@ interface Props {
 }
 export const PaymentSlipInput = (props: Props) => {
     const { darkMode, text, textArea, inputValue } = props;
-    
+
     return (
         <StyledFormInput>
             <label className={`form-label ${darkMode ? "dark" : "light"}`}>{text}</label>

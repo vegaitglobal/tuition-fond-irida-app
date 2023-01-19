@@ -1,5 +1,5 @@
 import axios from "axios";
-import {PaymentSlip} from "../models/payment-slip";
+import { PaymentSlip } from "../models/payment-slip";
 
 export const fetchPaymentSlip = async (): Promise<PaymentSlip> => {
     const baseUrl = process.env.REACT_APP_API_URL;

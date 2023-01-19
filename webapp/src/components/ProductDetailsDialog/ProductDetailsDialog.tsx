@@ -1,34 +1,32 @@
-import {useState} from "react";
-import Modal from 'react-modal';
-import {StyledProductDetailsDialog} from "./ProductDetailsDialog.style";
-import {Product} from "core/models/product";
-import {Button} from "components/Button/Button";
-import {Form} from "components/Form/Form";
-import {StyledModalContent} from "components/Form/Form.style";
+import { useState } from "react";
+import Modal from "react-modal";
+import { StyledProductDetailsDialog } from "./ProductDetailsDialog.style";
+import { Product } from "core/models/product";
+import { Button } from "components/Button/Button";
+import { Form } from "components/Form/Form";
+import { StyledModalContent } from "components/Form/Form.style";
 
-
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 
 interface Props {
     isOpen: boolean;
     setIsOpen: (open: boolean) => void;
     onClose: () => void;
-    product?: Product
+    product?: Product;
 }
 
 export const ProductDetailsDialog = (props: Props) => {
-    const {isOpen, setIsOpen, onClose, product} = props;
+    const { isOpen, setIsOpen, onClose, product } = props;
 
     const [sentSuccessfully, setSentSuccessfully] = useState(false);
     const [showDetailsText, setShowDetailsText] = useState(true);
     const [showDonateForm, setShowDonateForm] = useState(false);
     const [showThankYouMessage, setShowThankYouMessage] = useState(false);
 
-
     const handleShowDonateForm = () => {
-        setShowDetailsText(false)
+        setShowDetailsText(false);
         setShowDonateForm(true);
-    }
+    };
 
     return (
         <div>
@@ -37,7 +35,7 @@ export const ProductDetailsDialog = (props: Props) => {
                 onRequestClose={onClose}
                 style={{
                     content: {
-                        top: '50%',
+                        top: "50%",
                         left: "50%",
                         right: "auto",
                         bottom: "auto",
@@ -51,8 +49,8 @@ export const ProductDetailsDialog = (props: Props) => {
                         padding: "50px",
                     },
                     overlay: {
-                        zIndex: 9999
-                    }
+                        zIndex: 9999,
+                    },
                 }}
             >
                 <StyledProductDetailsDialog>
@@ -60,38 +58,55 @@ export const ProductDetailsDialog = (props: Props) => {
                         {showThankYouMessage ? (<>
                             {sentSuccessfully ? (<StyledModalContent>
                                 <div className="modal-content-title">Hvala Vam!</div>
-                                <div className="modal-content-description">Primili smo vašu porudžbinu</div>
-                                <Button onClick={() => setIsOpen(false)} text="U redu" variant="light"/>
-                            </StyledModalContent>) : (<StyledModalContent>
-                                <div className="modal-content-title">Greška</div>
-                                <div className="modal-content-description">Došlo je do greške prilikom slanja vaše porudžbine. Molimo pokušajte kasnije.</div>
-                                <Button onClick={() => setIsOpen(false)} text="U redu" variant="light"/>
+                                <div className="modal-content-description">
+                                    Primili smo vašu porudžbinu
+                                </div>
+                                <Button
+                                    onClick={() => setIsOpen(false)}
+                                    text="U redu"
+                                    variant="light"
+                                />
                             </StyledModalContent>
                             )}</>
                         ) : (
                             <>
                                 <div className="product-details-img">
-                                    <img className="product-image" src={product?.image.file.url}
-                                         alt={product?.image.title}/>
+                                    <img
+                                        className="product-image"
+                                        src={product?.image.file.url}
+                                        alt={product?.image.title}
+                                    />
                                 </div>
-                                {showDetailsText && <div className="product-details-content">
-                                    <div>
-                                        <h3 className="product-details-title">{product?.title}</h3>
-                                        <p className="product-detail-description">{product?.description}</p>
+                                {showDetailsText && (
+                                    <div className="product-details-content">
+                                        <div>
+                                            <h3 className="product-details-title">
+                                                {product?.title}
+                                            </h3>
+                                            <p className="product-detail-description">
+                                                {product?.description}
+                                            </p>
+                                        </div>
+                                        <Button
+                                            variant="light"
+                                            text="Poruči i doniraj"
+                                            onClick={handleShowDonateForm}
+                                        ></Button>
                                     </div>
-                                    <Button variant="light" text="Poruči i doniraj"
-                                            onClick={handleShowDonateForm}></Button>
-                                </div>}
-                                {showDonateForm && <Form
-                                    isContactForm={false}
-                                    darkMode={false}
-                                    showSizeDropdown={true}
-                                    sendButtonText="Poruči i doniraj"
-                                    sendButtonVariant="accent"
-                                    onClick={() => setShowThankYouMessage(true)}
-                                    productName={product?.title}
-                                    setSentSuccessfully={setSentSuccessfully}
-                                />}
+                                )}
+                                {showDonateForm && product && (
+                                    <div className="donate-form-wrap">
+                                        <Form
+                                            isContactForm={false}
+                                            darkMode={false}
+                                            sendButtonText="Poruči i doniraj"
+                                            sendButtonVariant="accent"
+                                            onClick={() => setShowThankYouMessage(true)}
+                                            productName={product.title}
+                                            sizeOptions={product.sizes}
+                                        />
+                                    </div>
+                                )}
                             </>
                         )}
                     </div>

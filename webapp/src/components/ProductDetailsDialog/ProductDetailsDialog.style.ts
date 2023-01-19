@@ -1,33 +1,37 @@
 import styled from "styled-components";
 
 export const StyledProductDetailsDialog = styled.div`
-     & .modal-wrap {
+    & .modal-wrap {
+        display: flex;
+        justify-content: space-between;
+        gap: 50px;
+    }
+
+    & .product-details-img {
         display: flex;
         justify-content: center;
-     }
-
-     & .product-details-img {
+        align-items: center;
         width: 455px;
+        height: 520px;
         overflow: hidden;
         border-radius: 25px;
-        margin-right: 50px;
-        height: 100%;
     }
 
     & .product-image {
+        width: 455px;
+        height: 520px;
         object-fit: cover;
-        width: 100%;
-        height: 100%;
+        object-position: center;
     }
 
     & .product-details-content {
         width: 100%;
         display: flex;
-        flex-direction: column;  
-        justify-content:space-between;
+        flex-direction: column;
+        justify-content: space-between;
 
         & Button {
-            align-self: flex-end
+            align-self: flex-end;
         }
     }
 
@@ -43,5 +47,9 @@ export const StyledProductDetailsDialog = styled.div`
     & .product-detail-description {
         color: white;
         margin-bottom: 74px;
+    }
+
+    & .donate-form-wrap {
+        width: 100%;
     }
 `;

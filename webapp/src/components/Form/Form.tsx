@@ -1,40 +1,39 @@
-import {useState} from "react";
-import Modal from 'react-modal';
-import {Button} from "components/Button/Button";
-import {User} from "core/models/user";
-import {sendContactUsEmailAsync, sendOrderEmailAsync} from "core/services/email.service";
-import {StyledForm, StyledModalContent} from "./Form.style";
-import {FormInput} from "./FormInput/FormInput";
+import { useState } from "react";
+import Modal from "react-modal";
+import { Button } from "components/Button/Button";
+import { User } from "core/models/user";
+import { sendContactUsEmailAsync, sendOrderEmailAsync } from "core/services/email.service";
+import { StyledForm, StyledModalContent } from "./Form.style";
+import { FormInput } from "./FormInput/FormInput";
 
 interface Props {
     darkMode: boolean;
-    showSizeDropdown: boolean;
     sendButtonText: string;
     sendButtonVariant: "primary" | "secondary" | "accent" | "outlined" | "light" | "default";
     onClick: () => void;
     isContactForm?: boolean;
     productName?: string;
     setSentSuccessfully: React.Dispatch<React.SetStateAction<boolean>>;
+    sizeOptions?: string[];
 }
 
 export const Form = (props: Props) => {
     const {
         darkMode,
-        showSizeDropdown,
+        sizeOptions = [],
         sendButtonText,
         sendButtonVariant,
         isContactForm,
         productName,
         setSentSuccessfully,
     } = props;
-    // TODO - propagate sizes
-    const sizeOptions = ["XS", "S", "M", "L", "XL", "XXL"];
+
+    const [contactedSuccessfully, setContactedSuccessfully] = useState(false);
     const [userData, setUserData] = useState(new User("", "", "", "", "", ""));
     const [isOpen, setIsOpen] = useState(false);
-    const [contactedSuccessfully, setContactedSuccessfully] = useState(false);
 
     const onEmailChange = (event: any) => {
-        const {value} = event.target;
+        const { value } = event.target;
         setUserData((prev: any) => ({
             ...prev,
             emailAddress: value,
@@ -42,7 +41,7 @@ export const Form = (props: Props) => {
     };
 
     const onFirstNameChange = (event: any) => {
-        const {value} = event.target;
+        const { value } = event.target;
         setUserData((prev: any) => ({
             ...prev,
             firstName: value,
@@ -50,7 +49,7 @@ export const Form = (props: Props) => {
     };
 
     const onLastNameChange = (event: any) => {
-        const {value} = event.target;
+        const { value } = event.target;
         setUserData((prev: any) => ({
             ...prev,
             lastName: value,
@@ -58,7 +57,7 @@ export const Form = (props: Props) => {
     };
 
     const onPhoneNumberChange = (event: any) => {
-        const {value} = event.target;
+        const { value } = event.target;
         setUserData((prev: any) => ({
             ...prev,
             phoneNumber: value,
@@ -66,7 +65,7 @@ export const Form = (props: Props) => {
     };
 
     const onCommentChange = (event: any) => {
-        const {value} = event.target;
+        const { value } = event.target;
         setUserData((prev: any) => ({
             ...prev,
             additionalComment: value,
@@ -110,7 +109,7 @@ export const Form = (props: Props) => {
     };
 
     const handleSelect = (event: any) => {
-        const {value} = event.target;
+        const { value } = event.target;
         setUserData((prev: any) => ({
             ...prev,
             size: value,
@@ -196,7 +195,7 @@ export const Form = (props: Props) => {
                         darkMode={darkMode}
                         onChange={onCommentChange}
                     ></FormInput>
-                    {showSizeDropdown && (
+                    {sizeOptions.length > 0 && (
                         <select onChange={handleSelect}>
                             {sizeOptions.map((option) => (
                                 <option key={option}>{option}</option>
@@ -204,7 +203,11 @@ export const Form = (props: Props) => {
                         </select>
                     )}
                     <div className="button-container">
-                        <Button onClick={onClick} text={sendButtonText} variant={sendButtonVariant}/>
+                        <Button
+                            onClick={onClick}
+                            text={sendButtonText}
+                            variant={sendButtonVariant}
+                        />
                     </div>
                 </div>
             </StyledForm>

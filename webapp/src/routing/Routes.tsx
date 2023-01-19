@@ -31,7 +31,7 @@ export const Routes = () => {
                 <Loader center />
             ) : (
                 <BrowserRoutes>
-                    <Route path="/" element={<Layout />}>
+                    <Route path="/" element={<Layout pages={pages} />}>
                         {routes}
                         <Route path="/greska" element={<NotFoundPage />}></Route>
                     </Route>
