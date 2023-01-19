@@ -47,8 +47,18 @@ export const Form = (props: Props) => {
         }));
         errors.set("email", "")
         setErrors(errors);
+        // Regex preuzet sa https://www.emailregex.com/
+        const rEmail = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
+        if (!rEmail.test(value)) {
+            errors.set("email", "Email adresa nije validna")
+            setErrors(errors);
+        }
         if (value.length === 0) {
             errors.set("email", "Ovo polje je obavezno")
+            setErrors(errors);
+        }
+        if (value.length > 100) {
+            errors.set("email", "Maksimalan broj karaktera je 100")
             setErrors(errors);
         }
     };
@@ -65,6 +75,10 @@ export const Form = (props: Props) => {
             errors.set("firstName", "Ovo polje je obavezno")
             setErrors(errors);
         }
+        if (value.length > 100) {
+            errors.set("firstName", "Maksimalan broj karaktera je 100")
+            setErrors(errors);
+        }
     };
 
     const onLastNameChange = (event: any) => {
@@ -79,6 +93,10 @@ export const Form = (props: Props) => {
             errors.set("lastName", "Ovo polje je obavezno")
             setErrors(errors);
         }
+        if (value.length > 100) {
+            errors.set("lastName", "Maksimalan broj karaktera je 100")
+            setErrors(errors);
+        }
     };
 
     const onPhoneNumberChange = (event: any) => {
@@ -89,8 +107,17 @@ export const Form = (props: Props) => {
         }));
         errors.set("phoneNumber", "")
         setErrors(errors);
+        const rPhoneNumber = /\+?(\d+)/
+        if (!rPhoneNumber.test(value)) {
+            errors.set("phoneNumber", "Broj telefona mora imati samo cifre i opcioni znak +")
+            setErrors(errors);
+        }
         if (value.length === 0) {
             errors.set("phoneNumber", "Ovo polje je obavezno")
+            setErrors(errors);
+        }
+        if (value.length > 100) {
+            errors.set("phoneNumber", "Maksimalan broj karaktera je 100")
             setErrors(errors);
         }
     };
