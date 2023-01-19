@@ -66,8 +66,17 @@ export const ProductDetailsDialog = (props: Props) => {
                                     text="U redu"
                                     variant="light"
                                 />
-                            </StyledModalContent>
-                            )}</>
+                            </StyledModalContent>) : (<StyledModalContent>
+                                <div className="modal-content-title">Greška</div>
+                                <div className="modal-content-description">
+                                    Došlo je do greške prilikom slanja vaše porudžbine. Molimo pokušajte kasnije.
+                                </div>
+                                <Button
+                                    onClick={() => setIsOpen(false)}
+                                    text="U redu"
+                                    variant="light"
+                                />
+                            </StyledModalContent>)}</>
                         ) : (
                             <>
                                 <div className="product-details-img">
@@ -104,6 +113,7 @@ export const ProductDetailsDialog = (props: Props) => {
                                             onClick={() => setShowThankYouMessage(true)}
                                             productName={product.title}
                                             sizeOptions={product.sizes}
+                                            setSentSuccessfully={setSentSuccessfully}
                                         />
                                     </div>
                                 )}
