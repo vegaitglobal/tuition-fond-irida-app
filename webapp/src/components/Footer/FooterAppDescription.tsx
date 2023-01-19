@@ -24,8 +24,11 @@ export const FooterAppDescription = () => {
 
             <div className="footer-download-section">
                 <button className="download-mobile-app-button">
-                    {/*TODO: get the real app store link*/}
-                    <a href="https://google.com" target="_blank" rel="external">
+                    <a
+                        href="https://apps.apple.com/rs/app/following-womens-paths/id1609081375m"
+                        target="_blank"
+                        rel="external"
+                    >
                         <img src={appStore} alt="App Store" />
                     </a>
                 </button>
