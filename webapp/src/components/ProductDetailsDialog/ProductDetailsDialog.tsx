@@ -54,7 +54,6 @@ export const ProductDetailsDialog = (props: Props) => {
                 }}
             >
                 <StyledProductDetailsDialog>
-                    <div className="modal-wrap">
                         {showThankYouMessage ? (<>
                             {sentSuccessfully ? (<StyledModalContent>
                                 <div className="modal-content-title">Hvala Vam!</div>
@@ -78,7 +77,7 @@ export const ProductDetailsDialog = (props: Props) => {
                                 />
                             </StyledModalContent>)}</>
                         ) : (
-                            <>
+                            <div className="modal-wrap">
                                 <div className="product-details-img">
                                     <img
                                         className="product-image"
@@ -117,9 +116,8 @@ export const ProductDetailsDialog = (props: Props) => {
                                         />
                                     </div>
                                 )}
-                            </>
+                            </div>
                         )}
-                    </div>
                 </StyledProductDetailsDialog>
             </Modal>
         </div>
