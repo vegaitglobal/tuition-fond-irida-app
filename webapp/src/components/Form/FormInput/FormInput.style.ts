@@ -14,6 +14,25 @@ export const StyledFormInput = styled.div`
         font-size: 16px;
     }
 
+    & .form-label-container {
+        display: flex;
+
+        & span {
+            margin-bottom: 5px;
+            line-height: 0;
+            align-self: center;
+            margin-left: 10px;
+        }
+
+        & span.dark {
+            color: ${(props) => props.theme.colors.primary.main};
+        }
+
+        & span.light {
+            color: ${(props) => props.theme.colors.white.main};
+        }
+    }
+
     & .form-label.dark {
         color: ${(props) => props.theme.colors.primary.main};
     }

@@ -32,12 +32,25 @@ export const Form = (props: Props) => {
     const [userData, setUserData] = useState(new User("", "", "", "", "", ""));
     const [isOpen, setIsOpen] = useState(false);
 
+    const [errors, setErrors] = useState(new Map([
+        ["firstName", "Ovo polje je obavezno"],
+        ["lastName", "Ovo polje je obavezno"],
+        ["email", "Ovo polje je obavezno"],
+        ["phoneNumber", "Ovo polje je obavezno"],
+    ]));
+
     const onEmailChange = (event: any) => {
         const { value } = event.target;
         setUserData((prev: any) => ({
             ...prev,
             emailAddress: value,
         }));
+        errors.set("email", "")
+        setErrors(errors);
+        if (value.length === 0) {
+            errors.set("email", "Ovo polje je obavezno")
+            setErrors(errors);
+        }
     };
 
     const onFirstNameChange = (event: any) => {
@@ -46,6 +59,12 @@ export const Form = (props: Props) => {
             ...prev,
             firstName: value,
         }));
+        errors.set("firstName", "")
+        setErrors(errors);
+        if (value.length === 0) {
+            errors.set("firstName", "Ovo polje je obavezno")
+            setErrors(errors);
+        }
     };
 
     const onLastNameChange = (event: any) => {
@@ -54,6 +73,12 @@ export const Form = (props: Props) => {
             ...prev,
             lastName: value,
         }));
+        errors.set("lastName", "")
+        setErrors(errors);
+        if (value.length === 0) {
+            errors.set("lastName", "Ovo polje je obavezno")
+            setErrors(errors);
+        }
     };
 
     const onPhoneNumberChange = (event: any) => {
@@ -62,6 +87,12 @@ export const Form = (props: Props) => {
             ...prev,
             phoneNumber: value,
         }));
+        errors.set("phoneNumber", "")
+        setErrors(errors);
+        if (value.length === 0) {
+            errors.set("phoneNumber", "Ovo polje je obavezno")
+            setErrors(errors);
+        }
     };
 
     const onCommentChange = (event: any) => {
@@ -73,6 +104,10 @@ export const Form = (props: Props) => {
     };
 
     const onClick = () => {
+        if (!formValid()) {
+            return
+        }
+
         if (isContactForm) {
             sendContactUsEmailAsync(userData)
                 .then(() => {
@@ -115,6 +150,17 @@ export const Form = (props: Props) => {
             size: value,
         }));
     };
+
+    const formValid = () => {
+        // Ovaj ruzan kod je potreban da bi pogodili ES5 verziju javaskripta.
+        for (const entry of Array.from(errors)) {
+            const value = entry[1]
+            if (value !== "") {
+                return false
+            }
+        };
+        return true;
+    }
 
     return (
         <>
@@ -164,6 +210,7 @@ export const Form = (props: Props) => {
                             value={userData.firstName}
                             darkMode={darkMode}
                             onChange={onFirstNameChange}
+                            validationError={errors.get("firstName")}
                         ></FormInput>
                         <FormInput
                             text="Prezime"
@@ -171,6 +218,7 @@ export const Form = (props: Props) => {
                             value={userData.lastName}
                             darkMode={darkMode}
                             onChange={onLastNameChange}
+                            validationError={errors.get("lastName")}
                         ></FormInput>
                     </div>
                     <FormInput
@@ -179,6 +227,7 @@ export const Form = (props: Props) => {
                         value={userData.emailAddress}
                         darkMode={darkMode}
                         onChange={onEmailChange}
+                        validationError={errors.get("email")}
                     ></FormInput>
                     <FormInput
                         text="Broj telefona"
@@ -186,6 +235,7 @@ export const Form = (props: Props) => {
                         value={userData.phoneNumber}
                         darkMode={darkMode}
                         onChange={onPhoneNumberChange}
+                        validationError={errors.get("phoneNumber")}
                     ></FormInput>
                     <FormInput
                         text="Komentar"
