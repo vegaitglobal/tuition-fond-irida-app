@@ -13,6 +13,7 @@ interface Props {
     onClick: () => void;
     isContactForm?: boolean;
     productName?: string;
+    setSentSuccessfully: React.Dispatch<React.SetStateAction<boolean>>;
     sizeOptions?: string[];
 }
 
@@ -24,7 +25,10 @@ export const Form = (props: Props) => {
         sendButtonVariant,
         isContactForm,
         productName,
+        setSentSuccessfully,
     } = props;
+
+    const [contactedSuccessfully, setContactedSuccessfully] = useState(false);
     const [userData, setUserData] = useState(new User("", "", "", "", "", ""));
     const [isOpen, setIsOpen] = useState(false);
 
@@ -70,22 +74,37 @@ export const Form = (props: Props) => {
 
     const onClick = () => {
         if (isContactForm) {
-            sendContactUsEmailAsync(userData).then(() => {
-                setIsOpen(true);
-                setUserData(new User("", "", "", "", "", ""));
-                props.onClick();
-            });
-            props.onClick();
+            sendContactUsEmailAsync(userData)
+                .then(() => {
+                    setIsOpen(true);
+                    setUserData(new User("", "", "", "", "", ""));
+                    setSentSuccessfully(true);
+                    setContactedSuccessfully(true);
+                    props.onClick();
+                }).catch(() => {
+                    setIsOpen(true);
+                    setSentSuccessfully(false)
+                    setContactedSuccessfully(false);
+                    props.onClick();
+                });
         } else {
             sendOrderEmailAsync({
                 ...userData,
                 selectedSize: userData.size!,
-                productName: productName!,
-            }).then(() => {
-                setIsOpen(true);
-                setUserData(new User("", "", "", "", "", ""));
-                props.onClick();
-            });
+                productName: productName!
+            })
+                .then(() => {
+                    setIsOpen(true);
+                    setUserData(new User("", "", "", "", "", ""));
+                    setSentSuccessfully(true)
+                    setContactedSuccessfully(true);
+                    props.onClick();
+                }).catch(() => {
+                    setIsOpen(true);
+                    setSentSuccessfully(false);
+                    setContactedSuccessfully(false);
+                    props.onClick();
+                });
         }
     };
 
@@ -99,12 +118,42 @@ export const Form = (props: Props) => {
 
     return (
         <>
-            <Modal isOpen={isOpen}>
-                <StyledModalContent>
-                    <div className="modal-content-title">Poslato</div>
-                    <div className="modal-content-description">Vaša poruka je poslata.</div>
-                    <Button onClick={() => setIsOpen(false)} text="U redu" variant="light" />
-                </StyledModalContent>
+            <Modal
+                isOpen={isOpen}
+                style={{
+                    content: {
+                        top: '50%',
+                        left: "50%",
+                        right: "auto",
+                        bottom: "auto",
+                        marginRight: "-50%",
+                        transform: "translate(-50%, -50%)",
+                        width: "calc(100vw - 40px)",
+                        maxWidth: "1258px",
+                        borderRadius: "50px",
+                        border: "none",
+                        backgroundColor: "#5F4477",
+                        padding: "50px",
+                        justifyContent: "center",
+                    },
+                    overlay: {
+                        zIndex: 9999
+                    }
+                }}
+            >
+                {contactedSuccessfully ? (
+                    <StyledModalContent>
+                        <div className="modal-content-title">Poslato</div>
+                        <div className="modal-content-description">Vaša poruka je poslata.</div>
+                        <Button onClick={() => setIsOpen(false)} text="U redu" variant="light"/>
+                    </StyledModalContent>
+                ) : (
+                    <StyledModalContent>
+                        <div className="modal-content-title">Greška</div>
+                        <div className="modal-content-description">Došlo je do greške tokom slanja Vaše poruke. Molimo pokušajte kasnije.</div>
+                        <Button onClick={() => setIsOpen(false)} text="U redu" variant="light"/>
+                    </StyledModalContent>
+                )}
             </Modal>
             <StyledForm>
                 <div id="contact-us-form" className={`container ${darkMode ? "dark" : "light"}`}>
@@ -172,4 +221,5 @@ Form.defaultProps = {
     sendButtonText: "Pošalji",
     sendButtonVariant: "primary",
     onClick: () => {},
+    setSentSuccessfully: () => {},
 };
