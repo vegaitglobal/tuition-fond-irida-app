@@ -94,7 +94,7 @@ export const SplitTextModule = (props: Props) => {
                             <div className="content">
                                 <>
                                     <h1>{header}</h1>
-                                    <p>{paragraph}</p>
+                                    <Markdown>{paragraph || ""}</Markdown>
                                     {actionElement(primaryAction)}
                                 </>
                             </div>

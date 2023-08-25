@@ -1,12 +1,13 @@
 import { Link as RouterLink } from "react-router-dom";
 import { StyledLink } from "./Link.style";
+import {LinkVariant} from "../../core/services/contentful/queries/common";
 
-interface Props {
+export interface Props {
     to: string;
     text: string;
     onClick?: () => void;
     type?: "link" | "button";
-    variant?: "accent" | "light" | "outline" | "primary" | "secondary" | "light-accent";
+    variant?: LinkVariant;
     external?: boolean;
 }
 export const Link = (props: Props) => {

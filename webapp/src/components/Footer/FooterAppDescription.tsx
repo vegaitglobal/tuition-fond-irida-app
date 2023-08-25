@@ -2,30 +2,31 @@ import { StyledFooterAppDescription } from "./Footer.style";
 import logoIllustration from "assets/images/logo_illustration.png";
 import appStore from "assets/images/app_store.png";
 import googlePlay from "assets/images/google_play.png";
+import {AppDescriptionEntry} from "../../core/services/contentful/queries/getLayout";
 
-export const FooterAppDescription = () => {
+export const FooterAppDescription = ({ appDescription } : { appDescription: AppDescriptionEntry | undefined }) => {
+    if (!appDescription || !appDescription.isShown) return <></>;
+
     return (
         <StyledFooterAppDescription>
             <div className="footer-app-description-upper">
                 <div>
-                    <h2>Aplikacija Putevima Žena</h2>
+                    <h2>{appDescription.title}</h2>
                     <p>
-                        Prošetaj ženskom stranom istorije, obiđi mesta na kojima su živele i
-                        stvarale znamenite žene i pronađi svoju inspiraciju među njima.
+                        {appDescription.subtitle}
                     </p>
                 </div>
                 <img src={logoIllustration} alt="Fondacija Putevima devojčica" />
             </div>
 
             <p>
-                Preuzmi aplikaciju “Putevima žena” i upoznaj se sa pričama o odvažnosti, snazi,
-                upornosti.
+                {appDescription.downloadAppText}
             </p>
 
             <div className="footer-download-section">
                 <button className="download-mobile-app-button">
                     <a
-                        href="https://apps.apple.com/rs/app/following-womens-paths/id1609081375m"
+                        href={appDescription.appStoreLink}
                         target="_blank"
                         rel="external"
                     >
@@ -34,7 +35,7 @@ export const FooterAppDescription = () => {
                 </button>
                 <button className="download-mobile-app-button">
                     <a
-                        href="https://play.google.com/store/apps/details?id=com.putevimazena"
+                        href={appDescription.googlePlayStoreLink}
                         target="_blank"
                         rel="external"
                     >

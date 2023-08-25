@@ -1,17 +1,15 @@
 import { HeaderLogo } from "./HeaderLogo";
 import { StyledHeader } from "./Header.style";
 import { HamburgerMenu } from "../HamburgerMenu/HamburgerMenu";
-import { Link } from "../Link/Link";
+import { Link, Props as LinkProps } from "../Link/Link";
 
-export const Header = () => {
+export const Header = ({ pages }: { pages: LinkProps[] }) => {
     return (
         <StyledHeader>
             <div className="header-desktop">
                 <HeaderLogo />
-                <Link to="/doniraj" text="Doniraj" />
-                <Link to="/o-nama" text="O nama" />
-                <Link to="/blog" text="Blog" />
-                <Link to="/kontakt" text="Kontaktiraj nas" type="button" variant="light-accent" />
+                {pages
+                    .map(l => <Link to={l.to} text={l.text} type={l.type} variant={l.variant}></Link>)}
             </div>
 
             <HamburgerMenu />
